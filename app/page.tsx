@@ -109,7 +109,7 @@ export default function HomePage() {
                 Powered by the Adaptiv Smart Display — designed and built locally.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-12">
-                <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-[#111827] text-base font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] hover:shadow-[0_8px_40px_rgba(255,0,178,0.5)] transition-all active:scale-[0.98]">
+                <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white text-base font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] hover:shadow-[0_8px_40px_rgba(255,0,178,0.5)] transition-all active:scale-[0.98]">
                   Meet Merlin
                 </Link>
                 <Link href="/devices" className="px-8 py-4 rounded-full border border-[rgba(0,0,0,0.1)] text-[#4b5563] text-base font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.12)] hover:bg-[rgba(0,0,0,0.03)] transition-all">
@@ -443,7 +443,7 @@ export default function HomePage() {
               from the first Smart Display to the first automated action.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-[#111827] font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] transition-all">
+              <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] transition-all">
                 Meet Merlin
               </Link>
               <Link href="/devices" className="px-8 py-4 rounded-full border border-[rgba(0,0,0,0.1)] text-[#4b5563] font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.12)] transition-all">
