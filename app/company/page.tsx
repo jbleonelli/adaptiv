@@ -6,8 +6,8 @@ import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
-  title: "Company — We Build Physical AI. End to End.",
-  description: "Adaptiv AI Technologies was founded in 2019 by Jean-Baptiste Leonelli. We design, build, deploy, and operate Physical AI — from hardware to platform to AI agents.",
+  title: "Company — The Only Complete Physical AI Stack",
+  description: "Founded in 2019. 12,000 devices across 6,000+ buildings. The only company that owns the complete Physical AI stack: proprietary hardware, connectivity, AI engine, and occupant interface.",
 };
 
 const team: { name: string; role: string; bio: string; initials: string; color: string; isFounder?: boolean }[] = [
@@ -80,7 +80,7 @@ const team: { name: string; role: string; bio: string; initials: string; color: 
 const studioStrengths = [
   {
     title: "Designed for Real Environments",
-    body: "IP-rated enclosures. Glove-operable interfaces. Wide-temperature-range electronics. Every form factor is designed for the real industrial and commercial environment it will live in — not a lab.",
+    body: "IP-rated enclosures. Glove-operable interfaces. Wide-temperature-range electronics. Zero-infrastructure deployment: no wiring, no Wi-Fi, no IT coordination. Deployed at Paris Charles de Gaulle Airport and in nuclear power plants.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="6" y="22" width="36" height="20" rx="1.5" stroke="#FF00B2" strokeWidth="1.5"/>
@@ -108,7 +108,7 @@ const studioStrengths = [
   },
   {
     title: "In-House Advantage",
-    body: "Design, engineering, and manufacturing under one roof means faster iteration, full IP ownership, and the ability to develop custom device variants for specific customer needs.",
+    body: "Design, engineering, and manufacturing under one roof. We design and manufacture our own hardware — competitors assemble third-party components. 10+ patents identified and in process. Full IP ownership and the ability to develop custom device variants for specific customer needs.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <rect x="8" y="20" width="32" height="22" rx="1.5" stroke="#FF00B2" strokeWidth="1.5"/>
@@ -125,7 +125,7 @@ const studioStrengths = [
   },
   {
     title: "Physical AI Aesthetic",
-    body: "Adaptiv devices have a design language that communicates intelligence and precision. In a building, the Smart Display should feel like it belongs there — and signal that the building is smarter for it.",
+    body: "Adaptiv devices cross-validate cleaning events through badge tap + VOC change + vibration pattern. Data is signed with cryptographic keys at manufacturing. The device communicates intelligence because it is intelligent.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <path d="M24 8 L26.5 21.5 L40 24 L26.5 26.5 L24 40 L21.5 26.5 L8 24 L21.5 21.5 Z" stroke="#FF00B2" strokeWidth="1.5" strokeLinejoin="round"/>
@@ -140,7 +140,7 @@ const studioStrengths = [
 const values = [
   {
     title: "Physical AI, Not Screen AI",
-    body: "We build intelligence into the real world, not another dashboard. Merlin acts in your building, not in a browser tab.",
+    body: "AI venture funding reached $211B in 2025, yet nearly all investment flowed to robotics and autonomous vehicles. The built environment — where 90% of humanity spends 90% of its time — remains underfunded. We build intelligence into that world.",
     color: "#FF00B2",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
@@ -156,7 +156,7 @@ const values = [
   },
   {
     title: "Security-First",
-    body: "From silicon to AI agent, security is the foundation. Never an afterthought, never a layer added later.",
+    body: "SOC 2 Type 2 certified across the entire vertically integrated stack. Data signed with cryptographic keys at manufacturing — tamper-proof chain of custody. Complete network independence: data never touches the landlord's network.",
     color: "#3b82f6",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
@@ -195,7 +195,7 @@ const values = [
   },
   {
     title: "End-to-End Ownership",
-    body: "We own every layer from device to AI. No black boxes. No integration risk. No divided accountability.",
+    body: "The only company with the complete Physical AI stack: proprietary hardware + connectivity infrastructure + Merlin AI engine + occupant-facing interface. No competitor owns all four layers. No black boxes. No integration risk.",
     color: "#a855f7",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
@@ -245,13 +245,14 @@ export default function CompanyPage() {
         <div className="container-site relative z-10 py-20 max-w-3xl">
           <Badge variant="dim" className="mb-6">About Us</Badge>
           <h1 className="text-display text-[#111827] mb-5 leading-none">
-            We Build<br />Physical AI.<br />
-            <span className="gradient-text-pink">End to End.</span>
+            The Only Complete<br />Physical AI Stack.<br />
+            <span className="gradient-text-pink">No One Else Has It.</span>
           </h1>
           <p className="text-body-lg text-[#4b5563] leading-relaxed">
-            Adaptiv AI Technologies designs the devices, writes the firmware, builds the platform, and runs the AI.
-            From the Smart Display on your wall to the Merlin agent acting on what it senses — we own every
-            layer, so our customers never have to wonder what happens between them.
+            Adaptiv is the only company that owns all four layers of the Physical AI stack: proprietary hardware,
+            connectivity infrastructure, the Merlin AI engine, and the occupant-facing interface. Competitors
+            raised over $1 billion combined — none built a complete stack. We did it with a lean team of 8
+            and over $5M in recurring revenue.
           </p>
         </div>
       </section>
@@ -266,13 +267,13 @@ export default function CompanyPage() {
               <div>
                 <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">Our Story</p>
                 <p className="text-body text-[#4b5563] mb-5 leading-relaxed">
-                  In 2019, Jean-Baptiste Leonelli founded <span className="text-[#374151] font-medium">Adaptiv AI Technologies</span> with a clear conviction: connected devices could fundamentally change how buildings and operations are managed — but only if someone owned the entire stack, from hardware to AI.
+                  In 2019, Jean-Baptiste Leonelli founded <span className="text-[#374151] font-medium">Adaptiv AI Technologies</span> with a clear conviction: the built environment — where 90% of humanity spends 90% of its time — needed its own AI platform, not another dashboard. But only if someone owned the entire stack, from hardware to AI.
                 </p>
                 <p className="text-body text-[#4b5563] mb-5 leading-relaxed">
-                  From the beginning, Adaptiv was built to be different. Instead of reselling off-the-shelf sensors and dashboards, the company designed its own devices, wrote its own firmware, built its own platform, and — as AI matured — developed Merlin, an autonomous AI agent that acts in the physical world.
+                  From the beginning, Adaptiv designed its own hardware, wrote its own firmware, and built its own platform. Data is signed with cryptographic keys at manufacturing — creating a tamper-proof chain of custody. Devices deploy with zero infrastructure: no wiring, no Wi-Fi, no IT coordination. Data never touches the landlord's network.
                 </p>
                 <p className="text-body text-[#4b5563] mb-5 leading-relaxed">
-                  Today, Adaptiv AI Technologies deploys hardware and software across thousands of sites in Europe and North America. The company is headquartered in the United States, with operations and manufacturing on both sides of the Atlantic.
+                  Today, Adaptiv has 12,000 devices deployed across 6,000+ buildings, partnerships with ABM (an $8B+ global FM company) and Samsic, deployments at Paris Charles de Gaulle Airport, and machine vision running in nuclear power plants. The entire vertically integrated stack is SOC 2 Type 2 certified, with 10+ patents identified and in process.
                 </p>
                 <p className="text-body font-semibold text-[#111827]">
                   The AI That Shows Up is not just our tagline. It is how we build.
@@ -283,9 +284,9 @@ export default function CompanyPage() {
               <div className="grid grid-cols-2 gap-4">
                 {[
                   { value: "2019", label: "Founded" },
-                  { value: "10,000+", label: "Sites deployed" },
-                  { value: "US + EU", label: "Operations & Manufacturing" },
-                  { value: "End to End", label: "From device to AI" },
+                  { value: "12,000", label: "Devices deployed" },
+                  { value: "6,000+", label: "Buildings worldwide" },
+                  { value: "$5M+", label: "Recurring revenue" },
                 ].map((stat) => (
                   <div key={stat.label} className="p-6 rounded-2xl bg-white border border-[rgba(0,0,0,0.07)] flex flex-col gap-2">
                     <div className="text-2xl font-bold text-[#FF00B2]">{stat.value}</div>
@@ -350,11 +351,12 @@ export default function CompanyPage() {
                   the AI agent acting on what they sense.
                 </p>
                 <p className="text-body text-[#64748b] leading-relaxed">
-                  Under his leadership, Adaptiv has grown to deploy hardware and software across thousands
-                  of sites in Europe and North America. Jean-Baptiste also co-founded Temboo, Inc. in New York
-                  in 2002 — an early pioneer in connected technology. An avid designer, inventor, and advocate
-                  of technology as a way to make daily lives better, he has spent over two decades at the
-                  intersection of hardware, software, and user experience.
+                  Under his leadership, Adaptiv has grown to 12,000 devices across 6,000+ buildings, secured
+                  partnerships with ABM and Samsic, and deployed at Paris Charles de Gaulle Airport and in nuclear
+                  power plants. Jean-Baptiste also co-founded Temboo, Inc. in New York in 2002 — an early pioneer
+                  in connected technology. An avid designer, inventor, and advocate of technology as a way to
+                  make daily lives better, he has spent over two decades at the intersection of hardware,
+                  software, and user experience.
                 </p>
                 <blockquote className="border-l-2 border-[#FF00B2] pl-5 py-1">
                   <p className="text-body font-medium text-[#4b5563] italic leading-relaxed">
@@ -483,24 +485,28 @@ export default function CompanyPage() {
             <Badge variant="dim" className="mb-5">For Investors & Partners</Badge>
             <h2 className="text-h2 text-[#111827] mb-6">A Platform Company<br />With Hardware Defensibility</h2>
             <p className="text-body text-[#4b5563] mb-5 leading-relaxed">
-              Adaptiv AI Technologies is a US-headquartered company with a global footprint and a rare
-              combination of assets: in-house hardware design, dual-region manufacturing (US and Europe),
-              a proprietary IIoT platform, and an AI agent layer — all owned and integrated end to end.
+              Adaptiv is the only company that owns the complete Physical AI stack: proprietary hardware,
+              connectivity infrastructure, the Merlin AI engine, and the occupant-facing interface. No
+              competitor owns all four layers. Competitors raised over $1 billion combined and none built
+              a complete stack — Density ($225M raised, sensors only), VergeSense ($83M, no operational
+              workflow), Vayyar ($300M+, no building-level AI), Infogrid ($148M+, third-party hardware),
+              OfficeSpace ($150M, no sensors, no AI agent).
             </p>
             <p className="text-body text-[#4b5563] mb-5 leading-relaxed">
-              Founded in 2019 by Jean-Baptiste Leonelli, the company has assembled a leadership team with
-              deep expertise across hardware, AI software, and operations. The Built Local strategy
-              is a competitive and commercial advantage: shorter lead times, domestic content compliance
-              for government and regulated customers, and a supply chain that does not depend on long-haul logistics.
+              With 12,000 devices across 6,000+ buildings, over $5M in recurring revenue, and partnerships
+              with ABM ($8B+ global FM company) and Samsic, Adaptiv has proven commercial traction.
+              Deployments include Paris Charles de Gaulle Airport and machine vision in nuclear power plants.
+              The entire stack is SOC 2 Type 2 certified. Zero-infrastructure deployment means no wiring,
+              no Wi-Fi, no IT coordination — data never touches the landlord's network.
             </p>
             <p className="text-body text-[#4b5563] mb-5 leading-relaxed">
-              The Smart Display creates a network effect: each building deployment generates operational
-              intelligence that makes Merlin more capable in every subsequent deployment. The physical
-              device network and the AI platform are mutually reinforcing assets that grow stronger as the
-              customer base grows.
+              Physical AI scaleups raised $16B+ in the first 9 months of 2025, yet nearly all investment
+              flowed to robotics and autonomous vehicles. The built environment — where 90% of humanity
+              spends 90% of its time — remains the most underfunded frontier in AI. Each building deployment
+              generates operational intelligence that makes Merlin more capable in every subsequent deployment.
             </p>
             <p className="text-body font-semibold text-[#111827] mb-8">
-              Physical AI is a new product category. Adaptiv AI Technologies is building the platform to define it.
+              A lean team of 8 people. Over $5M ARR. 10+ patents in process. Physical AI is a new product category. Adaptiv is the platform built to define it.
             </p>
             <Button asChild>
               <Link href="mailto:contact@adaptiv.company">contact@adaptiv.company →</Link>

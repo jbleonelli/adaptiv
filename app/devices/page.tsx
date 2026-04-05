@@ -23,23 +23,23 @@ const specs = [
 
 const advantages = [
   {
-    num: "01", title: "One Device That Does It All",
-    body: "The Smart Display is not just a screen. It's the gateway hub for every sensor in its environment, the interface through which anyone can see what Merlin sees, and the device that lets Merlin make itself visible.",
+    num: "01", title: "Sensor + Gateway + Interface in One",
+    body: "Simultaneously a sensor (7 embedded sensors + NFC badge reader), a gateway (aggregating data from up to 64 BLE peripherals and relaying over LTE), and an interface (showing occupants real-time data and enabling one-tap service requests). No other device in the built environment plays all three roles.",
     color: "#FF00B2",
   },
   {
-    num: "02", title: "No Infrastructure Required",
-    body: "LTE built-in means the Smart Display works anywhere — no Wi-Fi, no cables, no IT team. Deploy in a basement server room, a remote warehouse, or a factory floor in hours, not months.",
+    num: "02", title: "Zero-Infrastructure Deployment",
+    body: "No wiring. No Wi-Fi credentials. No firewall rules. No IT coordination. A technician mounts it on a wall, powers it on, and it connects over LTE. Deployment collapses from weeks of cross-departmental coordination to minutes of physical installation. A single field tech can deploy dozens per day.",
     color: "#14b8a6",
   },
   {
-    num: "03", title: "Locally Manufactured",
-    body: "Every Smart Display is designed by Adaptiv and assembled locally — in the US for North American customers, in Europe for European customers. Shorter supply chains. Faster delivery. Full quality control.",
+    num: "03", title: "We Manufacture Every Device",
+    body: "Adaptiv designs and builds every Smart Display — the circuit board, sensor selection, firmware, radio stack, encryption layer, and enclosure. Data is signed at the device level with cryptographic keys embedded during manufacturing. No third-party firmware, no unsecured gateways, no unvetted middleware.",
     color: "#a855f7",
   },
   {
-    num: "04", title: "Built to Last",
-    body: "3-year battery life. IP52 housing. -10°C to +50°C operating range. The Smart Display is engineered for real operational environments, not just showcase deployments.",
+    num: "04", title: "True Portability",
+    body: "Entirely self-contained — battery for power, cellular for connectivity. Move it between rooms, buildings, or cities with zero reconfiguration. When a contract ends, your devices walk out the door. Traditional wired systems leave behind stranded infrastructure.",
     color: "#3b82f6",
   },
 ];
@@ -106,12 +106,10 @@ export default function DevicesPage() {
                 The Face<br />of Merlin.
               </h1>
               <p className="text-body-lg text-[#4b5563] mb-4 leading-relaxed">
-                More than a screen. The Adaptiv Smart Display is the gateway hub for every sensor
-                in its environment — the interface through which your team and Merlin communicate,
-                and the device that brings Physical AI into every room of your building.
+                The point where Merlin's invisible intelligence becomes visible and tangible. It shows occupants when their restroom was last cleaned and by whom. It lets them request service with a single tap. It displays the air quality they're breathing. The screen on the wall is the handshake between the building and the people inside it.
               </p>
               <p className="text-sm text-[#64748b] mb-10">
-                LTE built-in · 3-year battery · Locally manufactured
+                12,000 devices deployed · 6,000+ buildings · LTE built-in · 3-year battery · SOC 2 Type 2 certified
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.4)] hover:shadow-[0_8px_40px_rgba(255,0,178,0.55)] transition-all active:scale-[0.98]">

@@ -24,9 +24,9 @@ const personas = [
       </svg>
     ),
     color: "#FF00B2",
-    pain: "Your buildings are a cost centre, not an asset. Energy bills are unpredictable, maintenance is reactive, and you have no visibility into how your spaces are actually being used.",
-    value: "Merlin turns your buildings into self-optimising assets. Energy is managed in real time. Maintenance issues are flagged before they become failures. Every space is used to its potential — and you have the data to prove it to tenants.",
-    benefits: ["Lower energy & operating costs", "Higher tenant retention", "Asset-level ROI visibility", "Predictive maintenance savings"],
+    pain: "30\u201340% of booked meeting rooms go unused. Energy runs on fixed schedules, not actual occupancy. Cleaning crews follow routes whether a space was used or not. You have no visibility into how your assets are actually performing \u2014 just cost lines going up.",
+    value: "Merlin turns your buildings into self-optimising assets. Recovering just 20% of ghost-booked rooms in a 200-person office with 30 rooms is equivalent to adding 6 rooms \u2014 saving $150K\u2013$250K in avoided lease expansion. Energy savings of 10\u201330% on lighting and HVAC. Cleaning labor costs cut 40\u201355% through demand-driven dispatch. Every gain is measurable and provable to tenants.",
+    benefits: ["$150K\u2013$250K saved in avoided lease expansion", "10\u201330% energy cost reduction", "40\u201355% cleaning labor savings", "Predictive maintenance \u2014 issues flagged before failure"],
   },
   {
     role: "Facility Manager",
@@ -45,9 +45,9 @@ const personas = [
       </svg>
     ),
     color: "#14b8a6",
-    pain: "Your day is a constant stream of reactive requests — a broken AC here, a complaint about air quality there, meeting rooms that won't release. Your team spends their time on things that should happen automatically.",
-    value: "Merlin handles the routine so you can focus on the complex. Occupancy, air quality, temperature, and energy are managed automatically. You get alerts only when something genuinely needs human attention — with full context already gathered.",
-    benefits: ["Fewer reactive calls & tickets", "Automated compliance records", "Real-time building dashboard", "Proof of service delivery"],
+    pain: "Your day is a constant stream of reactive requests \u2014 stockout complaints from bathrooms, ghost-booked meeting rooms no one released, HVAC running full blast in empty floors. 30\u201340% of rooms sit vacant after booking. Cleaning follows fixed schedules, not actual demand.",
+    value: "Merlin replaces fixed schedules with demand-driven operations. VOC levels, visit counts, feedback trends, and dispenser levels drive cleaning dispatch \u2014 cutting labor costs 40\u201355% while improving occupant satisfaction 15\u201320%. Ghost bookings are detected within minutes and rooms released automatically. CO\u2082-flat rooms with lights on are flagged as energy waste in real time.",
+    benefits: ["Near-elimination of stockout complaints", "Ghost bookings detected and released in minutes", "Room-level energy waste detection", "Automated compliance and service proof"],
   },
   {
     role: "Factory Manager",
@@ -77,9 +77,9 @@ const personas = [
       </svg>
     ),
     color: "#22c55e",
-    pain: "ESG reporting is manual and retrospective. You don't have granular consumption data by space or asset. Your sustainability targets are aspirational — you can't link them to specific operational changes.",
-    value: "Merlin provides continuous, granular energy and carbon data across every zone and asset. Automated reports align with BREEAM, LEED, and regulatory frameworks. When you reduce consumption, you can show exactly where, when, and by how much.",
-    benefits: ["Granular energy & carbon data", "Automated ESG reporting", "BREEAM / LEED evidence", "Space-level consumption breakdown"],
+    pain: "ESG reporting is manual and retrospective. Your BMS operates at the mechanical level \u2014 you can't see room-level waste. An empty room with lights on and HVAC running but CO\u2082 flat? Your current systems can't even detect that.",
+    value: "Merlin delivers 10\u201330% energy savings by detecting room-level waste that traditional BMS misses entirely. CO\u2082 and occupancy data identify empty rooms still consuming energy. Automated reports align with BREEAM, LEED, and regulatory frameworks. When you reduce consumption, you can show exactly where, when, and by how much.",
+    benefits: ["10\u201330% energy savings on lighting and HVAC", "Room-level waste detection vs mechanical-level BMS", "Automated BREEAM / LEED evidence", "CO\u2082-flat empty rooms flagged automatically"],
   },
   {
     role: "Head of Security",
@@ -90,9 +90,9 @@ const personas = [
       </svg>
     ),
     color: "#f59e0b",
-    pain: "Your access control, cameras, and alarm systems are disconnected. Incidents are logged after the fact. Unusual occupancy patterns go unnoticed. Compliance documentation is assembled manually.",
-    value: "Merlin correlates data across access systems, occupancy sensors, and cameras to detect anomalies in real time. Unusual patterns trigger automated alerts. Every access and occupancy event is logged — making compliance reporting instant and audit-ready.",
-    benefits: ["Real-time anomaly detection", "Cross-system correlation", "Instant audit-ready logs", "Automated incident escalation"],
+    pain: "Your access control, cameras, and alarm systems are disconnected. Patrol logs are paper-based and unverifiable. A lighting failure in a stairwell or parking garage goes unnoticed until someone reports it. Unusual activity at 2 AM in a hotel corridor? No one knows until morning.",
+    value: "Merlin provides NFC badge-verified patrol logs with timestamped proof of presence. Lux sensors detect lighting failures in stairwells and parking areas automatically. Accelerometers detect tamper and vandalism events. Noise sensors flag unusual activity patterns \u2014 like a hotel corridor at 2 AM \u2014 and escalate in real time.",
+    benefits: ["NFC badge-verified patrol logs", "Lux sensors detect lighting failures automatically", "Accelerometer tamper/vandalism detection", "Noise-based anomaly alerts (e.g. 2 AM corridor activity)"],
   },
   {
     role: "IT & OT Manager",
@@ -120,16 +120,16 @@ const solutions = [
     id: "building",
     badge: "BUILDING INTELLIGENCE",
     title: "The Intelligent Building That Runs Itself",
-    challenge: "Buildings are full of systems — HVAC, lighting, security, cleaning, access control, meeting room management — that operate in silos, are managed manually, and respond to schedules rather than reality. Facilities teams spend their days reacting. Occupants live in spaces that don't respond to how they actually use them.",
-    solution: "Merlin + Smart Displays + Sensors create a building that senses, thinks, and responds in real time. Smart Displays installed across the building give Merlin eyes, ears, and a presence in every room. Merlin acts on what it senses — automatically — so facilities teams can focus on the work that needs human judgement.",
+    challenge: "Buildings are full of systems \u2014 HVAC, lighting, security, cleaning, access control, meeting rooms \u2014 that operate in silos and respond to schedules rather than reality. 30\u201340% of booked meeting rooms go unused. Cleaning crews follow fixed routes whether a bathroom was visited 5 times or 500. Empty rooms run lights and HVAC while CO\u2082 stays flat. Facilities teams spend their days reacting to problems that should never have happened.",
+    solution: "Merlin + Smart Displays + Sensors create a building that senses, thinks, and responds in real time. CO\u2082 and noise provide definitive occupancy detection without cameras. VOC levels, visit counts, and dispenser levels drive cleaning dispatch automatically. Ghost bookings are detected within minutes and rooms released. Energy waste is flagged at the room level, not the mechanical level. The result: 40\u201355% cleaning labor reduction, 10\u201330% energy savings, and 15\u201320% occupant satisfaction improvement.",
     capabilities: [
-      "Offices: Occupancy-based HVAC and lighting, air quality management, energy optimisation, employee experience interface",
-      "Meeting rooms: Demand-based booking management, automatic room release, pre-conditioning, usage analytics",
-      "Bathrooms: Usage-based cleaning dispatch, consumable monitoring, air quality management, compliance logging",
-      "Corridors and access: Occupancy flow, access control, security alerts, visitor experience, wayfinding",
-      "Building-wide: Real-time energy monitoring, predictive maintenance of building plant, sustainability reporting",
+      "Offices: CO\u2082 and noise-based occupancy detection (no cameras), demand-driven HVAC and lighting, 10\u201330% energy savings",
+      "Meeting rooms: Ghost booking detection within minutes, automatic room release \u2014 recovering 20% of rooms in a 200-person office = 6 added rooms, $150K\u2013$250K saved in avoided lease expansion",
+      "Bathrooms: VOC, visit count, and dispenser-level-driven cleaning dispatch \u2014 40\u201355% labor cost reduction, near-elimination of stockout complaints",
+      "Corridors and access: NFC badge-verified patrol logs, lux sensors detect lighting failures, accelerometer tamper detection, noise-based anomaly alerts",
+      "Building-wide: Room-level energy waste detection (CO\u2082-flat room with lights on = flagged), predictive maintenance, automated BREEAM/LEED reporting",
     ],
-    outcomes: ["Lower facilities management overhead", "Reduced energy consumption", "Higher occupant satisfaction", "Full compliance audit trails", "Buildings that improve themselves"],
+    outcomes: ["40\u201355% cleaning labor cost reduction", "10\u201330% energy savings on lighting and HVAC", "15\u201320% occupant satisfaction improvement", "$150K\u2013$250K saved in avoided lease expansion", "Near-elimination of stockout complaints"],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         {/* Building body */}
@@ -194,16 +194,16 @@ const solutions = [
     id: "energy",
     badge: "ENERGY & UTILITIES",
     title: "Operate Your Grid Smarter. In Real Time.",
-    challenge: "Energy infrastructure is monitored by legacy systems that raise alerts after events, not before. Maintenance schedules are calendar-based, not condition-based. Operational teams are reactive by necessity.",
-    solution: "Adaptiv energy monitoring devices and environmental sensors provide continuous visibility across grid assets. Merlin agents monitor conditions, adjust loads, schedule preventive maintenance, and escalate developing issues before they cascade.",
+    challenge: "Energy infrastructure is monitored by legacy BMS systems that operate at the mechanical level \u2014 they can't see room-level waste. An empty room with lights on and HVAC running but CO\u2082 flat? Traditional systems can't detect that. Maintenance schedules are calendar-based, not condition-based. CO and CO\u2082 levels in enclosed parking garages go unmonitored until incidents occur.",
+    solution: "Adaptiv sensors deliver 10\u201330% energy savings by detecting room-level waste that traditional BMS misses entirely. CO\u2082-flat rooms with active lighting and HVAC are flagged automatically. CO and CO\u2082 safety monitoring in enclosed garages prevents dangerous accumulation. Merlin agents monitor conditions, adjust loads, schedule preventive maintenance, and escalate developing issues before they cascade.",
     capabilities: [
-      "Grid condition monitoring — continuous sensor coverage across generation, transmission, and distribution assets",
-      "Predictive maintenance — condition-based scheduling replaces calendar-based maintenance",
-      "Demand response automation — Merlin adjusts loads in real time based on grid conditions",
-      "Consumption optimisation — identify and eliminate energy waste automatically",
-      "Regulatory compliance reporting — automated documentation for grid operators",
+      "Room-level waste detection \u2014 CO\u2082-flat room with lights on and HVAC running = waste flagged instantly, vs traditional mechanical-level BMS",
+      "10\u201330% energy savings on lighting and HVAC through occupancy-driven optimization",
+      "CO and CO\u2082 safety monitoring in enclosed parking garages \u2014 $5K+ avoided per emergency repair incident",
+      "Predictive maintenance \u2014 condition-based scheduling replaces calendar-based maintenance",
+      "Automated regulatory compliance reporting and BREEAM/LEED documentation",
     ],
-    outcomes: ["Improved grid reliability", "Reduced operational costs", "Proactive asset maintenance", "Automated compliance reporting"],
+    outcomes: ["10\u201330% energy savings on lighting and HVAC", "Room-level waste detection (vs mechanical-level BMS)", "CO/CO\u2082 safety compliance in enclosed garages", "Automated compliance and sustainability reporting"],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         {/* Pylon tower */}
@@ -227,15 +227,15 @@ const solutions = [
     id: "logistics",
     badge: "LOGISTICS & SUPPLY CHAIN",
     title: "Orchestrate Without Manual Intervention.",
-    challenge: "Warehouses rely on manual processes, periodic counts, and reactive exception handling. Operational visibility is retrospective. Exceptions consume disproportionate management time.",
-    solution: "Smart Displays in warehouse zones provide real-time workflow instructions and KPIs to operators. Environmental and occupancy sensors monitor warehouse conditions and asset flows. Merlin automates inventory management, exception escalation, and workflow coordination across WMS and ERP systems.",
+    challenge: "Warehouses and logistics facilities rely on manual processes, periodic counts, and reactive exception handling. Operational visibility is retrospective. Cleaning and maintenance in large structures like parking garages follows fixed schedules regardless of actual usage. Exceptions consume disproportionate management time.",
+    solution: "Smart Displays in warehouse zones provide real-time workflow instructions and KPIs to operators. Environmental and occupancy sensors monitor conditions, asset flows, and usage patterns. In parking structures, Merlin delivers ~1.5 FTE savings in cleaning labor per 2,000-space facility ($45K/year) and $5K+ avoided per emergency repair through predictive maintenance. Merlin automates inventory management, exception escalation, and workflow coordination across WMS and ERP systems.",
     capabilities: [
-      "Inventory automation — real-time stock visibility and automatic replenishment triggers",
-      "Workflow orchestration — Merlin coordinates picking, packing, and dispatch workflows across systems",
-      "Exception management — anomalies escalated automatically, before they compound",
-      "Real-time operational visibility — live dashboards for warehouse managers and operators",
+      "Inventory automation \u2014 real-time stock visibility and automatic replenishment triggers via predictive supply management",
+      "Workflow orchestration \u2014 Merlin coordinates picking, packing, and dispatch workflows across systems",
+      "Exception management \u2014 anomalies escalated automatically, before they compound",
+      "Facility maintenance \u2014 demand-driven cleaning dispatch, CO/CO\u2082 safety monitoring in enclosed spaces, $5K+ avoided per emergency repair",
     ],
-    outcomes: ["Reduced manual handling errors", "Faster exception resolution", "Improved inventory accuracy", "Better throughput visibility"],
+    outcomes: ["Reduced manual handling errors", "~1.5 FTE cleaning savings per 2,000-space facility", "Improved inventory accuracy through predictive supply management", "CO/CO\u2082 safety compliance in enclosed structures"],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         {/* Warehouse building */}
@@ -259,15 +259,15 @@ const solutions = [
     id: "cities",
     badge: "SMART CITIES & INFRASTRUCTURE",
     title: "Protect the Infrastructure Your Communities Depend On.",
-    challenge: "Critical infrastructure assets — pipes, pumps, bridges, public spaces — are monitored intermittently or not at all. Incidents are discovered late, after impact. Maintenance is reactive and expensive.",
-    solution: "Adaptiv environmental, flow, and pressure sensors monitor critical infrastructure assets 24/7 via LTE, with no municipal network dependency. Merlin agents detect anomalies, trigger incident response workflows, generate compliance reports, and escalate critical events instantly.",
+    challenge: "Critical infrastructure \u2014 airports, hospitals, parking structures, public spaces \u2014 is monitored intermittently or not at all. Airport cleaning teams are dispatched on fixed schedules, not correlated to actual flight arrivals. Hospital sanitization logs are paper-based and unverifiable. Parking garages lack CO/CO\u2082 monitoring. PRM wheelchairs go missing, wasting staff time searching.",
+    solution: "Adaptiv sensors and Merlin agents bring intelligence to every infrastructure type. At airports: flight-correlated pre-positioning of cleaning teams achieves 50\u201370% reduction in SLA breaches and avoids $50K\u2013$200K in annual contract penalties. PRM wheelchair tracking delivered 78% reduction in search time at CDG Airport. In healthcare: verified sanitization logs with environmental sensor confirmation save 80% of documentation time and $140K\u2013$450K per prevented hospital-acquired infection. In parking: ~1.5 FTE savings per 2,000-space structure ($45K/year) with CO/CO\u2082 safety monitoring.",
     capabilities: [
-      "Infrastructure monitoring — continuous sensor coverage across water, waste, transport, and public space assets",
-      "Incident response automation — Merlin triggers workflows the moment anomalies are detected",
-      "Compliance reporting — automated documentation for municipal and regulatory requirements",
-      "Asset lifecycle management — condition-based maintenance scheduling across the full asset portfolio",
+      "Airports \u2014 flight-correlated cleaning team pre-positioning, 50\u201370% reduction in SLA breaches, $50K\u2013$200K avoided in annual contract penalties",
+      "Airports \u2014 PRM wheelchair tracking with 78% reduction in search time (proven at CDG Airport)",
+      "Healthcare \u2014 verified sanitization logs with environmental sensor confirmation, 80% reduction in documentation time, $140K\u2013$450K saved per prevented HAI",
+      "Parking \u2014 ~1.5 FTE cleaning labor savings per 2,000-space structure ($45K/year), $5K+ avoided per emergency repair, CO/CO\u2082 safety monitoring in enclosed garages",
     ],
-    outcomes: ["Earlier incident detection", "Faster emergency response", "Reduced infrastructure failure costs", "Automated regulatory compliance"],
+    outcomes: ["50\u201370% reduction in airport SLA breaches", "78% reduction in PRM wheelchair search time", "$140K\u2013$450K saved per prevented hospital-acquired infection", "~1.5 FTE savings per 2,000-space parking structure"],
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         {/* Skyline buildings */}

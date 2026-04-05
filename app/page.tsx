@@ -9,66 +9,66 @@ export const metadata: Metadata = {
 };
 
 const traits = [
-  { num: "01", title: "Sees Everything", body: "Every sensor. Every camera. Every device. Merlin receives real-time data from across your environment — temperature, occupancy, air quality, vibration, video — processed and contextualised at the edge.", color: "#FF00B2", icon: "◉" },
-  { num: "02", title: "Understands Every Situation", body: "A meeting room occupied for three hours. A bathroom that hasn't been cleaned since the morning rush. A machine running 2° hotter than usual. Merlin knows the difference.", color: "#a855f7", icon: "◈" },
-  { num: "03", title: "Always Working", body: "100% of the time. No sick days. No context-switching. No missed alerts. Merlin monitors, analyses, and acts around the clock, every day.", color: "#14b8a6", icon: "◎" },
-  { num: "04", title: "Acts Without Being Asked", body: "When a condition is met, it acts: adjusts the HVAC, dispatches cleaning, triggers a maintenance alert, dims the lights in an empty room. Your operations run themselves.", color: "#3b82f6", icon: "◆" },
+  { num: "01", title: "Sees Everything", body: "VOC levels spike in a restroom after lunch rush. CO₂ rises in an unbooked conference room. A soap dispenser drops below 20%. Merlin sees it all — across every space, every floor, simultaneously.", color: "#FF00B2", icon: "◉" },
+  { num: "02", title: "Understands Context", body: "CO₂ rising + noise detected + no booking = an unscheduled meeting. Merlin combines signals from 7 embedded sensors to understand what's actually happening — not just what a single reading says.", color: "#a855f7", icon: "◈" },
+  { num: "03", title: "Always Working", body: "Monitoring every space continuously. No sick days. No missed alerts. When your facility manager checks 30 rooms per shift, Merlin is watching all of them at once — 24/7, 365.", color: "#14b8a6", icon: "◎" },
+  { num: "04", title: "Acts Without Being Asked", body: "Reroutes the nearest cleaning team when VOC readings spike. Releases ghost bookings when rooms sit empty. Reorders supplies before anyone notices they're low. Your operations run themselves.", color: "#3b82f6", icon: "◆" },
 ];
 
 const useCases = [
   {
-    num: "// 01", title: "Building Intelligence", color: "#FF00B2",
-    body: "Merlin runs your building automatically — HVAC, lighting, cleaning, meeting rooms, air quality — so your facilities team focuses on what needs human judgement.",
-    points: ["Occupancy-based HVAC & lighting", "Auto cleaning dispatch", "Meeting room release & rebooking", "Real-time air quality management"],
+    num: "// 01", title: "Cleaning & Hygiene", color: "#FF00B2",
+    body: "Merlin replaces fixed cleaning schedules with demand-driven dispatch. VOC spikes, foot traffic, and dispenser levels tell Merlin exactly which spaces need attention — and when.",
+    points: ["40–55% labor cost reduction", "NFC badge-verified cleaning events", "Predictive supply management — zero stockouts", "15–20% occupant satisfaction improvement"],
   },
   {
-    num: "// 02", title: "Predictive Maintenance", color: "#14b8a6",
-    body: "Vibration, temperature, and pressure sensors detect equipment anomalies before failures happen. Merlin schedules maintenance at the right time — not too early, never too late.",
-    points: ["Bearing wear & thermal anomaly detection", "Condition-based maintenance scheduling", "Automated work order creation", "Zero unplanned stoppages"],
+    num: "// 02", title: "Space Management", color: "#14b8a6",
+    body: "CO₂ and noise sensors detect actual occupancy — no cameras needed. Merlin identifies ghost bookings within minutes and releases unused rooms automatically.",
+    points: ["30–40% of booked rooms go unused — Merlin recovers them", "Hot desk & study room real-time availability", "$150K–$250K saved in avoided lease expansion", "Data-driven real estate decisions"],
   },
   {
     num: "// 03", title: "Energy & Sustainability", color: "#22c55e",
-    body: "Circuit-level energy monitoring across every zone and asset. Merlin adjusts loads in real time, automates ESG reporting, and provides the data your sustainability targets need.",
-    points: ["Real-time kW & kWh by zone", "Demand response automation", "BREEAM & LEED evidence", "Carbon footprint tracking"],
+    body: "CO₂, lux, and temperature sensors in every display create a distributed energy monitoring grid. Merlin spots waste invisible to traditional BMS — room by room.",
+    points: ["10–30% energy savings on lighting & HVAC", "Empty rooms with lights on? Merlin flags it", "ESG target contribution", "Room-level monitoring, not just mechanical-level"],
   },
   {
-    num: "// 04", title: "Manufacturing & OEE", color: "#6366f1",
-    body: "Smart Displays on the factory floor give operators live KPIs. Merlin monitors machines, enforces quality standards, and optimises production scheduling automatically.",
-    points: ["OEE visibility in real time", "Automated quality inspection", "Production scheduling adjustments", "Compliance documentation"],
+    num: "// 04", title: "Asset Tracking", color: "#6366f1",
+    body: "Smart Displays act as BLE gateways, tracking wheelchairs, defibrillators, cleaning carts, and equipment across your entire building — no dedicated tracking infrastructure needed.",
+    points: ["78% reduction in wheelchair search time (CDG Airport)", "BLE beacon triangulation across display network", "30–60 min saved per staff member per shift", "Works across hospitals, airports, campuses"],
   },
   {
     num: "// 05", title: "Smart Parking", color: "#3b82f6",
-    body: "Per-space sensors, entry counters, and CO monitors give Merlin full visibility of your parking estate. Availability updates in real time. Ventilation runs only when needed.",
-    points: ["Per-space occupancy detection", "Live capacity guidance", "EV charger monitoring", "Automatic garage ventilation control"],
+    body: "Radar and Smart Displays bring Physical AI to every parking level. CO/CO₂ monitoring for safety, vehicle impact detection, and AI-driven maintenance routing based on actual conditions.",
+    points: ["~1.5 FTE savings per 2,000-space structure", "$5K+ avoided per emergency repair", "Predictive EV charger maintenance", "Privacy-safe radar — no cameras needed"],
   },
   {
-    num: "// 06", title: "Safety & Security", color: "#f59e0b",
-    body: "Merlin correlates data across access control, occupancy sensors, and cameras to detect anomalies in real time. Every event is logged and audit-ready.",
-    points: ["Real-time anomaly & intrusion detection", "Lone worker protection", "Automated incident escalation", "Instant audit-ready compliance logs"],
+    num: "// 06", title: "Security & Safety", color: "#f59e0b",
+    body: "Every Smart Display doubles as a security monitoring point. Lux sensors detect lighting failures, accelerometers catch vandalism, noise sensors flag after-hours disturbances.",
+    points: ["NFC-verified security patrol logs", "Real-time missed checkpoint alerts", "Tamper and vandalism detection", "Insurance liability reduction with continuous compliance records"],
   },
   {
-    num: "// 07", title: "Logistics & Warehousing", color: "#FF00B2",
-    body: "Smart Displays in warehouse zones deliver real-time instructions and KPIs to operators. Merlin automates inventory management, exception handling, and WMS coordination.",
-    points: ["Live inventory & stock visibility", "Workflow orchestration across WMS & ERP", "Automatic exception escalation", "Temperature & humidity zone monitoring"],
+    num: "// 07", title: "Airports & Aviation", color: "#FF00B2",
+    body: "Flight-correlated pre-positioning of cleaning teams. PRM wheelchair tracking. Terminal-wide air quality monitoring. Merlin runs airport operations at the pace of the flight schedule.",
+    points: ["50–70% reduction in SLA breaches", "$50K–$200K saved in annual contract penalties", "Deployed at Paris Charles de Gaulle", "Flight-schedule-aware team dispatch"],
   },
   {
-    num: "// 08", title: "Smart Cities & Infrastructure", color: "#14b8a6",
-    body: "LTE-connected sensors monitor pipes, pumps, bridges, and public spaces 24/7 — no municipal network required. Merlin triggers incident response the moment anomalies are detected.",
-    points: ["Water, waste & transport asset monitoring", "Automated incident response workflows", "Regulatory compliance reporting", "Condition-based asset maintenance"],
+    num: "// 08", title: "Healthcare", color: "#14b8a6",
+    body: "Verified sanitization logs with environmental sensor confirmation create audit-ready compliance trails. Merlin helps prevent hospital-acquired infections through continuous monitoring.",
+    points: ["80% reduction in documentation time", "$140K–$450K saved per prevented infection", "Sensor-validated compliance evidence", "Automatic hygiene standard enforcement"],
   },
   {
-    num: "// 09", title: "Healthcare & Education", color: "#a855f7",
-    body: "Environments where air quality, temperature, and occupancy directly impact outcomes. Merlin maintains standards automatically and provides the compliance records regulators require.",
-    points: ["Air quality & infection risk monitoring", "Occupancy-based HVAC & ventilation", "Noise & light environment control", "Automated hygiene compliance records"],
+    num: "// 09", title: "Machine Vision", color: "#a855f7",
+    body: "Already deployed in nuclear power plants for equipment monitoring under the strictest regulatory standards. Visual AI extends to restrooms, food courts, and lobbies for commercial use.",
+    points: ["Anonymized occupancy counting", "Dirty table and overcrowding detection", "Multi-signal fusion with VOC, CO₂, and NFC", "Edge processing for real-time anomaly detection"],
   },
 ];
 
 const differences = [
-  "Designs, manufactures, and connects its own devices — then runs its own AI on top",
-  "Smart Display: building intelligence hub — gateway, interface, and sensor node in one device",
-  "LTE built-in — deploy anywhere, no network infrastructure required",
-  "3-year battery life — truly autonomous sensor deployment at scale",
-  "Built Local — manufactured in the US for North America, in Europe for Europe",
+  "Designs and manufactures its own hardware — 12,000 devices deployed across 6,000+ buildings worldwide",
+  "Smart Display: sensor, gateway, and interface in one device — 7 embedded sensors, NFC verification, BLE gateway, LTE radio",
+  "LTE built-in — data never touches a landlord's network. End-to-end encryption from sensor to cloud",
+  "Zero-infrastructure deployment — a technician mounts it, powers it on, done. No IT coordination needed",
+  "SOC 2 Type 2 certified — the entire vertically integrated stack, from manufactured hardware through AI processing",
 ];
 
 export default function HomePage() {
@@ -102,11 +102,10 @@ export default function HomePage() {
                 <span className="gradient-text-pink">Co-Worker.</span>
               </h1>
               <p className="text-body-lg text-[#4b5563] mb-3 leading-relaxed max-w-sm">
-                Merlin sees everything happening in your building. It understands every situation.
-                It works 100% of the time. And it acts — automatically.
+                Merlin monitors every space continuously — air quality, occupancy, supply levels, cleaning history — and acts before anyone notices something needs doing.
               </p>
               <p className="text-sm text-[#64748b] mb-10">
-                Powered by the Adaptiv Smart Display — designed and built locally.
+                Deployed across 6,000+ buildings. Powered by the Adaptiv Smart Display — designed, manufactured, and connected by us.
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-12">
                 <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white text-base font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] hover:shadow-[0_8px_40px_rgba(255,0,178,0.5)] transition-all active:scale-[0.98]">
@@ -169,9 +168,7 @@ export default function HomePage() {
                 <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">A New Kind of AI</p>
                 <h2 className="text-h1 text-[#111827] mb-6">AI That Lives in<br />the Real World</h2>
                 <p className="text-body-lg text-[#4b5563] mb-8 leading-relaxed">
-                  Most AI lives on a screen. Merlin lives in your building — through the Smart Display,
-                  through sensors, through cameras — and it acts on your HVAC, cleaning schedules,
-                  security systems, and production lines without waiting to be asked.
+                  Buildings are where 90% of humanity spends 90% of its time — complex physical systems with thousands of variables managed by intuition and fixed schedules. Merlin is the intelligence layer that perceives every space, reasons about what needs to happen next, and acts — dispatching teams, reordering supplies, generating compliance evidence.
                 </p>
                 <div className="flex items-center gap-4 px-6 py-4 rounded-xl border border-[rgba(255,0,178,0.2)] bg-[rgba(255,0,178,0.05)] w-fit">
                   <span className="text-[#64748b] text-sm">Physical AI</span>
@@ -201,9 +198,7 @@ export default function HomePage() {
               <div>
                 <h2 className="text-h2 text-[#111827] mb-4">The Adaptiv Smart Display</h2>
                 <p className="text-body text-[#4b5563] max-w-xl leading-relaxed">
-                  More than a screen. The Smart Display shows what Merlin sees — air quality, temperature,
-                  occupancy, cleaning history, sensor readings — and lets anyone on your team communicate
-                  with Merlin directly.
+                  Simultaneously a sensor (7 embedded sensors + NFC verification), a gateway (aggregating up to 64 BLE sensors over LTE), and an interface (showing occupants real-time air quality, cleaning status, and enabling one-tap service requests). No other device in the built environment plays all three roles at once.
                 </p>
               </div>
             </div>
@@ -316,9 +311,7 @@ export default function HomePage() {
                   <span className="gradient-text-pink">Merlin Is a Co-Worker.</span>
                 </h2>
                 <p className="text-body text-[#64748b] leading-relaxed mb-8">
-                  Every data stream from every sensor flows through Merlin — continuously,
-                  in real time, across every floor of your building. Merlin sees it all,
-                  understands it all, and acts before you even know something needs doing.
+                  A facility manager checks thirty spaces in a shift. Merlin monitors every space simultaneously — cleaning history, air quality, foot traffic, supply levels, satisfaction trends — and acts in real time. When VOC readings spike, it reroutes the nearest team. When a room sits empty despite a booking, it releases it. The co-worker who handles the thousand small decisions that keep a building running.
                 </p>
                 <Link href="/merlin" className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF00B2] hover:text-[#ff6fe8] transition-colors">
                   Explore Merlin →
@@ -439,8 +432,7 @@ export default function HomePage() {
             <p className="section-number mb-6 uppercase tracking-[0.2em]">Get started</p>
             <h2 className="text-h1 text-[#111827] mb-5">Merlin is ready<br />to join your team.</h2>
             <p className="text-body text-[#64748b] mb-12 leading-relaxed">
-              See how Physical AI transforms building management and industrial operations —
-              from the first Smart Display to the first automated action.
+              40–55% labor cost reduction. 15–20% satisfaction improvement. $200K–$1M+ annual savings per facility. See what Physical AI delivers — from the first Smart Display to the first automated action.
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
               <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] transition-all">

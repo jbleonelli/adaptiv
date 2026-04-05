@@ -7,21 +7,21 @@ import { Reveal } from "@/components/ui/Reveal";
 
 export const metadata: Metadata = {
   title: "ROI — The Financial Case for Physical AI",
-  description: "Adaptiv and Merlin AI deliver measurable savings in energy, maintenance, and operations. Full payback in under 12 months.",
+  description: "Adaptiv delivers 40\u201360% operational cost reduction and $200K\u2013$1M+ annual savings per large facility. Deployed across 12,000 devices in 6,000+ buildings.",
 };
 
 const headlineStats = [
-  { stat: "€2.4M", label: "Avg. annual savings per 100k sqft" },
-  { stat: "<8 mo", label: "Average payback period" },
-  { stat: "3.2x", label: "3-year ROI multiple" },
-  { stat: "10,000+", label: "Sites deployed" },
+  { stat: "40–60%", label: "Operational cost reduction across scenarios" },
+  { stat: "$200K–$1M+", label: "Annual savings per large facility" },
+  { stat: "12,000", label: "Devices across 6,000+ buildings" },
+  { stat: "15–20%", label: "Occupant satisfaction improvement" },
 ];
 
 const savingsAreas = [
   {
     title: "Energy",
-    stat: "25–40%",
-    desc: "Merlin adjusts HVAC, lighting, and power in real time based on occupancy and weather. Empty rooms stop costing you money.",
+    stat: "10–30%",
+    desc: "Merlin adjusts HVAC and lighting in real time based on occupancy and weather. Universities have deferred $1M\u2013$5M in new construction through smarter space utilisation alone.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <path d="M26 6L14 26h8l-2 16 12-20h-8l2-16z" stroke="#FF00B2" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
@@ -32,7 +32,7 @@ const savingsAreas = [
   {
     title: "Maintenance",
     stat: "40–60%",
-    desc: "Predictive alerts on vibration, temperature drift, and pressure drops. Fix on your schedule — not when things break at midnight.",
+    desc: "Predictive alerts catch leaks in seconds and forecast equipment failures before they happen. A 2,000-space parking structure saves ~1.5 FTE ($45K/yr) and avoids $5K+ per emergency repair.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <path d="M18 30l-6 6a3 3 0 004.24 4.24L22 34" stroke="#FF00B2" strokeWidth="1.5" strokeLinecap="round" />
@@ -44,8 +44,8 @@ const savingsAreas = [
   },
   {
     title: "Operations",
-    stat: "20–35%",
-    desc: "Automated dispatch, compliance reports, and overnight monitoring. Your team focuses on decisions, not routine checks.",
+    stat: "40–55%",
+    desc: "Demand-driven dispatch replaces fixed schedules. A 200-person office with 30 meeting rooms recovers $150K\u2013$250K from ghost bookings alone. Airport terminals cut SLA breaches 50\u201370%, saving $50K\u2013$200K in contract penalties.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <circle cx="24" cy="14" r="6" stroke="#FF00B2" strokeWidth="1.5" />
@@ -55,9 +55,9 @@ const savingsAreas = [
     ),
   },
   {
-    title: "Asset Lifespan",
-    stat: "+15–25%",
-    desc: "Equipment running within optimal parameters lasts longer. Fewer replacements, lower capex.",
+    title: "Healthcare & Compliance",
+    stat: "80%",
+    desc: "Reduction in documentation time with audit-ready compliance evidence. One prevented hospital-acquired infection saves $140K\u2013$450K \u2014 and the system catches risks before they escalate.",
     icon: (
       <svg viewBox="0 0 48 48" fill="none" className="w-10 h-10">
         <circle cx="24" cy="24" r="16" stroke="#FF00B2" strokeWidth="1.5" strokeOpacity="0.3" />
@@ -86,7 +86,7 @@ export default function ROIPage() {
               <Badge variant="pink" className="mb-6">RETURN ON INVESTMENT</Badge>
               <h1 className="text-display text-[#111827] mb-6">It Pays for Itself.<br />Then Keeps Paying.</h1>
               <p className="text-body-lg text-[#4b5563] mb-10 max-w-2xl leading-relaxed">
-                Most customers hit full payback in under 8 months. After that, every dollar Merlin saves goes straight to your bottom line — compounding, year after year.
+                Deployed across 12,000 devices in 6,000+ buildings \u2014 including Charles de Gaulle Airport and nuclear power plants \u2014 Adaptiv delivers 40\u201360% operational cost reduction. Partners like ABM ($8B+ revenue) and Samsic trust the platform at scale.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild><Link href="/contact">Get Your ROI Estimate</Link></Button>
@@ -118,7 +118,7 @@ export default function ROIPage() {
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">WHERE IT ADDS UP</p>
-            <h2 className="text-h1 text-[#111827] mb-16 max-w-2xl">Four Cost Centres. One System Cutting All of Them.</h2>
+            <h2 className="text-h1 text-[#111827] mb-16 max-w-2xl">Four Cost Centres. One Platform Cutting All of Them.</h2>
           </Reveal>
 
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -144,22 +144,25 @@ export default function ROIPage() {
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <Reveal>
               <div>
-                <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">THE MATH</p>
-                <h2 className="text-h1 text-[#111827] mb-6">Every Month You Wait Costs More Than Deploying</h2>
+                <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">THREE-TIER VALUE MODEL</p>
+                <h2 className="text-h1 text-[#111827] mb-6">Start Simple. Scale Into Full Predictive Intelligence.</h2>
                 <p className="text-body text-[#4b5563] mb-8 leading-relaxed">
-                  For a typical 50,000 sqft building, delaying six months means €120k–€200k in avoidable waste — energy in empty rooms, surprise repairs, manual compliance prep, and tenant churn. That money never comes back.
+                  <strong>Tier 1 \u2014 Smart Display alone:</strong> cleaning logs, service requests, satisfaction feedback \u2014 instant transparency and accountability.<br /><br />
+                  <strong>Tier 2 \u2014 Add 7 embedded sensors + Merlin AI:</strong> operations shift from fixed schedules to demand-driven dispatch.<br /><br />
+                  <strong>Tier 3 \u2014 Add external BLE sensors:</strong> full predictive capability \u2014 leak detection in seconds, equipment failure forecasting, and audit-ready compliance evidence.
                 </p>
                 <Button size="lg" asChild><Link href="/contact">Calculate Your Savings</Link></Button>
               </div>
             </Reveal>
             <Reveal delay={0.1}>
               <Card className="p-10" glow>
-                <h3 className="text-h3 text-[#111827] mb-6">Typical Commercial Building</h3>
+                <h3 className="text-h3 text-[#111827] mb-6">Savings by Vertical</h3>
                 <div className="flex flex-col gap-5">
                   {[
-                    { label: "Deployment cost", value: "€80k–€150k", sub: "Hardware + install + year 1" },
-                    { label: "Year 1 savings", value: "€120k–€240k", sub: "Energy + maintenance + ops" },
-                    { label: "Year 2+ savings", value: "€150k–€300k", sub: "Compounding optimisation" },
+                    { label: "Large office (200 ppl, 30 rooms)", value: "$150K–$250K", sub: "Ghost booking recovery + 40\u201355% labor reduction" },
+                    { label: "Airport terminal", value: "$50K–$200K", sub: "50\u201370% SLA breach reduction, penalty savings" },
+                    { label: "Healthcare facility", value: "$140K–$450K", sub: "Per prevented infection + 80% doc-time reduction" },
+                    { label: "University campus", value: "$1M–$5M", sub: "Deferred new construction via space optimisation" },
                   ].map((row) => (
                     <div key={row.label} className="flex items-start justify-between gap-4">
                       <div>
@@ -171,8 +174,8 @@ export default function ROIPage() {
                   ))}
                 </div>
                 <div className="mt-6 pt-5 border-t border-[rgba(0,0,0,0.07)] flex items-center justify-between">
-                  <span className="text-sm font-medium text-[#4b5563]">Payback period</span>
-                  <span className="text-2xl font-bold text-[#FF00B2]">&lt; 8 months</span>
+                  <span className="text-sm font-medium text-[#4b5563]">Annual savings per large facility</span>
+                  <span className="text-2xl font-bold text-[#FF00B2]">$200K–$1M+</span>
                 </div>
               </Card>
             </Reveal>
@@ -186,7 +189,7 @@ export default function ROIPage() {
           <Reveal>
             <h2 className="text-h1 text-[#111827] mb-5">Ready to See Your Numbers?</h2>
             <p className="text-body text-[#4b5563] mb-10 max-w-lg mx-auto">
-              Tell us about your building and we&apos;ll send you a custom ROI projection — no obligation.
+              Tell us about your facility and we&apos;ll model your savings across all three tiers — no obligation. Join 6,000+ buildings already on the platform.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Button size="lg" asChild><Link href="/contact">Get Your ROI Estimate</Link></Button>

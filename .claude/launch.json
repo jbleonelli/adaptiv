@@ -1,0 +1,17 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "next-dev",
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["node_modules/.bin/next", "dev", "-p", "3008"],
+      "port": 3008
+    },
+    {
+      "name": "next-prod",
+      "runtimeExecutable": "/opt/homebrew/bin/node",
+      "runtimeArgs": ["node_modules/.bin/next", "start", "-p", "3008"],
+      "port": 3008
+    }
+  ]
+}

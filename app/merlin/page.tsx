@@ -14,8 +14,8 @@ export const metadata: Metadata = {
 const traits = [
   {
     title: "Sees Everything",
-    example: "Merlin knows that Meeting Room 3 has been occupied for four hours, that the temperature has risen to 24°C, and that the last cleaning was at 08:00. It has already adjusted the HVAC and queued the cleaning team.",
-    body: "Merlin is connected to every Adaptiv device in your environment — Smart Displays, sensors, cameras, energy monitors, vibration nodes. Every data point arrives pre-processed from the edge, contextualised by device location and type, and made available to Merlin's agents in real time.",
+    example: "A restroom's VOC readings spike after a busy lunch hour. A conference room has CO₂ at 1,200 ppm with noise detected but no booking on the calendar. A soap dispenser in Terminal B drops below 20%. Merlin sees it all — simultaneously, across every space in your building.",
+    body: "Merlin ingests continuous data from every Smart Display (7 embedded sensors each), every BLE peripheral (dispensers, people counters, leak detectors), every radar module, and every machine vision camera — processing millions of data points into a real-time picture of your entire built environment.",
     color: "#FF00B2",
     icon: (
       /* Radar / sonar: concentric rings + scan line + blip */
@@ -32,9 +32,9 @@ const traits = [
     ),
   },
   {
-    title: "Understands Every Situation",
-    example: "On a busy conference day, Merlin detects above-average footfall through the bathroom entrance sensor. Without being asked, it increases the cleaning frequency for that area and notifies the facilities team.",
-    body: "Merlin doesn't just aggregate data — it understands context. It knows the difference between a bathroom that is frequently occupied and one that simply hasn't been detected as needing cleaning. It knows that a machine running at elevated temperature after a long production run is different from the same reading after an idle period.",
+    title: "Understands Context",
+    example: "CO₂ rising in Conference Room B + noise detected + lights on + no meeting booked + no badge entry + Friday afternoon pattern = an unscheduled gathering. The room will need cleaning in ~45 minutes. Ventilation should increase now. Merlin makes that call — from six signals, not one.",
+    body: "A traditional sensor reports a number. Merlin combines that reading with noise levels, light state, calendar data, badge records, and historical patterns to understand what's actually happening. Multi-signal reasoning, applied continuously across hundreds of spaces simultaneously — something no human co-worker could do alone.",
     color: "#FF00B2",
     icon: (
       /* Neural graph: 5 nodes connected in a comprehension network */
@@ -74,9 +74,9 @@ const traits = [
     ),
   },
   {
-    title: "Always Reliable",
-    example: "Your compliance audit requires a complete record of every environmental condition in the production area over the past six months. Merlin generates it in 30 seconds, with full traceability to the individual sensor readings.",
-    body: "Merlin doesn't have bad days. Every action is logged with a full audit trail: what it observed, what rule or model it applied, what it decided, and what it did. Every decision is explainable. Every outcome is traceable.",
+    title: "Keeps the Receipts",
+    example: "A cleaning company's contract requires proof that a restroom was cleaned five times a day. Merlin's timestamps and NFC badge records are tamper-proof — signed at the device level with cryptographic keys embedded during manufacturing. Every cleaning event is cross-validated: badge tap + VOC change + vibration pattern.",
+    body: "Merlin shifts facility management from trust-based to evidence-based. Every cleaning event is verified by badge tap and confirmed by environmental sensor changes. Every SLA commitment is backed by timestamped, sensor-validated evidence. Every operational decision is traceable to the data that informed it.",
     color: "#FF00B2",
     icon: (
       /* Shield: outline + inner ring + center fill */
@@ -94,8 +94,8 @@ const traits = [
   },
   {
     title: "Acts Without Being Asked",
-    example: "A sensor at the building entrance detects that occupancy is 40% higher than the forecast for today. Merlin automatically adjusts HVAC capacity building-wide, increases the catering order for the cafeteria, and adds a cleaning cycle to the shared bathrooms at midday.",
-    body: "Merlin does not send you a report and wait for your decision. When the condition is right, it acts. It adjusts the HVAC before the meeting room gets uncomfortable. It dispatches the cleaning team when the bathroom needs attention. It triggers the maintenance workflow before the machine fails.",
+    example: "VOC spike after lunch rush — Merlin reroutes the nearest cleaning team. Ghost booking detected (CO₂ flat in a 'booked' room) — Merlin releases it and makes the room available. Soap dispenser below 20% — Merlin adds it to the next restocking route before anyone notices.",
+    body: "Merlin handles the thousand small decisions that keep a building running smoothly. It doesn't send a report and wait. When a condition is met, it dispatches teams, reorders supplies, adjusts ventilation, and generates compliance records — freeing your human team to focus on work that requires judgment, empathy, and expertise.",
     color: "#FF00B2",
     icon: (
       /* Action vectors: source node → diverging paths → forward arrow */
@@ -257,9 +257,7 @@ export default function MerlinPage() {
               <Badge variant="dim" className="mb-6">MEET YOUR NEW CO-WORKER</Badge>
               <h1 className="text-display text-[#111827] mb-5">Merlin. Always Present.<br />Always Acting.</h1>
               <p className="text-body-lg text-[#4b5563] mb-10">
-                Merlin is the AI that runs alongside your team — watching every sensor, understanding every space,
-                responding to every situation. Not a dashboard you check. Not a report you read.
-                A co-worker who handles it.
+                Think of Merlin not as software, but as a co-worker — one who never sleeps, never misses a detail, and has eyes and ears in every room simultaneously. It monitors every space continuously, knows the cleaning history, the air quality, the foot traffic, the supply levels — and acts on that knowledge in real time.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Button size="lg" asChild><Link href="/contact">Request a Demo</Link></Button>
@@ -344,19 +342,13 @@ export default function MerlinPage() {
             <Reveal>
               <div className="flex flex-col gap-5">
                 <p className="text-body-lg text-[#4b5563] leading-relaxed">
-                  Every AI platform promises intelligence. Most deliver dashboards. You still have to look at them.
-                  You still have to decide what to do. You still have to act.
+                  A facility manager walking the floors can check thirty spaces in a shift and rely on memory and intuition to prioritize what needs attention. Merlin monitors every space continuously — and acts on that knowledge in real time.
                 </p>
                 <p className="text-body text-[#4b5563] leading-relaxed">
-                  Merlin is different. Merlin is a digital co-worker — an autonomous AI agent that joins your operations
-                  team, learns your building, and handles the work that should never require human attention. Like the
-                  best colleague you've ever had, Merlin shows up every day, understands the context, and takes care
-                  of things before you need to ask.
+                  When a restroom's VOC readings spike after a busy lunch hour, Merlin doesn't wait for a complaint — it reroutes the nearest cleaning team. When a conference room has been booked but its CO₂ levels remain flat, Merlin releases the ghost booking and makes the room available. When a soap dispenser drops below 20%, Merlin adds it to the next restocking route before anyone notices.
                 </p>
                 <p className="text-body text-[#4b5563] leading-relaxed">
-                  You don't configure Merlin like software. You onboard Merlin like a new hire. You tell it what
-                  matters, it learns how your building operates, and then it works — 24 hours a day, every day,
-                  without supervision.
+                  At its core, Merlin runs a closed loop: sense (dense mesh of environmental sensors), reason (AI that learns the behavioral signature of every space), and act (dispatch teams, reorder supplies, generate compliance evidence). The loop closes when results flow back through the sensors, and Merlin learns whether its intervention worked.
                 </p>
                 <p className="text-body font-semibold text-[#111827] mt-2">
                   Your team's attention is valuable. Merlin's job is to protect it.

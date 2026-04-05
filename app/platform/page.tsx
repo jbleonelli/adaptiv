@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 const ownershipBenefits = [
   {
     title: "No Integration Risk",
-    body: "One company owns every layer. No API mismatches, no vendor blame, no fragile custom integrations between hardware and software that were never designed to work together.",
+    body: "One company owns every layer. A restroom Smart Display collects VOC from its sensor, aggregates dispenser levels from a BLE sensor, receives a badge tap, and forwards all in a single encrypted LTE burst. No API mismatches, no vendor blame, no fragile integrations.",
     color: "#FF00B2",
     icon: (
       /* Three stacked layers connected by a spine — unified stack */
@@ -33,7 +33,7 @@ const ownershipBenefits = [
   },
   {
     title: "Faster Time to Value",
-    body: "Devices, software, and AI are pre-integrated. Deployments take days, not months. Merlin starts working the moment the first Smart Display is on the wall.",
+    body: "Devices, software, and AI are pre-integrated. Wireless sensors connect via BLE — no SIM cards, no power wiring. Data never touches the landlord's network, never transits shared Wi-Fi. Merlin starts working the moment the first Smart Display is on the wall.",
     color: "#FF00B2",
     icon: (
       /* Lightning bolt */
@@ -45,7 +45,7 @@ const ownershipBenefits = [
   },
   {
     title: "Continuous Optimisation",
-    body: "Firmware updates that improve device battery life also improve Merlin data quality. Platform improvements instantly benefit every deployed device. The whole stack moves together.",
+    body: "Firmware updates that improve Smart Display sensor calibration also improve Merlin data quality. Radar counts vehicles in parking without cameras. Machine vision in nuclear plants processes at the edge. The whole stack moves together.",
     color: "#FF00B2",
     icon: (
       /* Two curved arrows forming a refresh cycle */
@@ -58,8 +58,8 @@ const ownershipBenefits = [
     ),
   },
   {
-    title: "Single Accountability",
-    body: "One contract. One support team. One product roadmap. The simplest relationship for the most complex technology.",
+    title: "Complete Network Independence",
+    body: "Each device is a fully autonomous node with its own LTE radio. No single point of failure, no cascading outage risk. One contract, one support team, one product roadmap — complete independence from building infrastructure.",
     color: "#FF00B2",
     icon: (
       /* Bullseye / target — single point of ownership */
@@ -74,14 +74,14 @@ const ownershipBenefits = [
 ];
 
 const securityItems = [
-  "Hardware-level security on every Adaptiv device: secure boot, hardware security elements, encrypted local storage",
-  "LTE security: carrier-grade 4G/5G authentication and AES-256 encryption from device to platform",
-  "End-to-end encryption: all data in transit and at rest, from the Smart Display to the Merlin AI layer",
-  "On-premises and private cloud options: data never leaves your building if you require it",
+  "Data signed at device level with cryptographic keys embedded during manufacturing — keys cannot be extracted, copied, or overridden in the field",
+  "End-to-end encryption from sensor to cloud: every data point encrypted in transit and at rest, from the Smart Display to the Merlin AI layer",
+  "Complete network independence: data never touches the landlord's network, never transits shared Wi-Fi. Each device is a fully autonomous LTE node",
+  "No point in the pipeline where third-party firmware could introduce a vulnerability — Adaptiv owns every layer of the stack",
+  "SOC 2 Type 2 certified — covers the full data lifecycle from sensor capture to AI processing",
+  "No single point of failure, no cascading outage risk: every device operates independently on its own LTE connection",
   "European data centres, GDPR-compliant, EU data residency available",
-  "Role-based access control with full activity and agent decision logging",
-  "Zero-trust device authentication: every device continuously verified",
-  "OTA firmware update security: signed packages, rollback capability, no physical access required",
+  "Role-based access control with full activity and agent decision logging, zero-trust device authentication",
 ];
 
 const apiItems = [
@@ -109,9 +109,10 @@ export default function PlatformPage() {
               <Badge variant="dim" className="mb-6">THE ADAPTIV PLATFORM</Badge>
               <h1 className="text-display text-[#111827] mb-5">Physical AI:<br />Intelligence at<br />Every Layer</h1>
               <p className="text-body-lg text-[#4b5563] mb-8">
-                Physical AI is what happens when connected devices, intelligent software, and autonomous
-                AI agents converge in the real world. Adaptiv's platform is the only fully integrated
-                Physical AI stack — designed, built, and owned end to end.
+                Physical AI is what happens when Smart Displays with 7 embedded sensors, wireless sensor
+                constellations, machine vision, radar, smart lighting, and autonomous AI agents converge
+                in the real world. One platform, one AI engine, one data model spanning every device
+                and use case — designed, built, and owned end to end.
               </p>
               <div className="flex flex-wrap gap-4">
                 <Link href="/contact" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] transition-all">
@@ -138,11 +139,14 @@ export default function PlatformPage() {
             <p className="text-body-lg text-[#4b5563] mb-6 leading-relaxed">
               Physical AI is intelligence that exists in the real world — not in a cloud dashboard, not on a
               separate analytics platform, but embedded in the spaces and machines where work actually
-              happens. Physical AI sees through sensors. It acts through devices. It responds in the moment.
+              happens. It sees through air quality, temperature, humidity, lux, and noise sensors. It counts
+              people with radar and machine vision. It acts through devices. It responds in the moment.
             </p>
             <p className="text-body-lg text-[#4b5563] mb-8 leading-relaxed">
-              Merlin is the AI. The Smart Display and Adaptiv sensors are the body. Together, they make
-              buildings and operations intelligent.
+              Merlin is the AI engine. The Smart Display hub — with its e-ink touchscreen, BLE gateway,
+              and LTE radio — and the constellation of wireless sensors are the body. Every device feeds
+              into the same AI engine through the same secure data pipeline. Together, they make buildings
+              and operations intelligent.
             </p>
             {/* Equation — Merlin + Smart Displays + Sensors = Physical AI */}
             <div className="mt-10 p-8 rounded-3xl bg-[#f8f9fb] border border-[rgba(0,0,0,0.1)] relative overflow-hidden">
@@ -254,7 +258,7 @@ export default function PlatformPage() {
               {
                 label: "Physical AI Layer",
                 title: "Merlin — Your Always-On AI Co-Worker",
-                body: "Autonomous AI agents that perceive, reason, and act in real time. Merlin Studio, REST/Python APIs, workflow automation, audit logging. The intelligence layer that never sleeps.",
+                body: "Autonomous AI agents that perceive, reason, and act in real time. One AI engine, one data model spanning every device type — Smart Displays, radar, machine vision, smart lighting. Merlin Studio, REST/Python APIs, workflow automation, audit logging.",
                 color: "#6D28D9",
                 bg: "rgba(109,40,217,0.06)",
                 border: "rgba(109,40,217,0.2)",
@@ -262,7 +266,7 @@ export default function PlatformPage() {
               {
                 label: "IIoT Software Layer",
                 title: "Secure IIoT Software Stack",
-                body: "Real-time data pipelines, device management, LTE session orchestration, event streaming, and edge-to-cloud synchronisation. End-to-end encrypted.",
+                body: "Real-time data pipelines, device management, LTE session orchestration, event streaming, and edge-to-cloud synchronisation. Data signed at device level with cryptographic keys embedded during manufacturing. End-to-end encrypted, SOC 2 Type 2 certified.",
                 color: "#FF00B2",
                 bg: "rgba(26,111,212,0.06)",
                 border: "rgba(26,111,212,0.2)",
@@ -270,7 +274,7 @@ export default function PlatformPage() {
               {
                 label: "Physical Device Layer",
                 title: "Adaptiv Devices — The Eyes and Ears of Merlin",
-                body: "Smart Displays (building hubs + gateways), sensors, cameras, and edge nodes. LTE-connected, battery-powered (3-year autonomy), with on-device edge intelligence. Designed and manufactured by Adaptiv.",
+                body: "Smart Display hubs with 7 embedded sensors (air quality, temperature, humidity, lux, noise, accelerometer, NFC), e-ink touchscreen, and BLE gateway. Wireless sensor constellation — people counters, dispenser monitors, leak detectors, door/stall sensors, bin level sensors — connected via BLE, no SIM cards or power wiring. Millimeter-wave radar, machine vision, smart lighting. Each device is a fully autonomous LTE node.",
                 color: "#14b8a6",
                 bg: "rgba(10,124,89,0.06)",
                 border: "rgba(10,124,89,0.2)",
@@ -304,8 +308,9 @@ export default function PlatformPage() {
               <div>
                 <h2 className="text-h2 text-[#111827]">End-to-End<br />Platform Architecture</h2>
                 <p className="text-body text-[#64748b] mt-4 max-w-lg leading-relaxed">
-                  From edge sensors to the Merlin AI layer — every component of the Adaptiv platform,
-                  designed, built, and owned by Adaptiv.
+                  From Smart Display hubs and wireless BLE sensors to millimeter-wave radar, machine vision,
+                  smart lighting, and the Merlin AI engine — every component designed, built, and owned by Adaptiv.
+                  One platform, one data model, one secure pipeline.
                 </p>
               </div>
             </div>
