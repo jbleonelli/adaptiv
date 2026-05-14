@@ -28,3 +28,25 @@ export function imageAlt(
   if (!source || typeof source === "string") return fallback;
   return (source as { alt?: string }).alt || fallback;
 }
+
+/**
+ * Returns a CSS `object-position` value (e.g. "30% 70%") computed from the
+ * Sanity image's hotspot. Falls back to the natural center when no hotspot
+ * is set or when the source is a static string path.
+ *
+ * Use this when rendering with `object-fit: cover` so the editor-chosen
+ * focal point stays visible after cropping.
+ */
+export function imageObjectPosition(
+  source: string | SanityImageSource | null | undefined
+): string {
+  if (!source || typeof source === "string") return "50% 50%";
+  const hotspot = (source as { hotspot?: { x?: number; y?: number } })
+    ?.hotspot;
+  if (!hotspot || typeof hotspot.x !== "number" || typeof hotspot.y !== "number") {
+    return "50% 50%";
+  }
+  const x = Math.max(0, Math.min(1, hotspot.x)) * 100;
+  const y = Math.max(0, Math.min(1, hotspot.y)) * 100;
+  return `${x.toFixed(2)}% ${y.toFixed(2)}%`;
+}

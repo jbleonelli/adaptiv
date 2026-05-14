@@ -51,6 +51,21 @@ export const devicesPage = defineType({
           },
         },
         {
+          name: "imageObjectFit",
+          title: "Hero image — fit mode",
+          type: "string",
+          description:
+            "How the image fills its box. 'Contain' = whole image visible, may letterbox. 'Cover' = image fills the box, parts may be cropped (use the image's hotspot to choose what stays visible — double-click the image above and click 'Edit hotspot').",
+          initialValue: "cover",
+          options: {
+            list: [
+              { title: "Cover — fill box, crop edges (recommended)", value: "cover" },
+              { title: "Contain — fit whole image, letterbox if needed", value: "contain" },
+            ],
+            layout: "radio",
+          },
+        },
+        {
           name: "imageMaxWidthPx",
           title: "Hero image — max width (px)",
           type: "number",

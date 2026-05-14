@@ -7,7 +7,7 @@ import { Card } from "@/components/ui/Card";
 import { sanityFetch } from "@/sanity/client";
 import { groq } from "next-sanity";
 import { devicesDefaults, type DevicesPageData } from "@/lib/content/devices";
-import { imageSrc, imageAlt } from "@/sanity/imageSrc";
+import { imageSrc, imageAlt, imageObjectPosition } from "@/sanity/imageSrc";
 
 const devicesPageQuery = groq`*[_type == "devicesPage"][0]`;
 
@@ -432,42 +432,52 @@ export default async function DevicesPage() {
             </div>
 
             {/*
-              When imageSize === "matchTextHeight":
-              - self-stretch overrides the parent grid's items-center so this
-                cell fills the row's full height (= text column height).
-              - The <img> is absolutely positioned to fill the cell, which
-                breaks the circular sizing dependency you'd otherwise hit
-                with align-items: center + h-full (browser falls back to
-                the image's natural height in that case and nothing stretches).
-              - object-contain preserves aspect ratio inside the box.
+              imageObjectFit: cover (default) lets a high-resolution image
+              fill the available box and crop edges; contain preserves the
+              whole image (may letterbox). When cropping, object-position
+              follows the editor's hotspot from Sanity so the focal point
+              stays visible.
+
+              imageSize === "matchTextHeight": the image cell fills the row's
+              full height (= text column height) via self-stretch, and the
+              <img> is absolutely positioned with inset-0 to break a Grid
+              circular-sizing trap that occurs with align-items: center.
             */}
-            {hero.imageSize === "matchTextHeight" ? (
-              <div className="self-stretch relative w-full">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={imageSrc(hero.image)}
-                  alt={imageAlt(hero.image, hero.imageAlt)}
-                  className="absolute inset-0 w-full h-full rounded-2xl"
-                  style={{ objectFit: "contain" }}
-                />
-              </div>
-            ) : (
-              <div className="flex items-center justify-center">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={imageSrc(hero.image)}
-                  alt={imageAlt(hero.image, hero.imageAlt)}
-                  className="w-full rounded-2xl"
-                  style={{
-                    objectFit: "contain",
-                    maxWidth: `${hero.imageMaxWidthPx ?? 512}px`,
-                    maxHeight: hero.imageMaxHeightPx
-                      ? `${hero.imageMaxHeightPx}px`
-                      : undefined,
-                  }}
-                />
-              </div>
-            )}
+            {(() => {
+              const fit = hero.imageObjectFit ?? "cover";
+              const objectPosition = imageObjectPosition(hero.image);
+              if (hero.imageSize === "matchTextHeight") {
+                return (
+                  <div className="self-stretch relative w-full">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={imageSrc(hero.image)}
+                      alt={imageAlt(hero.image, hero.imageAlt)}
+                      className="absolute inset-0 w-full h-full rounded-2xl"
+                      style={{ objectFit: fit, objectPosition }}
+                    />
+                  </div>
+                );
+              }
+              return (
+                <div className="flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={imageSrc(hero.image)}
+                    alt={imageAlt(hero.image, hero.imageAlt)}
+                    className="w-full rounded-2xl"
+                    style={{
+                      objectFit: fit,
+                      objectPosition,
+                      maxWidth: `${hero.imageMaxWidthPx ?? 512}px`,
+                      maxHeight: hero.imageMaxHeightPx
+                        ? `${hero.imageMaxHeightPx}px`
+                        : undefined,
+                    }}
+                  />
+                </div>
+              );
+            })()}
           </div>
         </div>
       </section>

@@ -13,6 +13,7 @@ export type DevicesPageData = {
     image: string;
     imageAlt: string;
     imageSize?: "custom" | "matchTextHeight";
+    imageObjectFit?: "cover" | "contain";
     imageMaxWidthPx?: number;
     imageMaxHeightPx?: number;
   };
