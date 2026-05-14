@@ -29,7 +29,9 @@ export const homePageQuery = groq`
       secondaryCta{ label, href },
       chips[]{ label, dotColor },
       heroImagePrimary{ asset->, alt },
-      heroImageSecondary{ asset->, alt }
+      heroImageSecondary{ asset->, alt },
+      heroComposite{ asset->, alt },
+      heroCompositeMaxWidthPx
     },
     physicalAI{
       sectionNumber,
