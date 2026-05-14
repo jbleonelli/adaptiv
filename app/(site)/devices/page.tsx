@@ -431,21 +431,39 @@ export default async function DevicesPage() {
               </div>
             </div>
 
-            <div className="flex items-center justify-center">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src={imageSrc(hero.image)}
-                alt={imageAlt(hero.image, hero.imageAlt)}
-                className="w-full rounded-2xl"
-                style={{
-                  objectFit: "contain",
-                  maxWidth: `${hero.imageMaxWidthPx ?? 512}px`,
-                  maxHeight: hero.imageMaxHeightPx
-                    ? `${hero.imageMaxHeightPx}px`
-                    : undefined,
-                }}
-              />
-            </div>
+            {/*
+              When imageSize === "matchTextHeight" we use self-stretch + h-full
+              to override the parent grid's items-center, so the image column
+              fills the same vertical span as the text column (badge → buttons),
+              and the <img> uses object-contain to fit without distortion.
+            */}
+            {hero.imageSize === "matchTextHeight" ? (
+              <div className="self-stretch flex items-stretch justify-center w-full h-full">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imageSrc(hero.image)}
+                  alt={imageAlt(hero.image, hero.imageAlt)}
+                  className="w-full h-full rounded-2xl"
+                  style={{ objectFit: "contain" }}
+                />
+              </div>
+            ) : (
+              <div className="flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imageSrc(hero.image)}
+                  alt={imageAlt(hero.image, hero.imageAlt)}
+                  className="w-full rounded-2xl"
+                  style={{
+                    objectFit: "contain",
+                    maxWidth: `${hero.imageMaxWidthPx ?? 512}px`,
+                    maxHeight: hero.imageMaxHeightPx
+                      ? `${hero.imageMaxHeightPx}px`
+                      : undefined,
+                  }}
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

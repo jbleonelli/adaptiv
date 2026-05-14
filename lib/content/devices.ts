@@ -12,6 +12,7 @@ export type DevicesPageData = {
     secondaryCta: CtaButton;
     image: string;
     imageAlt: string;
+    imageSize?: "custom" | "matchTextHeight";
     imageMaxWidthPx?: number;
     imageMaxHeightPx?: number;
   };

@@ -29,20 +29,46 @@ export const devicesPage = defineType({
           fields: [{ name: "alt", title: "Alt text", type: "string" }],
         },
         {
+          name: "imageSize",
+          title: "Hero image — sizing mode",
+          type: "string",
+          description:
+            "How should the hero image be sized? Pick a preset, or choose Custom to use the width/height fields below.",
+          initialValue: "custom",
+          options: {
+            list: [
+              {
+                title: "Custom (use max width / height below)",
+                value: "custom",
+              },
+              {
+                title:
+                  "Match text column height (stretch from headline to bottom of buttons)",
+                value: "matchTextHeight",
+              },
+            ],
+            layout: "radio",
+          },
+        },
+        {
           name: "imageMaxWidthPx",
           title: "Hero image — max width (px)",
           type: "number",
           description:
-            "Maximum width of the hero image in pixels. Default 512. Try 400 (smaller), 640, or 800 (larger).",
+            "Only used in Custom mode. Maximum width of the hero image in pixels. Default 512. Try 400 (smaller), 640, or 800 (larger).",
           validation: (Rule) => Rule.min(120).max(1600),
+          hidden: ({ parent }) =>
+            parent?.imageSize && parent.imageSize !== "custom",
         },
         {
           name: "imageMaxHeightPx",
           title: "Hero image — max height (px)",
           type: "number",
           description:
-            "Maximum height of the hero image in pixels. Leave empty for no constraint (image scales to its natural ratio). Set e.g. 320 to make it shorter, 600 to make it taller.",
+            "Only used in Custom mode. Leave empty for no constraint. Set e.g. 320 to make it shorter, 600 to make it taller.",
           validation: (Rule) => Rule.min(120).max(1200),
+          hidden: ({ parent }) =>
+            parent?.imageSize && parent.imageSize !== "custom",
         },
       ],
     }),
