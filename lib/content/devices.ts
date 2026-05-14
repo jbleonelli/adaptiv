@@ -12,6 +12,8 @@ export type DevicesPageData = {
     secondaryCta: CtaButton;
     image: string;
     imageAlt: string;
+    imageMaxWidthPx?: number;
+    imageMaxHeightPx?: number;
   };
   advantagesSection: {
     sectionNumber: string;

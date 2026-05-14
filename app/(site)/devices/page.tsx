@@ -436,8 +436,14 @@ export default async function DevicesPage() {
               <img
                 src={imageSrc(hero.image)}
                 alt={imageAlt(hero.image, hero.imageAlt)}
-                className="w-full max-w-lg rounded-2xl"
-                style={{ objectFit: "contain" }}
+                className="w-full rounded-2xl"
+                style={{
+                  objectFit: "contain",
+                  maxWidth: `${hero.imageMaxWidthPx ?? 512}px`,
+                  maxHeight: hero.imageMaxHeightPx
+                    ? `${hero.imageMaxHeightPx}px`
+                    : undefined,
+                }}
               />
             </div>
           </div>
