@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "noEmit": true,
+    "jsx": "react-jsx"
+  },
+  "include": ["scripts/**/*.ts", "lib/**/*.ts", "sanity/**/*.ts"],
+  "exclude": ["node_modules", ".next"]
+}
