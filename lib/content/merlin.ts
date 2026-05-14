@@ -18,6 +18,12 @@ export type MerlinPageData = {
     body: string;
     primaryCta: CtaButton;
     secondaryCta: CtaButton;
+    image?: string;
+    imageAlt?: string;
+    imageSize?: "custom" | "matchTextHeight";
+    imageObjectFit?: "cover" | "contain";
+    imageMaxWidthPx?: number;
+    imageMaxHeightPx?: number;
     profileCard: {
       statusLabel: string;
       version: string;

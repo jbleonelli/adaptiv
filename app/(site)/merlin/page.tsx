@@ -9,7 +9,7 @@ import { TraitIcon } from "@/components/icons/TraitIcon";
 import { sanityFetch } from "@/sanity/client";
 import { groq } from "next-sanity";
 import { merlinDefaults, type MerlinPageData } from "@/lib/content/merlin";
-import { imageSrc, imageAlt } from "@/sanity/imageSrc";
+import { imageSrc, imageAlt, imageObjectPosition } from "@/sanity/imageSrc";
 
 const merlinPageQuery = groq`*[_type == "merlinPage"][0]`;
 
@@ -55,56 +55,100 @@ export default async function MerlinPage() {
                 <Button variant="secondary" size="lg" asChild><Link href={hero.secondaryCta.href}>{hero.secondaryCta.label}</Link></Button>
               </div>
             </div>
-            <div className="hidden lg:flex items-center justify-center">
-              <div className="w-full max-w-sm">
-                <div className="rounded-3xl border border-[rgba(255,0,178,0.15)] bg-white p-8 shadow-[0_8px_48px_rgba(255,0,178,0.12)]">
-                  <div className="flex items-center justify-between mb-6">
-                    <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(20,184,166,0.08)] border border-[rgba(20,184,166,0.25)] text-xs font-semibold text-[#14b8a6]">
-                      <span className="w-2 h-2 rounded-full bg-[#14b8a6] animate-pulse" />
-                      {hero.profileCard.statusLabel}
-                    </span>
-                    <span className="text-xs text-[#64748b]">{hero.profileCard.version}</span>
-                  </div>
-
-                  <div className="flex items-center gap-4 mb-6">
-                    <div className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 bg-[#f0f2f5]">
-                      <Image
-                        src={imageSrc(hero.profileCard.photo, { width: 128 })}
-                        alt={imageAlt(hero.profileCard.photo, hero.profileCard.photoAlt)}
-                        width={128}
-                        height={128}
-                        className="w-full h-full object-cover"
+            {/*
+              Hero visual — if hero.image is set in Sanity, render the image
+              with the same controls as the Devices hero (size mode, fit,
+              hotspot-aware focal point). Otherwise fall back to the legacy
+              profile card so existing data keeps rendering.
+            */}
+            {hero.image ? (
+              (() => {
+                const fit = hero.imageObjectFit ?? "cover";
+                const objectPosition = imageObjectPosition(hero.image);
+                if (hero.imageSize === "matchTextHeight") {
+                  return (
+                    <div className="hidden lg:block self-stretch relative w-full">
+                      {/* eslint-disable-next-line @next/next/no-img-element */}
+                      <img
+                        src={imageSrc(hero.image)}
+                        alt={imageAlt(hero.image, hero.imageAlt)}
+                        className="absolute inset-0 w-full h-full rounded-3xl"
+                        style={{ objectFit: fit, objectPosition }}
                       />
                     </div>
-                    <div>
-                      <h3 className="text-xl font-bold text-[#111827]">{hero.profileCard.name}</h3>
-                      <p className="text-sm text-[#FF00B2] font-medium">{hero.profileCard.role}</p>
-                    </div>
+                  );
+                }
+                return (
+                  <div className="hidden lg:flex items-center justify-center">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={imageSrc(hero.image)}
+                      alt={imageAlt(hero.image, hero.imageAlt)}
+                      className="w-full rounded-3xl"
+                      style={{
+                        objectFit: fit,
+                        objectPosition,
+                        maxWidth: `${hero.imageMaxWidthPx ?? 384}px`,
+                        maxHeight: hero.imageMaxHeightPx
+                          ? `${hero.imageMaxHeightPx}px`
+                          : undefined,
+                      }}
+                    />
                   </div>
-
-                  <p className="text-sm text-[#4b5563] leading-relaxed mb-6">
-                    {hero.profileCard.description}
-                  </p>
-
-                  <div className="grid grid-cols-2 gap-3 mb-6">
-                    {hero.profileCard.stats.map((s) => (
-                      <div key={s.label} className="p-3 rounded-xl bg-[rgba(0,0,0,0.02)] border border-[rgba(0,0,0,0.05)]">
-                        <div className="text-xs text-[#64748b] mb-1">{s.label}</div>
-                        <div className="text-sm font-semibold text-[#111827]">{s.value}</div>
-                      </div>
-                    ))}
-                  </div>
-
-                  <div className="flex flex-wrap gap-2">
-                    {hero.profileCard.tags.map((tag) => (
-                      <span key={tag} className="px-2.5 py-1 rounded-full bg-[rgba(255,0,178,0.06)] border border-[rgba(255,0,178,0.15)] text-[10px] font-medium text-[#FF00B2]/70">
-                        {tag}
+                );
+              })()
+            ) : (
+              <div className="hidden lg:flex items-center justify-center">
+                <div className="w-full max-w-sm">
+                  <div className="rounded-3xl border border-[rgba(255,0,178,0.15)] bg-white p-8 shadow-[0_8px_48px_rgba(255,0,178,0.12)]">
+                    <div className="flex items-center justify-between mb-6">
+                      <span className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[rgba(20,184,166,0.08)] border border-[rgba(20,184,166,0.25)] text-xs font-semibold text-[#14b8a6]">
+                        <span className="w-2 h-2 rounded-full bg-[#14b8a6] animate-pulse" />
+                        {hero.profileCard.statusLabel}
                       </span>
-                    ))}
+                      <span className="text-xs text-[#64748b]">{hero.profileCard.version}</span>
+                    </div>
+
+                    <div className="flex items-center gap-4 mb-6">
+                      <div className="w-16 h-16 rounded-2xl overflow-hidden flex-shrink-0 bg-[#f0f2f5]">
+                        <Image
+                          src={imageSrc(hero.profileCard.photo, { width: 128 })}
+                          alt={imageAlt(hero.profileCard.photo, hero.profileCard.photoAlt)}
+                          width={128}
+                          height={128}
+                          className="w-full h-full object-cover"
+                        />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-[#111827]">{hero.profileCard.name}</h3>
+                        <p className="text-sm text-[#FF00B2] font-medium">{hero.profileCard.role}</p>
+                      </div>
+                    </div>
+
+                    <p className="text-sm text-[#4b5563] leading-relaxed mb-6">
+                      {hero.profileCard.description}
+                    </p>
+
+                    <div className="grid grid-cols-2 gap-3 mb-6">
+                      {hero.profileCard.stats.map((s) => (
+                        <div key={s.label} className="p-3 rounded-xl bg-[rgba(0,0,0,0.02)] border border-[rgba(0,0,0,0.05)]">
+                          <div className="text-xs text-[#64748b] mb-1">{s.label}</div>
+                          <div className="text-sm font-semibold text-[#111827]">{s.value}</div>
+                        </div>
+                      ))}
+                    </div>
+
+                    <div className="flex flex-wrap gap-2">
+                      {hero.profileCard.tags.map((tag) => (
+                        <span key={tag} className="px-2.5 py-1 rounded-full bg-[rgba(255,0,178,0.06)] border border-[rgba(255,0,178,0.15)] text-[10px] font-medium text-[#FF00B2]/70">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            )}
           </div>
         </div>
       </section>

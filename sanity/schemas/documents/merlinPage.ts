@@ -21,8 +21,71 @@ export const merlinPage = defineType({
         { name: "primaryCta", title: "Primary CTA", type: "ctaButton" },
         { name: "secondaryCta", title: "Secondary CTA", type: "ctaButton" },
         {
+          name: "image",
+          title: "Hero image (optional — replaces the profile card on the right)",
+          type: "image",
+          options: { hotspot: true },
+          fields: [{ name: "alt", title: "Alt text", type: "string" }],
+        },
+        {
+          name: "imageSize",
+          title: "Hero image — sizing mode",
+          type: "string",
+          description:
+            "Only applies when an image is uploaded above. Pick a preset, or choose Custom to use the width/height fields below.",
+          initialValue: "custom",
+          options: {
+            list: [
+              { title: "Custom (use max width / height below)", value: "custom" },
+              {
+                title: "Match text column height (stretch from headline to bottom of buttons)",
+                value: "matchTextHeight",
+              },
+            ],
+            layout: "radio",
+          },
+          hidden: ({ parent }) => !parent?.image,
+        },
+        {
+          name: "imageObjectFit",
+          title: "Hero image — fit mode",
+          type: "string",
+          description:
+            "How the image fills its box. 'Cover' = fills the box, edges may crop (use the image's hotspot to choose what stays visible — double-click the image and click 'Edit hotspot'). 'Contain' = whole image visible, may letterbox.",
+          initialValue: "cover",
+          options: {
+            list: [
+              { title: "Cover — fill box, crop edges (recommended)", value: "cover" },
+              { title: "Contain — fit whole image, letterbox if needed", value: "contain" },
+            ],
+            layout: "radio",
+          },
+          hidden: ({ parent }) => !parent?.image,
+        },
+        {
+          name: "imageMaxWidthPx",
+          title: "Hero image — max width (px)",
+          type: "number",
+          description: "Only used in Custom sizing mode. Default 384.",
+          validation: (Rule) => Rule.min(120).max(1600),
+          hidden: ({ parent }) =>
+            !parent?.image ||
+            (parent?.imageSize && parent.imageSize !== "custom"),
+        },
+        {
+          name: "imageMaxHeightPx",
+          title: "Hero image — max height (px)",
+          type: "number",
+          description:
+            "Only used in Custom sizing mode. Leave empty for no constraint.",
+          validation: (Rule) => Rule.min(120).max(1200),
+          hidden: ({ parent }) =>
+            !parent?.image ||
+            (parent?.imageSize && parent.imageSize !== "custom"),
+        },
+        {
           name: "profileCard",
-          title: "Profile card",
+          title: "Profile card (used only if no Hero image is uploaded)",
           type: "object",
           fields: [
             { name: "statusLabel", title: "Status label", type: "string" },
