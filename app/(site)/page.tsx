@@ -92,24 +92,38 @@ export default async function HomePage() {
               </div>
             </div>
 
-            <div className="hidden lg:flex flex-col gap-4">
-              <div className="rounded-2xl overflow-hidden">
-                <Image
-                  src={imageSrc(hero.heroImagePrimary, { width: 1024 })}
-                  alt={imageAlt(hero.heroImagePrimary, hero.heroImagePrimaryAlt)}
-                  width={1024} height={640}
-                  className="w-full object-cover"
+            {hero.heroComposite ? (
+              <div className="hidden lg:flex items-center justify-center">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src={imageSrc(hero.heroComposite, { width: 1600 })}
+                  alt={imageAlt(hero.heroComposite, hero.heroCompositeAlt)}
+                  className="w-full h-auto"
+                  style={{
+                    maxWidth: `${hero.heroCompositeMaxWidthPx ?? 720}px`,
+                  }}
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden">
-                <Image
-                  src={imageSrc(hero.heroImageSecondary, { width: 1024 })}
-                  alt={imageAlt(hero.heroImageSecondary, hero.heroImageSecondaryAlt)}
-                  width={1024} height={640}
-                  className="w-full object-cover"
-                />
+            ) : (
+              <div className="hidden lg:flex flex-col gap-4">
+                <div className="rounded-2xl overflow-hidden">
+                  <Image
+                    src={imageSrc(hero.heroImagePrimary, { width: 1024 })}
+                    alt={imageAlt(hero.heroImagePrimary, hero.heroImagePrimaryAlt)}
+                    width={1024} height={640}
+                    className="w-full object-cover"
+                  />
+                </div>
+                <div className="rounded-2xl overflow-hidden">
+                  <Image
+                    src={imageSrc(hero.heroImageSecondary, { width: 1024 })}
+                    alt={imageAlt(hero.heroImageSecondary, hero.heroImageSecondaryAlt)}
+                    width={1024} height={640}
+                    className="w-full object-cover"
+                  />
+                </div>
               </div>
-            </div>
+            )}
 
           </div>
         </div>

@@ -42,6 +42,9 @@ export type HomePageData = {
     heroImagePrimaryAlt: string;
     heroImageSecondary: string;
     heroImageSecondaryAlt: string;
+    heroComposite?: string;
+    heroCompositeAlt?: string;
+    heroCompositeMaxWidthPx?: number;
   };
   physicalAI: {
     sectionNumber: string;

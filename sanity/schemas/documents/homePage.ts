@@ -43,8 +43,26 @@ export const homePage = defineType({
           of: [{ type: "featureBadge" }],
         },
         {
+          name: "heroComposite",
+          title: "Hero image — single composite (optional, replaces the two stacked images below)",
+          type: "image",
+          description:
+            "Upload a single composite image to replace the two-image stack on the right side of the hero. Leave empty to keep the two stacked images.",
+          options: { hotspot: true },
+          fields: [{ name: "alt", title: "Alt text", type: "string" }],
+        },
+        {
+          name: "heroCompositeMaxWidthPx",
+          title: "Hero composite — max width (px)",
+          type: "number",
+          description:
+            "Maximum width of the composite image. Default 720. Try 600 (smaller) or 900 (larger).",
+          validation: (Rule) => Rule.min(280).max(1400),
+          hidden: ({ parent }) => !parent?.heroComposite,
+        },
+        {
           name: "heroImagePrimary",
-          title: "Hero image — top",
+          title: "Hero image — top (used only if composite above is empty)",
           type: "image",
           options: { hotspot: true },
           fields: [
@@ -53,7 +71,7 @@ export const homePage = defineType({
         },
         {
           name: "heroImageSecondary",
-          title: "Hero image — bottom",
+          title: "Hero image — bottom (used only if composite above is empty)",
           type: "image",
           options: { hotspot: true },
           fields: [
