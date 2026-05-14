@@ -24,6 +24,28 @@ export const siteSettings = defineType({
       of: [{ type: "navLink" }],
     }),
     defineField({
+      name: "ctaButton",
+      title: "Header CTA button",
+      type: "navLink",
+    }),
+    defineField({
+      name: "footerTagline",
+      title: "Footer tagline",
+      type: "text",
+      rows: 2,
+    }),
+    defineField({
+      name: "footerLocations",
+      title: "Footer locations line",
+      type: "string",
+      description: "e.g. 'United States (HQ) · Europe'",
+    }),
+    defineField({
+      name: "footerSlogan",
+      title: "Footer slogan (right side)",
+      type: "string",
+    }),
+    defineField({
       name: "footerColumns",
       title: "Footer columns",
       type: "array",
