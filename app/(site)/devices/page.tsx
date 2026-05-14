@@ -432,18 +432,22 @@ export default async function DevicesPage() {
             </div>
 
             {/*
-              When imageSize === "matchTextHeight" we use self-stretch + h-full
-              to override the parent grid's items-center, so the image column
-              fills the same vertical span as the text column (badge → buttons),
-              and the <img> uses object-contain to fit without distortion.
+              When imageSize === "matchTextHeight":
+              - self-stretch overrides the parent grid's items-center so this
+                cell fills the row's full height (= text column height).
+              - The <img> is absolutely positioned to fill the cell, which
+                breaks the circular sizing dependency you'd otherwise hit
+                with align-items: center + h-full (browser falls back to
+                the image's natural height in that case and nothing stretches).
+              - object-contain preserves aspect ratio inside the box.
             */}
             {hero.imageSize === "matchTextHeight" ? (
-              <div className="self-stretch flex items-stretch justify-center w-full h-full">
+              <div className="self-stretch relative w-full">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={imageSrc(hero.image)}
                   alt={imageAlt(hero.image, hero.imageAlt)}
-                  className="w-full h-full rounded-2xl"
+                  className="absolute inset-0 w-full h-full rounded-2xl"
                   style={{ objectFit: "contain" }}
                 />
               </div>
