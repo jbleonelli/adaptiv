@@ -7,6 +7,7 @@ import { presentationTool } from "sanity/presentation";
 
 import { apiVersion, dataset, projectId, studioUrl } from "./sanity/env";
 import { schemaTypes } from "./sanity/schemas";
+import { resolve } from "./sanity/presentation/resolve";
 
 export default defineConfig({
   name: "adaptiv-cms",
@@ -17,6 +18,7 @@ export default defineConfig({
   schema: { types: schemaTypes },
   plugins: [
     presentationTool({
+      resolve,
       previewUrl: {
         origin: typeof location === "undefined" ? undefined : location.origin,
         previewMode: { enable: "/api/draft-mode/enable" },

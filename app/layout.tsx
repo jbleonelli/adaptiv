@@ -1,8 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import { draftMode } from "next/headers";
+import { VisualEditing } from "next-sanity/visual-editing";
 import "./globals.css";
 import { Navbar } from "@/components/layout/Navbar";
 import { Footer } from "@/components/layout/Footer";
+import { DisableDraftModeBanner } from "@/components/preview/DisableDraftModeBanner";
 import { sanityFetch } from "@/sanity/client";
 import { groq } from "next-sanity";
 import {
@@ -61,7 +64,11 @@ async function getSiteSettings(): Promise<SiteSettingsData> {
 }
 
 export default async function RootLayout({ children }: { children: React.ReactNode }) {
-  const settings = await getSiteSettings();
+  const [settings, draft] = await Promise.all([
+    getSiteSettings(),
+    draftMode(),
+  ]);
+  const isDraft = draft.isEnabled;
   return (
     <html lang="en">
       <body className={`${inter.variable} font-sans antialiased bg-white text-[#111827]`}>
@@ -80,6 +87,12 @@ export default async function RootLayout({ children }: { children: React.ReactNo
           socialLinks={settings.socialLinks}
           footerColumns={settings.footerColumns}
         />
+        {isDraft && (
+          <>
+            <VisualEditing />
+            <DisableDraftModeBanner />
+          </>
+        )}
       </body>
     </html>
   );
