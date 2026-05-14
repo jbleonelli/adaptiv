@@ -65,12 +65,8 @@ export default async function MerlinPage() {
               (() => {
                 const fit = hero.imageObjectFit ?? "cover";
                 const objectPosition = imageObjectPosition(hero.image);
-                // Layered pink glow under the Merlin hero image:
-                //   • Soft outer halo (low opacity, large blur) for ambient bloom
-                //   • Tight inner shadow (higher opacity, smaller blur) for definition
-                // Both use the brand pink #FF00B2.
-                const pinkShadow =
-                  "0 18px 60px rgba(255, 0, 178, 0.32), 0 4px 18px rgba(255, 0, 178, 0.22)";
+                // Soft outer pink halo under the Merlin hero image (brand #FF00B2).
+                const pinkShadow = "0 18px 60px rgba(255, 0, 178, 0.32)";
                 if (hero.imageSize === "matchTextHeight") {
                   return (
                     <div className="hidden lg:block self-stretch relative w-full">
