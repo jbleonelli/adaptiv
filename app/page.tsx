@@ -2,86 +2,51 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import { Reveal } from "@/components/ui/Reveal";
+import { sanityFetch } from "@/sanity/client";
+import { homePageQuery } from "@/sanity/queries";
+import { homeDefaults, type HomePageData } from "@/lib/content/home";
+import { imageSrc, imageAlt } from "@/sanity/imageSrc";
 
-export const metadata: Metadata = {
-  title: "The AI That Shows Up",
-  description: "Merlin sees everything in your building. It understands every situation. It acts — automatically.",
+const TRAIT_GLYPHS: Record<string, string> = {
+  "circle-filled": "◉",
+  diamond: "◈",
+  target: "◎",
+  "square-diamond": "◆",
+  radar: "◉",
+  neural: "◈",
+  cycle: "◎",
+  shield: "◆",
+  action: "▶",
 };
 
-const traits = [
-  { num: "01", title: "Sees Everything", body: "VOC levels spike in a restroom after lunch rush. CO₂ rises in an unbooked conference room. A soap dispenser drops below 20%. Merlin sees it all — across every space, every floor, simultaneously.", color: "#FF00B2", icon: "◉" },
-  { num: "02", title: "Understands Context", body: "CO₂ rising + noise detected + no booking = an unscheduled meeting. Merlin combines signals from 7 embedded sensors to understand what's actually happening — not just what a single reading says.", color: "#a855f7", icon: "◈" },
-  { num: "03", title: "Always Working", body: "Monitoring every space continuously. No sick days. No missed alerts. When your facility manager checks 30 rooms per shift, Merlin is watching all of them at once — 24/7, 365.", color: "#14b8a6", icon: "◎" },
-  { num: "04", title: "Acts Without Being Asked", body: "Reroutes the nearest cleaning team when VOC readings spike. Releases ghost bookings when rooms sit empty. Reorders supplies before anyone notices they're low. Your operations run themselves.", color: "#3b82f6", icon: "◆" },
-];
+async function getData(): Promise<HomePageData> {
+  const remote = await sanityFetch<HomePageData>({
+    query: homePageQuery,
+    tags: ["homePage"],
+  });
+  return remote ?? homeDefaults;
+}
 
-const useCases = [
-  {
-    num: "// 01", title: "Cleaning & Hygiene", color: "#FF00B2",
-    body: "Merlin replaces fixed cleaning schedules with demand-driven dispatch. VOC spikes, foot traffic, and dispenser levels tell Merlin exactly which spaces need attention — and when.",
-    points: ["40–55% labor cost reduction", "NFC badge-verified cleaning events", "Predictive supply management — zero stockouts", "15–20% occupant satisfaction improvement"],
-  },
-  {
-    num: "// 02", title: "Space Management", color: "#14b8a6",
-    body: "CO₂ and noise sensors detect actual occupancy — no cameras needed. Merlin identifies ghost bookings within minutes and releases unused rooms automatically.",
-    points: ["30–40% of booked rooms go unused — Merlin recovers them", "Hot desk & study room real-time availability", "$150K–$250K saved in avoided lease expansion", "Data-driven real estate decisions"],
-  },
-  {
-    num: "// 03", title: "Energy & Sustainability", color: "#22c55e",
-    body: "CO₂, lux, and temperature sensors in every display create a distributed energy monitoring grid. Merlin spots waste invisible to traditional BMS — room by room.",
-    points: ["10–30% energy savings on lighting & HVAC", "Empty rooms with lights on? Merlin flags it", "ESG target contribution", "Room-level monitoring, not just mechanical-level"],
-  },
-  {
-    num: "// 04", title: "Asset Tracking", color: "#6366f1",
-    body: "Smart Displays act as BLE gateways, tracking wheelchairs, defibrillators, cleaning carts, and equipment across your entire building — no dedicated tracking infrastructure needed.",
-    points: ["78% reduction in wheelchair search time (CDG Airport)", "BLE beacon triangulation across display network", "30–60 min saved per staff member per shift", "Works across hospitals, airports, campuses"],
-  },
-  {
-    num: "// 05", title: "Smart Parking", color: "#3b82f6",
-    body: "Radar and Smart Displays bring Physical AI to every parking level. CO/CO₂ monitoring for safety, vehicle impact detection, and AI-driven maintenance routing based on actual conditions.",
-    points: ["~1.5 FTE savings per 2,000-space structure", "$5K+ avoided per emergency repair", "Predictive EV charger maintenance", "Privacy-safe radar — no cameras needed"],
-  },
-  {
-    num: "// 06", title: "Security & Safety", color: "#f59e0b",
-    body: "Every Smart Display doubles as a security monitoring point. Lux sensors detect lighting failures, accelerometers catch vandalism, noise sensors flag after-hours disturbances.",
-    points: ["NFC-verified security patrol logs", "Real-time missed checkpoint alerts", "Tamper and vandalism detection", "Insurance liability reduction with continuous compliance records"],
-  },
-  {
-    num: "// 07", title: "Airports & Aviation", color: "#FF00B2",
-    body: "Flight-correlated pre-positioning of cleaning teams. PRM wheelchair tracking. Terminal-wide air quality monitoring. Merlin runs airport operations at the pace of the flight schedule.",
-    points: ["50–70% reduction in SLA breaches", "$50K–$200K saved in annual contract penalties", "Deployed at Paris Charles de Gaulle", "Flight-schedule-aware team dispatch"],
-  },
-  {
-    num: "// 08", title: "Healthcare", color: "#14b8a6",
-    body: "Verified sanitization logs with environmental sensor confirmation create audit-ready compliance trails. Merlin helps prevent hospital-acquired infections through continuous monitoring.",
-    points: ["80% reduction in documentation time", "$140K–$450K saved per prevented infection", "Sensor-validated compliance evidence", "Automatic hygiene standard enforcement"],
-  },
-  {
-    num: "// 09", title: "Machine Vision", color: "#a855f7",
-    body: "Already deployed in nuclear power plants for equipment monitoring under the strictest regulatory standards. Visual AI extends to restrooms, food courts, and lobbies for commercial use.",
-    points: ["Anonymized occupancy counting", "Dirty table and overcrowding detection", "Multi-signal fusion with VOC, CO₂, and NFC", "Edge processing for real-time anomaly detection"],
-  },
-];
+export async function generateMetadata(): Promise<Metadata> {
+  const data = await getData();
+  return {
+    title: data.metaTitle,
+    description: data.metaDescription,
+  };
+}
 
-const differences = [
-  "Designs and manufactures its own hardware — 12,000 devices deployed across 6,000+ buildings worldwide",
-  "Smart Display: sensor, gateway, and interface in one device — 7 embedded sensors, NFC verification, BLE gateway, LTE radio",
-  "LTE built-in — data never touches a landlord's network. End-to-end encryption from sensor to cloud",
-  "Zero-infrastructure deployment — a technician mounts it, powers it on, done. No IT coordination needed",
-  "SOC 2 Type 2 certified — the entire vertically integrated stack, from manufactured hardware through AI processing",
-];
+export default async function HomePage() {
+  const data = await getData();
+  const { hero, physicalAI, deviceShowcase, merlinIntro, traits, useCasesIntro, useCases, differencesSection, differences, finalCta } = data;
 
-export default function HomePage() {
   return (
     <div>
 
       {/* ── HERO ─────────────────────────────────────────────────────────── */}
       <section className="relative bg-white overflow-hidden py-16">
-        {/* Dot-matrix background */}
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.04) 1px, transparent 1px)", backgroundSize: "28px 28px" }}
           aria-hidden="true" />
-        {/* Pink ambient glow */}
         <div className="absolute top-0 right-1/4 w-[600px] h-[400px] pointer-events-none opacity-10"
           style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 65%)" }}
           aria-hidden="true" />
@@ -89,63 +54,57 @@ export default function HomePage() {
         <div className="container-site relative z-10">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
 
-            {/* Left — text */}
             <div>
               <div className="flex items-center gap-3 mb-8">
                 <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-[rgba(255,0,178,0.2)] bg-[rgba(255,0,178,0.06)] text-xs font-semibold text-[#FF00B2] uppercase tracking-wider">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF00B2] animate-pulse" />
-                  Physical AI · Built by Adaptiv
+                  {hero.eyebrow}
                 </span>
               </div>
               <h1 className="text-display text-[#111827] mb-6 leading-none">
-                Meet Your<br />New<br />
-                <span className="gradient-text-pink">Co-Worker.</span>
+                {hero.titleLines.map((line, i) => (
+                  <span key={i}>{line}<br /></span>
+                ))}
+                <span className="gradient-text-pink">{hero.gradientWord}</span>
               </h1>
               <p className="text-body-lg text-[#4b5563] mb-3 leading-relaxed max-w-sm">
-                Merlin monitors every space continuously — air quality, occupancy, supply levels, cleaning history — and acts before anyone notices something needs doing.
+                {hero.bodyPrimary}
               </p>
               <p className="text-sm text-[#64748b] mb-10">
-                Deployed across 6,000+ buildings. Powered by the Adaptiv Smart Display — designed, manufactured, and connected by us.
+                {hero.bodySecondary}
               </p>
               <div className="flex flex-wrap items-center gap-4 mb-12">
-                <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white text-base font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] hover:shadow-[0_8px_40px_rgba(255,0,178,0.5)] transition-all active:scale-[0.98]">
-                  Meet Merlin
+                <Link href={hero.primaryCta.href} className="px-8 py-4 rounded-full bg-[#FF00B2] text-white text-base font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] hover:shadow-[0_8px_40px_rgba(255,0,178,0.5)] transition-all active:scale-[0.98]">
+                  {hero.primaryCta.label}
                 </Link>
-                <Link href="/devices" className="px-8 py-4 rounded-full border border-[rgba(0,0,0,0.1)] text-[#4b5563] text-base font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.12)] hover:bg-[rgba(0,0,0,0.03)] transition-all">
-                  See the Smart Display →
+                <Link href={hero.secondaryCta.href} className="px-8 py-4 rounded-full border border-[rgba(0,0,0,0.1)] text-[#4b5563] text-base font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.12)] hover:bg-[rgba(0,0,0,0.03)] transition-all">
+                  {hero.secondaryCta.label}
                 </Link>
               </div>
 
-              {/* Live stat chips */}
               <div className="flex flex-wrap gap-3">
-                {[
-                  { label: "LTE built-in",         dot: "#FF00B2" },
-                  { label: "3-year battery",        dot: "#14b8a6" },
-                  { label: "Built in US & Europe",  dot: "#3b82f6" },
-                  { label: "64-sensor gateway",     dot: "#a855f7" },
-                ].map((chip) => (
+                {hero.chips.map((chip) => (
                   <span key={chip.label} className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-full bg-[rgba(0,0,0,0.03)] border border-[rgba(0,0,0,0.06)] text-xs text-[#64748b] font-medium">
-                    <span className="w-1 h-1 rounded-full" style={{ background: chip.dot, opacity: 0.8 }} />
+                    <span className="w-1 h-1 rounded-full" style={{ background: chip.dotColor, opacity: 0.8 }} />
                     {chip.label}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Right — two stacked screenshots */}
             <div className="hidden lg:flex flex-col gap-4">
               <div className="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.07)]">
                 <Image
-                  src="/merlin-dashboard-hero.png"
-                  alt="Merlin dashboard — occupancy, battery level and building analytics"
+                  src={imageSrc(hero.heroImagePrimary, { width: 1024 })}
+                  alt={imageAlt(hero.heroImagePrimary, hero.heroImagePrimaryAlt)}
                   width={1024} height={640}
                   className="w-full object-cover"
                 />
               </div>
               <div className="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.07)]">
                 <Image
-                  src="/merlin-chat-hero.png"
-                  alt="Merlin AI co-worker — conversation and building intelligence interface"
+                  src={imageSrc(hero.heroImageSecondary, { width: 1024 })}
+                  alt={imageAlt(hero.heroImageSecondary, hero.heroImageSecondaryAlt)}
                   width={1024} height={640}
                   className="w-full object-cover"
                 />
@@ -164,16 +123,20 @@ export default function HomePage() {
           <Reveal>
             <div className="max-w-2xl">
               <div>
-                <span className="section-number block mb-4">// 01</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">A New Kind of AI</p>
-                <h2 className="text-h1 text-[#111827] mb-6">AI That Lives in<br />the Real World</h2>
+                <span className="section-number block mb-4">{physicalAI.sectionNumber}</span>
+                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">{physicalAI.eyebrow}</p>
+                <h2 className="text-h1 text-[#111827] mb-6">
+                  {physicalAI.titleLines.map((line, i) => (
+                    <span key={i}>{line}{i < physicalAI.titleLines.length - 1 && <br />}</span>
+                  ))}
+                </h2>
                 <p className="text-body-lg text-[#4b5563] mb-8 leading-relaxed">
-                  Buildings are where 90% of humanity spends 90% of its time — complex physical systems with thousands of variables managed by intuition and fixed schedules. Merlin is the intelligence layer that perceives every space, reasons about what needs to happen next, and acts — dispatching teams, reordering supplies, generating compliance evidence.
+                  {physicalAI.body}
                 </p>
                 <div className="flex items-center gap-4 px-6 py-4 rounded-xl border border-[rgba(255,0,178,0.2)] bg-[rgba(255,0,178,0.05)] w-fit">
                   <span className="text-[#64748b] text-sm">Physical AI</span>
                   <span className="text-[#FF00B2] font-bold">=</span>
-                  <span className="text-[#1f2937] text-sm font-medium">Smart Displays · Sensors · Cameras · Merlin AI</span>
+                  <span className="text-[#1f2937] text-sm font-medium">{physicalAI.definition}</span>
                 </div>
               </div>
             </div>
@@ -192,13 +155,13 @@ export default function HomePage() {
           <Reveal>
             <div className="flex items-start gap-12 flex-col lg:flex-row mb-12">
               <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">// 02</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">The Face of Merlin</p>
+                <span className="section-number block mb-4">{deviceShowcase.sectionNumber}</span>
+                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{deviceShowcase.eyebrow}</p>
               </div>
               <div>
-                <h2 className="text-h2 text-[#111827] mb-4">The Adaptiv Smart Display</h2>
+                <h2 className="text-h2 text-[#111827] mb-4">{deviceShowcase.title}</h2>
                 <p className="text-body text-[#4b5563] max-w-xl leading-relaxed">
-                  Simultaneously a sensor (7 embedded sensors + NFC verification), a gateway (aggregating up to 64 BLE sensors over LTE), and an interface (showing occupants real-time air quality, cleaning status, and enabling one-tap service requests). No other device in the built environment plays all three roles at once.
+                  {deviceShowcase.body}
                 </p>
               </div>
             </div>
@@ -208,19 +171,14 @@ export default function HomePage() {
             <div className="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.06)]">
               <div>
                 <Image
-                  src="/smart-displays-hero.png"
-                  alt="Adaptiv Smart Display Classic, 26 and 26 Ultra"
+                  src={imageSrc(deviceShowcase.image, { width: 1920 })}
+                  alt={imageAlt(deviceShowcase.image, deviceShowcase.imageAlt)}
                   width={1920} height={1080}
                   className="w-full object-cover"
                 />
               </div>
               <div className="relative z-30 grid grid-cols-2 md:grid-cols-4 gap-px bg-[rgba(0,0,0,0.03)] border-t border-[rgba(0,0,0,0.06)] -mt-1">
-                {[
-                  { label: "Air Quality",            value: "CO₂ · VOC · PM2.5" },
-                  { label: "Temperature & Humidity", value: "±0.1°C · ±1% RH" },
-                  { label: "Luminosity",             value: "0–100,000 lux" },
-                  { label: "Cleaning log",           value: "Auto-dispatched by Merlin" },
-                ].map((s) => (
+                {deviceShowcase.sensorStrip.map((s) => (
                   <div key={s.label} className="bg-white px-6 py-4">
                     <p className="text-xs text-[#64748b] mb-1">{s.label}</p>
                     <p className="text-sm font-medium text-[#374151]">{s.value}</p>
@@ -304,17 +262,17 @@ export default function HomePage() {
           <Reveal>
             <div className="max-w-2xl">
               <div>
-                <span className="section-number block mb-4">// 03</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">Your Most Dedicated Team Member</p>
+                <span className="section-number block mb-4">{merlinIntro.sectionNumber}</span>
+                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">{merlinIntro.eyebrow}</p>
                 <h2 className="text-h1 text-[#111827] mb-6">
-                  Merlin Is Not Software.<br />
-                  <span className="gradient-text-pink">Merlin Is a Co-Worker.</span>
+                  {merlinIntro.titleMain}<br />
+                  <span className="gradient-text-pink">{merlinIntro.titleHighlight}</span>
                 </h2>
                 <p className="text-body text-[#64748b] leading-relaxed mb-8">
-                  A facility manager checks thirty spaces in a shift. Merlin monitors every space simultaneously — cleaning history, air quality, foot traffic, supply levels, satisfaction trends — and acts in real time. When VOC readings spike, it reroutes the nearest team. When a room sits empty despite a booking, it releases it. The co-worker who handles the thousand small decisions that keep a building running.
+                  {merlinIntro.body}
                 </p>
-                <Link href="/merlin" className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF00B2] hover:text-[#ff6fe8] transition-colors">
-                  Explore Merlin →
+                <Link href={merlinIntro.ctaHref} className="inline-flex items-center gap-2 text-sm font-semibold text-[#FF00B2] hover:text-[#ff6fe8] transition-colors">
+                  {merlinIntro.ctaLabel}
                 </Link>
               </div>
             </div>
@@ -329,11 +287,11 @@ export default function HomePage() {
         <div className="container-site">
           <div className="border-t border-[rgba(0,0,0,0.06)]">
             {traits.map((t, i) => (
-              <Reveal key={t.num} delay={i * 0.06}>
+              <Reveal key={t.title} delay={i * 0.06}>
                 <div className="flex items-start gap-8 py-8 border-b border-[rgba(0,0,0,0.05)] hover:bg-[rgba(0,0,0,0.02)] transition-colors px-2 -mx-2 rounded-xl group">
                   <div className="flex items-center gap-4 w-20 flex-shrink-0">
-                    <span className="text-xl mt-0.5" style={{ color: t.color, opacity: 0.6 }}>{t.icon}</span>
-                    <span className="text-xs font-bold tabular-nums" style={{ color: t.color, opacity: 0.35 }}>{t.num}</span>
+                    <span className="text-xl mt-0.5" style={{ color: t.color, opacity: 0.6 }}>{TRAIT_GLYPHS[t.icon] ?? "◉"}</span>
+                    {t.num && <span className="text-xs font-bold tabular-nums" style={{ color: t.color, opacity: 0.35 }}>{t.num}</span>}
                   </div>
                   <div className="flex-1 grid md:grid-cols-2 gap-4">
                     <h3 className="text-h4 text-[#111827]">{t.title}</h3>
@@ -356,17 +314,21 @@ export default function HomePage() {
           <Reveal>
             <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
               <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">// 04</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">Use Cases</p>
+                <span className="section-number block mb-4">{useCasesIntro.sectionNumber}</span>
+                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{useCasesIntro.eyebrow}</p>
               </div>
               <div>
-                <h2 className="text-h1 text-[#111827]">One Co-Worker.<br />Every Space.<br />Every Operation.</h2>
+                <h2 className="text-h1 text-[#111827]">
+                  {useCasesIntro.titleLines.map((line, i) => (
+                    <span key={i}>{line}{i < useCasesIntro.titleLines.length - 1 && <br />}</span>
+                  ))}
+                </h2>
               </div>
             </div>
           </Reveal>
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
             {useCases.map((uc, i) => (
-              <Reveal key={uc.num} delay={i * 0.05}>
+              <Reveal key={uc.title} delay={i * 0.05}>
                 <div className="p-7 rounded-2xl border border-[rgba(0,0,0,0.06)] bg-[#f8f9fb] hover:border-[rgba(0,0,0,0.08)] transition-all h-full flex flex-col gap-4">
                   <div className="flex items-center gap-3">
                     <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: uc.color }} />
@@ -397,14 +359,18 @@ export default function HomePage() {
           <Reveal>
             <div className="max-w-2xl">
               <div>
-                <span className="section-number block mb-4">// 05</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">The Adaptiv Difference</p>
-                <h2 className="text-h2 text-[#111827] mb-10">The Only End-to-End<br />Physical AI Platform</h2>
+                <span className="section-number block mb-4">{differencesSection.sectionNumber}</span>
+                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">{differencesSection.eyebrow}</p>
+                <h2 className="text-h2 text-[#111827] mb-10">
+                  {differencesSection.titleLines.map((line, i) => (
+                    <span key={i}>{line}{i < differencesSection.titleLines.length - 1 && <br />}</span>
+                  ))}
+                </h2>
                 <ul className="flex flex-col border-t border-[rgba(0,0,0,0.07)]">
                   {differences.map((d, i) => (
                     <li key={i} className="flex items-start gap-4 py-4 border-b border-[rgba(0,0,0,0.05)]">
                       <span className="text-[#FF00B2] text-xs font-bold tabular-nums mt-0.5 opacity-60">{String(i + 1).padStart(2, "0")}</span>
-                      <span className="text-[#4b5563] text-sm leading-relaxed">{d}</span>
+                      <span className="text-[#4b5563] text-sm leading-relaxed">{d.text}</span>
                     </li>
                   ))}
                 </ul>
@@ -418,28 +384,30 @@ export default function HomePage() {
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
       <section className="py-40 bg-white relative overflow-hidden">
-        {/* Dot matrix */}
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
           aria-hidden="true" />
-        {/* Pink glow */}
         <div className="absolute inset-0 pointer-events-none">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] opacity-10"
             style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 65%)" }} />
         </div>
         <div className="container-site relative z-10 text-center max-w-2xl mx-auto">
           <Reveal>
-            <p className="section-number mb-6 uppercase tracking-[0.2em]">Get started</p>
-            <h2 className="text-h1 text-[#111827] mb-5">Merlin is ready<br />to join your team.</h2>
+            <p className="section-number mb-6 uppercase tracking-[0.2em]">{finalCta.eyebrow}</p>
+            <h2 className="text-h1 text-[#111827] mb-5">
+              {finalCta.titleLines.map((line, i) => (
+                <span key={i}>{line}{i < finalCta.titleLines.length - 1 && <br />}</span>
+              ))}
+            </h2>
             <p className="text-body text-[#64748b] mb-12 leading-relaxed">
-              40–55% labor cost reduction. 15–20% satisfaction improvement. $200K–$1M+ annual savings per facility. See what Physical AI delivers — from the first Smart Display to the first automated action.
+              {finalCta.body}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <Link href="/merlin" className="px-8 py-4 rounded-full bg-[#FF00B2] text-white font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] transition-all">
-                Meet Merlin
+              <Link href={finalCta.primaryCta.href} className="px-8 py-4 rounded-full bg-[#FF00B2] text-white font-semibold hover:bg-[#e000a0] shadow-[0_4px_32px_rgba(255,0,178,0.35)] transition-all">
+                {finalCta.primaryCta.label}
               </Link>
-              <Link href="/devices" className="px-8 py-4 rounded-full border border-[rgba(0,0,0,0.1)] text-[#4b5563] font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.12)] transition-all">
-                See the Smart Display →
+              <Link href={finalCta.secondaryCta.href} className="px-8 py-4 rounded-full border border-[rgba(0,0,0,0.1)] text-[#4b5563] font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.12)] transition-all">
+                {finalCta.secondaryCta.label}
               </Link>
             </div>
           </Reveal>
