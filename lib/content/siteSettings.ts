@@ -4,6 +4,9 @@ export type FooterColumn = { title: string; links: NavLink[] };
 export type SiteSettingsData = {
   brandName: string;
   tagline: string;
+  logo?: unknown;
+  logoAlt?: string;
+  logoHeightPx?: number;
   navItems: NavLink[];
   ctaButton: NavLink;
   footerColumns: FooterColumn[];

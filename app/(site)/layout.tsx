@@ -36,6 +36,9 @@ export default async function SiteLayout({
         brandName={settings.brandName}
         navItems={settings.navItems}
         ctaButton={settings.ctaButton}
+        logo={settings.logo}
+        logoAlt={settings.logoAlt}
+        logoHeightPx={settings.logoHeightPx}
       />
       <main className="pt-[72px]">{children}</main>
       <Footer

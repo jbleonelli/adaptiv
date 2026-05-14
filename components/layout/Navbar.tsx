@@ -4,15 +4,26 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { TritonLogo } from "@/components/ui/TritonLogo";
+import { imageSrc } from "@/sanity/imageSrc";
 import type { NavLink } from "@/lib/content/siteSettings";
 
 type Props = {
   brandName: string;
   navItems: NavLink[];
   ctaButton: NavLink;
+  logo?: unknown;
+  logoAlt?: string;
+  logoHeightPx?: number;
 };
 
-export function Navbar({ brandName, navItems, ctaButton }: Props) {
+export function Navbar({
+  brandName,
+  navItems,
+  ctaButton,
+  logo,
+  logoAlt,
+  logoHeightPx,
+}: Props) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
@@ -35,8 +46,18 @@ export function Navbar({ brandName, navItems, ctaButton }: Props) {
         scrolled && "shadow-[0_1px_12px_rgba(0,0,0,0.06)]"
       )}>
         <nav className="container-site flex items-center justify-between h-16 md:h-[72px]">
-          <Link href="/" className="text-[#111827]" aria-label={brandName}>
-            <TritonLogo size={28} dark />
+          <Link href="/" className="text-[#111827] flex items-center" aria-label={brandName}>
+            {logo ? (
+              // eslint-disable-next-line @next/next/no-img-element
+              <img
+                src={imageSrc(logo as never)}
+                alt={logoAlt || brandName}
+                style={{ height: `${logoHeightPx ?? 28}px`, width: "auto" }}
+                className="block"
+              />
+            ) : (
+              <TritonLogo size={28} dark />
+            )}
           </Link>
 
           <div className="hidden md:flex items-center gap-0.5">
