@@ -93,7 +93,7 @@ export default async function HomePage() {
             </div>
 
             <div className="hidden lg:flex flex-col gap-4">
-              <div className="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.07)]">
+              <div className="rounded-2xl overflow-hidden">
                 <Image
                   src={imageSrc(hero.heroImagePrimary, { width: 1024 })}
                   alt={imageAlt(hero.heroImagePrimary, hero.heroImagePrimaryAlt)}
@@ -101,7 +101,7 @@ export default async function HomePage() {
                   className="w-full object-cover"
                 />
               </div>
-              <div className="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.07)]">
+              <div className="rounded-2xl overflow-hidden">
                 <Image
                   src={imageSrc(hero.heroImageSecondary, { width: 1024 })}
                   alt={imageAlt(hero.heroImageSecondary, hero.heroImageSecondaryAlt)}
@@ -168,7 +168,7 @@ export default async function HomePage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.06)]">
+            <div className="rounded-2xl overflow-hidden">
               <div>
                 <Image
                   src={imageSrc(deviceShowcase.image, { width: 1920 })}

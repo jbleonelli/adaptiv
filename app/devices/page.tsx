@@ -506,7 +506,7 @@ export default async function DevicesPage() {
             </Reveal>
 
             <Reveal direction="right" delay={0.1}>
-              <div className="relative rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.07)]"
+              <div className="relative rounded-2xl overflow-hidden"
                 style={{ boxShadow: "0 0 80px rgba(255,0,178,0.08), 0 2px 40px rgba(0,0,0,0.08)" }}>
                 <div className="absolute -top-16 -right-16 w-72 h-72 opacity-10 blur-3xl pointer-events-none"
                   style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 70%)" }} aria-hidden="true" />
@@ -537,7 +537,7 @@ export default async function DevicesPage() {
           <div className="grid lg:grid-cols-2 gap-20 items-start">
             <Reveal direction="left">
               <div className="sticky top-28">
-                <div className="relative rounded-2xl overflow-hidden border border-[rgba(0,0,0,0.1)]">
+                <div className="relative rounded-2xl overflow-hidden">
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 opacity-15 blur-3xl pointer-events-none"
                     style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 70%)" }} aria-hidden="true" />
                   <Image
