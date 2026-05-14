@@ -20,6 +20,7 @@
     "react": "19.2.3",
     "react-dom": "19.2.3",
     "sanity": "^5.25.1",
+    "sanity-plugin-media": "^4.3.0",
     "tailwind-merge": "^3.5.0"
   },
   "devDependencies": {

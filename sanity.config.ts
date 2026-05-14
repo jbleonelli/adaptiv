@@ -4,6 +4,7 @@ import { defineConfig } from "sanity";
 import { structureTool } from "sanity/structure";
 import { visionTool } from "@sanity/vision";
 import { presentationTool } from "sanity/presentation";
+import { media, mediaAssetSource } from "sanity-plugin-media";
 
 import { apiVersion, dataset, projectId, studioUrl } from "./sanity/env";
 import { schemaTypes } from "./sanity/schemas";
@@ -84,5 +85,22 @@ export default defineConfig({
           ]),
     }),
     visionTool({ defaultApiVersion: apiVersion }),
+    media(),
   ],
+  // Wire the Media plugin into every image/file picker so the editor can
+  // browse the centralized asset library instead of only uploading per-field.
+  form: {
+    file: {
+      assetSources: (previousAssetSources) => [
+        mediaAssetSource,
+        ...previousAssetSources,
+      ],
+    },
+    image: {
+      assetSources: (previousAssetSources) => [
+        mediaAssetSource,
+        ...previousAssetSources,
+      ],
+    },
+  },
 });
