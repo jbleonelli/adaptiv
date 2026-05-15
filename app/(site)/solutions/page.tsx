@@ -170,9 +170,9 @@ export default async function SolutionsPage() {
   const { hero, personasSection, solutions, finalCta } = data;
 
   return (
-    <div className="pt-16">
+    <div>
       {/* Hero */}
-      <section className="relative py-28 bg-white overflow-hidden">
+      <section className="relative pt-32 pb-28 bg-white overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-15" aria-hidden="true" />
         <div className="absolute inset-0" style={{ background: "radial-gradient(ellipse 60% 50% at 50% 0%, rgba(26,111,212,0.15) 0%, transparent 60%)" }} aria-hidden="true" />
         <div className="container-site relative z-10 text-center max-w-3xl mx-auto">

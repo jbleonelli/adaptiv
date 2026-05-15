@@ -26,9 +26,9 @@ export default async function ContactPage() {
   const { hero, conversationPaths, form, successPanel, contactDetails } = data;
 
   return (
-    <div className="pt-16">
+    <div>
       {/* Hero */}
-      <section className="relative py-24 bg-white overflow-hidden">
+      <section className="relative pt-28 pb-24 bg-white overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-15" aria-hidden="true" />
         <div className="container-site relative z-10 max-w-2xl">
           <h1 className="text-display text-[#111827] mb-5">{hero.title}</h1>

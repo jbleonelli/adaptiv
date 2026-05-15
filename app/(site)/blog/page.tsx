@@ -97,9 +97,9 @@ const badgeColors: Record<string, "blue" | "green" | "pink" | "white" | "dim"> =
 
 export default function BlogPage() {
   return (
-    <div className="pt-16">
+    <div>
       {/* Hero */}
-      <section className="relative py-24 bg-[#07090f] overflow-hidden">
+      <section className="relative pt-28 pb-24 bg-[#07090f] overflow-hidden">
         <div className="absolute inset-0 grid-pattern opacity-15" aria-hidden="true" />
         <div className="container-site relative z-10 text-center max-w-2xl mx-auto">
           <h1 className="text-h1 text-white mb-4">Physical AI Insights</h1>
@@ -108,7 +108,7 @@ export default function BlogPage() {
       </section>
 
       {/* Filters */}
-      <section className="py-6 bg-[#0d1120] sticky top-16 z-30">
+      <section className="py-6 bg-[#0d1120] sticky top-0 z-30">
         <div className="container-site">
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
             {categories.map((cat) => (
