@@ -239,18 +239,27 @@ async function publishToProduction() {
     }
 
     // Strip Sanity-managed system fields so we can re-stamp them on the
-    // published document. We keep _type so createOrReplace knows the schema.
-    const { _id, _rev, _createdAt, _updatedAt, ...rest } = draft as Record<
+    // published document. We re-supply _type explicitly from the registry
+    // entry below to keep TypeScript happy under strict mode.
+    const { _id, _rev, _createdAt, _updatedAt, _type, ...rest } = draft as Record<
       string,
       unknown
-    > & { _id: string; _rev?: string; _createdAt?: string; _updatedAt?: string };
+    > & {
+      _id: string;
+      _type: string;
+      _rev?: string;
+      _createdAt?: string;
+      _updatedAt?: string;
+    };
     void _id;
     void _rev;
     void _createdAt;
     void _updatedAt;
+    void _type;
 
     tx.createOrReplace({
       _id: doc.id,
+      _type: doc.type,
       ...(rest as Record<string, unknown>),
     });
     tx.delete(draftId);

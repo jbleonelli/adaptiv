@@ -6,6 +6,6 @@
     "noEmit": true,
     "jsx": "react-jsx"
   },
-  "include": ["scripts/**/*.ts", "lib/**/*.ts", "sanity/**/*.ts"],
+  "include": ["scripts/**/*.ts", "lib/**/*.ts"],
   "exclude": ["node_modules", ".next"]
 }
