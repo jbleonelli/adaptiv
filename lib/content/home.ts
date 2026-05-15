@@ -108,13 +108,13 @@ export const homeDefaults: HomePageData = {
     bodyPrimary:
       "Merlin monitors every space continuously — air quality, occupancy, supply levels, cleaning history — and acts before anyone notices something needs doing.",
     bodySecondary:
-      "Deployed across 6,000+ buildings. Powered by the Adaptiv Smart Display — designed, manufactured, and connected by us.",
+      "Deployed at 5,000+ sites across France and Europe since 2019. Powered by the Adaptiv Smart Display — designed, manufactured, and connected by us.",
     primaryCta: { label: "Meet Merlin", href: "/merlin" },
     secondaryCta: { label: "See the Smart Display →", href: "/devices" },
     chips: [
       { label: "LTE built-in", dotColor: "#FF00B2" },
       { label: "3-year battery", dotColor: "#14b8a6" },
-      { label: "Built in US & Europe", dotColor: "#3b82f6" },
+      { label: "Made in France & Europe", dotColor: "#3b82f6" },
       { label: "64-sensor gateway", dotColor: "#a855f7" },
     ],
     heroImagePrimary: "/merlin-dashboard-hero.png",
@@ -306,7 +306,7 @@ export const homeDefaults: HomePageData = {
   },
   differences: [
     {
-      text: "Designs and manufactures its own hardware — 12,000 devices deployed across 6,000+ buildings worldwide",
+      text: "Designs and manufactures its own hardware in France & Europe — 5,000+ sites deployed since 2019, with partners including ABM ($8B+ global FM company) and Samsic",
     },
     {
       text: "Smart Display: sensor, gateway, and interface in one device — 7 embedded sensors, NFC verification, BLE gateway, LTE radio",

@@ -41,11 +41,11 @@ export type SolutionsPageData = {
 
 export const solutionsDefaults: SolutionsPageData = {
   metaTitle: "Solutions — Merlin Works in Every Building. Every Operation.",
-  metaDescription: "From smart offices and building management to industrial manufacturing and energy infrastructure — Merlin brings Physical AI to the real world.",
+  metaDescription: "Deployed at 5,000+ sites across France and Europe. From smart offices and building management to manufacturing, airports, healthcare, and nuclear power plants — Merlin brings Physical AI to the real world.",
   hero: {
     eyebrow: "SOLUTIONS",
     titleLines: ["Merlin Works in Every Building.", "Every Operation."],
-    body: "From smart offices and building management to industrial manufacturing and energy infrastructure — Merlin and Adaptiv devices bring Physical AI to the real-world environments where it matters most.",
+    body: "Deployed at 5,000+ sites in France and across Europe — from smart offices and building management to industrial manufacturing, airports, healthcare, and nuclear power plants. Merlin and Adaptiv devices bring Physical AI to the real-world environments where it matters most.",
   },
   personasSection: {
     eyebrow: "Built for the People Who Run Real Operations",

@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start -p 3000",
     "lint": "eslint",
-    "seed:sanity": "tsx --tsconfig tsconfig.scripts.json scripts/seed-sanity.ts"
+    "seed:sanity": "tsx --tsconfig tsconfig.scripts.json scripts/seed-sanity.ts",
+    "refactor:drafts": "tsx --tsconfig tsconfig.scripts.json scripts/refactor-content-to-drafts.ts"
   },
   "dependencies": {
     "@sanity/client": "^7.22.0",
