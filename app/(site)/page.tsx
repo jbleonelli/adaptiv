@@ -95,6 +95,15 @@ export default async function HomePage() {
 
             {hero.heroComposite ? (
               <div className="hidden lg:flex items-center justify-center">
+                {/*
+                  Soft-fade the top AND left edges of the composite image into
+                  the pink halo behind it. The PNG has white padding on its
+                  top and left, which would otherwise punch a white block out
+                  of the gradient. Two linear gradients composited with
+                  `intersect` produce an L-shaped fade along the two edges
+                  closest to the halo. (`-webkit-mask-composite: source-in`
+                  is the Safari fallback for `intersect`.)
+                */}
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src={imageSrc(hero.heroComposite, { width: 1600 })}
@@ -102,6 +111,12 @@ export default async function HomePage() {
                   className="cms-image w-full h-auto"
                   style={{
                     maxWidth: `${hero.heroCompositeMaxWidthPx ?? 720}px`,
+                    maskImage:
+                      "linear-gradient(to bottom, transparent 0%, black 7%, black 100%), linear-gradient(to right, transparent 0%, black 7%, black 100%)",
+                    maskComposite: "intersect",
+                    WebkitMaskImage:
+                      "linear-gradient(to bottom, transparent 0%, black 7%, black 100%), linear-gradient(to right, transparent 0%, black 7%, black 100%)",
+                    WebkitMaskComposite: "source-in",
                     ...imageOverrideStyleFromStrings(
                       hero.heroCompositeRoundedOverride,
                       hero.heroCompositeShadowOverride
