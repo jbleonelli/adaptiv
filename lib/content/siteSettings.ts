@@ -1,12 +1,24 @@
 export type NavLink = { label: string; href: string };
 export type FooterColumn = { title: string; links: NavLink[] };
 
+export type SideLogoSettings = {
+  enabled?: boolean;
+  wordmark?: unknown;
+  gradientStart?: string;
+  gradientEnd?: string;
+  thicknessPx?: number;
+  insetLeftPx?: number;
+  insetBottomPx?: number;
+  mobileHeightPx?: number;
+};
+
 export type SiteSettingsData = {
   brandName: string;
   tagline: string;
   logo?: unknown;
   logoAlt?: string;
   logoHeightPx?: number;
+  sideLogo?: SideLogoSettings;
   navItems: NavLink[];
   ctaButton: NavLink;
   footerColumns: FooterColumn[];

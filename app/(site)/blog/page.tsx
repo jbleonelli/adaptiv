@@ -108,7 +108,7 @@ export default function BlogPage() {
       </section>
 
       {/* Filters */}
-      <section className="py-6 bg-[#0d1120] border-b border-[rgba(255,255,255,0.07)] sticky top-16 z-30">
+      <section className="py-6 bg-[#0d1120] sticky top-16 z-30">
         <div className="container-site">
           <div className="flex gap-2 overflow-x-auto pb-1 scrollbar-none">
             {categories.map((cat) => (
@@ -148,7 +148,7 @@ export default function BlogPage() {
       </section>
 
       {/* Newsletter */}
-      <section className="py-16 bg-[#07090f] border-t border-[rgba(255,255,255,0.07)]">
+      <section className="py-16 bg-[#07090f]">
         <div className="container-site max-w-xl text-center">
           <Reveal>
             <h2 className="text-h3 text-white mb-3">Stay ahead of Physical AI.</h2>

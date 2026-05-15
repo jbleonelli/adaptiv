@@ -126,7 +126,7 @@ export default async function PlatformPage() {
       </section>
 
       {/* What is Physical AI */}
-      <section className="py-20 bg-white border-b border-[rgba(0,0,0,0.06)]">
+      <section className="py-20 bg-white">
         <div className="container-site max-w-3xl">
           <Reveal>
             <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">{whatIsSection.eyebrow}</p>
@@ -271,7 +271,7 @@ export default async function PlatformPage() {
       <div className="section-divider" />
 
       {/* Full-Stack Ownership */}
-      <section className="py-20 bg-white border-y border-[rgba(0,0,0,0.06)]">
+      <section className="py-20 bg-white">
         <div className="container-site">
           <Reveal>
             <h2 className="text-h2 text-[#111827] text-center mb-12">{ownershipSection.title}</h2>

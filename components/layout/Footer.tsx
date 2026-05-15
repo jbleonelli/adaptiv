@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { TritonLogo } from "@/components/ui/TritonLogo";
 import type { FooterColumn, NavLink } from "@/lib/content/siteSettings";
 
 type Props = {
@@ -26,9 +25,6 @@ export function Footer({
       <div className="container-site py-16">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12">
           <div className="lg:col-span-2 flex flex-col gap-6">
-            <Link href="/" className="text-[#111827] opacity-80 hover:opacity-100 transition-opacity" aria-label={brandName}>
-              <TritonLogo size={26} dark />
-            </Link>
             <p className="text-sm text-[#4b5563] leading-relaxed max-w-xs">{footerTagline}</p>
             <p className="text-xs text-[#64748b] tracking-widest uppercase">{footerLocations}</p>
             <div className="flex items-center gap-3">

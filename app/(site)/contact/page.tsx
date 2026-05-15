@@ -37,7 +37,7 @@ export default async function ContactPage() {
       </section>
 
       {/* Conversation paths */}
-      <section className="py-16 bg-white border-b border-[rgba(0,0,0,0.07)]">
+      <section className="py-16 bg-white">
         <div className="container-site">
           <Reveal>
             <div className="grid md:grid-cols-3 gap-5">
@@ -61,7 +61,7 @@ export default async function ContactPage() {
       </section>
 
       {/* Contact details */}
-      <section className="py-12 bg-white border-t border-[rgba(0,0,0,0.07)]">
+      <section className="py-12 bg-white">
         <div className="container-site">
           <Reveal>
             <div className="flex flex-wrap gap-8 justify-center text-sm text-[#4b5563]">

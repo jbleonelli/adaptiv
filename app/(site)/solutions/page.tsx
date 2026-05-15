@@ -237,7 +237,7 @@ export default async function SolutionsPage() {
       {/* Solutions */}
       <div className="bg-[#f8f9fb]">
         {solutions.map((sol, idx) => (
-          <section key={sol.id} id={sol.id} className={`py-24 ${idx % 2 === 1 ? "bg-white" : "bg-[#f8f9fb]"} border-t border-[rgba(0,0,0,0.07)]`}>
+          <section key={sol.id} id={sol.id} className={`py-24 ${idx % 2 === 1 ? "bg-white" : "bg-[#f8f9fb]"}`}>
             <div className="container-site">
               <Reveal>
                 <div className="flex items-center gap-4 mb-6">

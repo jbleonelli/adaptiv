@@ -1,6 +1,7 @@
 import { draftMode } from "next/headers";
 import { VisualEditing } from "next-sanity/visual-editing";
-import { Navbar } from "@/components/layout/Navbar";
+import { SideLogo } from "@/components/layout/SideLogo";
+import { FloatingMenu } from "@/components/layout/FloatingMenu";
 import { Footer } from "@/components/layout/Footer";
 import { DisableDraftModeBanner } from "@/components/preview/DisableDraftModeBanner";
 import { sanityFetch } from "@/sanity/client";
@@ -30,17 +31,31 @@ export default async function SiteLayout({
     draftMode(),
   ]);
   const isDraft = draft.isEnabled;
+  const sideLogo = settings.sideLogo;
+  const showSideLogo = sideLogo?.enabled !== false;
   return (
     <>
-      <Navbar
-        brandName={settings.brandName}
+      {showSideLogo && (
+        <SideLogo
+          brandName={settings.brandName}
+          wordmarkImage={sideLogo?.wordmark}
+          gradientStart={sideLogo?.gradientStart}
+          gradientEnd={sideLogo?.gradientEnd}
+          thickness={
+            sideLogo?.thicknessPx
+              ? `${sideLogo.thicknessPx}px`
+              : undefined
+          }
+          insetLeftPx={sideLogo?.insetLeftPx}
+          insetBottomPx={sideLogo?.insetBottomPx}
+          mobileHeightPx={sideLogo?.mobileHeightPx}
+        />
+      )}
+      <FloatingMenu
         navItems={settings.navItems}
         ctaButton={settings.ctaButton}
-        logo={settings.logo}
-        logoAlt={settings.logoAlt}
-        logoHeightPx={settings.logoHeightPx}
       />
-      <main className="pt-[72px]">{children}</main>
+      <main>{children}</main>
       <Footer
         brandName={settings.brandName}
         footerTagline={settings.footerTagline}

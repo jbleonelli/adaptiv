@@ -161,7 +161,7 @@ export default async function MerlinPage() {
       </section>
 
       {/* 2.2 Co-Worker Framing */}
-      <section className="py-24 bg-white border-b border-[rgba(0,0,0,0.07)]">
+      <section className="py-24 bg-white">
         <div className="container-site">
           <Reveal>
             <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">{coWorker.eyebrow}</p>
@@ -349,7 +349,7 @@ export default async function MerlinPage() {
       </section>
 
       {/* 2.6 Deployment */}
-      <section className="py-20 bg-white border-y border-[rgba(0,0,0,0.07)]">
+      <section className="py-20 bg-white">
         <div className="container-site">
           <Reveal>
             <h2 className="text-h2 text-[#111827] text-center mb-10">{deploymentHeading}</h2>

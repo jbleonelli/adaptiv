@@ -90,7 +90,7 @@ export default async function ROIPage() {
       </section>
 
       {/* HEADLINE NUMBERS */}
-      <section className="py-16 bg-[#f8f9fb] border-y border-[rgba(0,0,0,0.07)]">
+      <section className="py-16 bg-[#f8f9fb]">
         <div className="container-site">
           <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
             {headlineStats.map((item) => (

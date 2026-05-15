@@ -33,6 +33,79 @@ export const siteSettings = defineType({
       hidden: ({ parent }) => !parent?.logo,
     }),
     defineField({
+      name: "sideLogo",
+      title: "Side logo (vertical wordmark)",
+      type: "object",
+      description:
+        "Controls the rotated ADAPTIV wordmark fixed to the bottom-left on desktop and the small horizontal version in the top-left on mobile.",
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        defineField({
+          name: "enabled",
+          title: "Show side logo",
+          type: "boolean",
+          initialValue: true,
+          description: "Turn off to hide the side logo entirely (both desktop and mobile).",
+        }),
+        defineField({
+          name: "wordmark",
+          title: "Wordmark image (optional override)",
+          type: "image",
+          description:
+            "Upload a transparent PNG of your wordmark to override the default. The image is used as a CSS mask, so the visible color comes from the gradient below — only the SHAPE of the image matters.",
+          options: { hotspot: false },
+        }),
+        defineField({
+          name: "gradientStart",
+          title: "Gradient start color (bottom / leading edge)",
+          type: "string",
+          description:
+            "Hex or any CSS color. Bottom of the rotated wordmark on desktop / left edge on mobile. Default: #FF00B2",
+          initialValue: "#FF00B2",
+        }),
+        defineField({
+          name: "gradientEnd",
+          title: "Gradient end color (top / trailing edge)",
+          type: "string",
+          description:
+            "Hex or any CSS color. Top of the rotated wordmark on desktop / right edge on mobile. Default: #A6228A",
+          initialValue: "#A6228A",
+        }),
+        defineField({
+          name: "thicknessPx",
+          title: "Desktop thickness (px)",
+          type: "number",
+          description:
+            "Visual width of the rotated wordmark on desktop. Length auto-scales to preserve aspect ratio. Default 96.",
+          validation: (Rule) => Rule.min(40).max(240),
+          initialValue: 96,
+        }),
+        defineField({
+          name: "insetLeftPx",
+          title: "Desktop — distance from left edge (px)",
+          type: "number",
+          validation: (Rule) => Rule.min(0).max(200),
+          initialValue: 28,
+        }),
+        defineField({
+          name: "insetBottomPx",
+          title: "Desktop — distance from bottom edge (px)",
+          type: "number",
+          validation: (Rule) => Rule.min(0).max(300),
+          initialValue: 80,
+        }),
+        defineField({
+          name: "mobileHeightPx",
+          title: "Mobile wordmark — height (px)",
+          type: "number",
+          description:
+            "Height of the small horizontal wordmark in the top-left on mobile. Default 22.",
+          validation: (Rule) => Rule.min(12).max(64),
+          initialValue: 22,
+        }),
+      ],
+    }),
+    defineField({
       name: "navItems",
       title: "Top navigation",
       type: "array",
