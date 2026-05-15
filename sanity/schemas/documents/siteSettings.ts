@@ -106,6 +106,62 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
+      name: "imageDefaults",
+      title: "Default image styling (site-wide)",
+      type: "object",
+      description:
+        "Defaults applied to every CMS-uploaded image across the site. Individual images can override these.",
+      options: { collapsible: true, collapsed: true },
+      fields: [
+        defineField({
+          name: "rounded",
+          title: "Rounded corners by default",
+          type: "boolean",
+          initialValue: true,
+        }),
+        defineField({
+          name: "radiusPx",
+          title: "Corner radius (px)",
+          type: "number",
+          description:
+            "Used when rounded corners are enabled (globally or per-image). Default 16.",
+          initialValue: 16,
+          validation: (Rule) => Rule.min(0).max(64),
+        }),
+        defineField({
+          name: "shadow",
+          title: "Drop shadow by default",
+          type: "boolean",
+          initialValue: false,
+        }),
+        defineField({
+          name: "shadowIntensity",
+          title: "Shadow intensity",
+          type: "string",
+          description:
+            "Used when drop shadow is enabled (globally or per-image). Default Medium.",
+          options: {
+            list: [
+              { title: "Soft", value: "soft" },
+              { title: "Medium", value: "medium" },
+              { title: "Strong", value: "strong" },
+            ],
+            layout: "radio",
+          },
+          initialValue: "medium",
+        }),
+        defineField({
+          name: "maxWidthPx",
+          title: "Default maximum width (px)",
+          type: "number",
+          description:
+            "Caps how large any CMS image can render in its container. Prevents oversized photos. Leave empty for no cap. Default 720.",
+          validation: (Rule) => Rule.min(120).max(2400),
+          initialValue: 720,
+        }),
+      ],
+    }),
+    defineField({
       name: "navItems",
       title: "Top navigation",
       type: "array",

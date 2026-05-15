@@ -10,6 +10,7 @@ import { sanityFetch } from "@/sanity/client";
 import { groq } from "next-sanity";
 import { merlinDefaults, type MerlinPageData } from "@/lib/content/merlin";
 import { imageSrc, imageAlt, imageObjectPosition } from "@/sanity/imageSrc";
+import { imageOverrideStyleFromStrings } from "@/lib/image-style";
 
 const merlinPageQuery = groq`*[_type == "merlinPage"][0]`;
 
@@ -65,8 +66,10 @@ export default async function MerlinPage() {
               (() => {
                 const fit = hero.imageObjectFit ?? "cover";
                 const objectPosition = imageObjectPosition(hero.image);
-                // Soft outer pink halo under the Merlin hero image (brand #FF00B2).
-                const pinkShadow = "0 18px 60px rgba(255, 0, 178, 0.32)";
+                const overrideStyle = imageOverrideStyleFromStrings(
+                  hero.imageRoundedOverride,
+                  hero.imageShadowOverride
+                );
                 if (hero.imageSize === "matchTextHeight") {
                   return (
                     <div className="hidden lg:block self-stretch relative w-full">
@@ -74,11 +77,11 @@ export default async function MerlinPage() {
                       <img
                         src={imageSrc(hero.image)}
                         alt={imageAlt(hero.image, hero.imageAlt)}
-                        className="absolute inset-0 w-full h-full rounded-3xl"
+                        className="cms-image absolute inset-0 w-full h-full"
                         style={{
                           objectFit: fit,
                           objectPosition,
-                          boxShadow: pinkShadow,
+                          ...overrideStyle,
                         }}
                       />
                     </div>
@@ -90,15 +93,15 @@ export default async function MerlinPage() {
                     <img
                       src={imageSrc(hero.image)}
                       alt={imageAlt(hero.image, hero.imageAlt)}
-                      className="w-full rounded-3xl"
+                      className="cms-image w-full"
                       style={{
                         objectFit: fit,
                         objectPosition,
-                        boxShadow: pinkShadow,
                         maxWidth: `${hero.imageMaxWidthPx ?? 384}px`,
                         maxHeight: hero.imageMaxHeightPx
                           ? `${hero.imageMaxHeightPx}px`
                           : undefined,
+                        ...overrideStyle,
                       }}
                     />
                   </div>

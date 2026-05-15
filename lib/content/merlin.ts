@@ -24,6 +24,8 @@ export type MerlinPageData = {
     imageObjectFit?: "cover" | "contain";
     imageMaxWidthPx?: number;
     imageMaxHeightPx?: number;
+    imageRoundedOverride?: "inherit" | "on" | "off";
+    imageShadowOverride?: "inherit" | "on" | "off";
     profileCard: {
       statusLabel: string;
       version: string;

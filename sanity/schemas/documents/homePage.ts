@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { imageStyleFields } from "../fields/imageStyleFields";
 
 export const homePage = defineType({
   name: "homePage",
@@ -78,6 +79,7 @@ export const homePage = defineType({
             { name: "alt", title: "Alt text", type: "string" },
           ],
         },
+        ...imageStyleFields("heroComposite"),
       ],
     }),
 
@@ -122,6 +124,7 @@ export const homePage = defineType({
           options: { hotspot: true },
           fields: [{ name: "alt", title: "Alt text", type: "string" }],
         },
+        ...imageStyleFields(),
         {
           name: "sensorStrip",
           title: "Sensor info strip",

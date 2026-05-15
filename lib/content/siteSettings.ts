@@ -12,6 +12,16 @@ export type SideLogoSettings = {
   mobileHeightPx?: number;
 };
 
+export type ImageShadowIntensity = "soft" | "medium" | "strong";
+
+export type ImageDefaultsSettings = {
+  rounded?: boolean;
+  radiusPx?: number;
+  shadow?: boolean;
+  shadowIntensity?: ImageShadowIntensity;
+  maxWidthPx?: number;
+};
+
 export type SiteSettingsData = {
   brandName: string;
   tagline: string;
@@ -19,6 +29,7 @@ export type SiteSettingsData = {
   logoAlt?: string;
   logoHeightPx?: number;
   sideLogo?: SideLogoSettings;
+  imageDefaults?: ImageDefaultsSettings;
   navItems: NavLink[];
   ctaButton: NavLink;
   footerColumns: FooterColumn[];

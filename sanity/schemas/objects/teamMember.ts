@@ -1,4 +1,5 @@
 import { defineType, defineField } from "sanity";
+import { imageStyleFields } from "../fields/imageStyleFields";
 
 export const teamMember = defineType({
   name: "teamMember",
@@ -14,6 +15,7 @@ export const teamMember = defineType({
       type: "image",
       options: { hotspot: true },
     }),
+    ...imageStyleFields("photo"),
   ],
   preview: { select: { title: "name", subtitle: "role", media: "photo" } },
 });

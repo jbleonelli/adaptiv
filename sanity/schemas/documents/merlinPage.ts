@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { COLOR_PRESETS } from "../objects/trait";
+import { imageStyleFields } from "../fields/imageStyleFields";
 
 export const merlinPage = defineType({
   name: "merlinPage",
@@ -83,6 +84,7 @@ export const merlinPage = defineType({
             !parent?.image ||
             (parent?.imageSize && parent.imageSize !== "custom"),
         },
+        ...imageStyleFields(),
         {
           name: "profileCard",
           title: "Profile card (used only if no Hero image is uploaded)",
@@ -97,6 +99,7 @@ export const merlinPage = defineType({
               options: { hotspot: true },
               fields: [{ name: "alt", title: "Alt text", type: "string" }],
             },
+            ...imageStyleFields("photo"),
             { name: "name", title: "Name", type: "string" },
             { name: "role", title: "Role", type: "string" },
             { name: "description", title: "Description", type: "text", rows: 3 },

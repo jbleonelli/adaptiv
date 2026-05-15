@@ -6,6 +6,7 @@ import { sanityFetch } from "@/sanity/client";
 import { homePageQuery } from "@/sanity/queries";
 import { homeDefaults, type HomePageData } from "@/lib/content/home";
 import { imageSrc, imageAlt } from "@/sanity/imageSrc";
+import { imageOverrideStyleFromStrings } from "@/lib/image-style";
 
 const TRAIT_GLYPHS: Record<string, string> = {
   "circle-filled": "◉",
@@ -98,15 +99,19 @@ export default async function HomePage() {
                 <img
                   src={imageSrc(hero.heroComposite, { width: 1600 })}
                   alt={imageAlt(hero.heroComposite, hero.heroCompositeAlt)}
-                  className="w-full h-auto"
+                  className="cms-image w-full h-auto"
                   style={{
                     maxWidth: `${hero.heroCompositeMaxWidthPx ?? 720}px`,
+                    ...imageOverrideStyleFromStrings(
+                      hero.heroCompositeRoundedOverride,
+                      hero.heroCompositeShadowOverride
+                    ),
                   }}
                 />
               </div>
             ) : (
               <div className="hidden lg:flex flex-col gap-4">
-                <div className="rounded-2xl overflow-hidden">
+                <div className="cms-image overflow-hidden">
                   <Image
                     src={imageSrc(hero.heroImagePrimary, { width: 1024 })}
                     alt={imageAlt(hero.heroImagePrimary, hero.heroImagePrimaryAlt)}
@@ -114,7 +119,7 @@ export default async function HomePage() {
                     className="w-full object-cover"
                   />
                 </div>
-                <div className="rounded-2xl overflow-hidden">
+                <div className="cms-image overflow-hidden">
                   <Image
                     src={imageSrc(hero.heroImageSecondary, { width: 1024 })}
                     alt={imageAlt(hero.heroImageSecondary, hero.heroImageSecondaryAlt)}
@@ -182,7 +187,13 @@ export default async function HomePage() {
           </Reveal>
 
           <Reveal delay={0.1}>
-            <div className="rounded-2xl overflow-hidden">
+            <div
+              className="cms-image overflow-hidden"
+              style={imageOverrideStyleFromStrings(
+                deviceShowcase.imageRoundedOverride,
+                deviceShowcase.imageShadowOverride
+              )}
+            >
               <div>
                 <Image
                   src={imageSrc(deviceShowcase.image, { width: 1920 })}

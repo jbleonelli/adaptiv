@@ -16,6 +16,8 @@ export type DevicesPageData = {
     imageObjectFit?: "cover" | "contain";
     imageMaxWidthPx?: number;
     imageMaxHeightPx?: number;
+    imageRoundedOverride?: "inherit" | "on" | "off";
+    imageShadowOverride?: "inherit" | "on" | "off";
   };
   advantagesSection: {
     sectionNumber: string;
@@ -39,6 +41,8 @@ export type DevicesPageData = {
     titleLines: string[];
     image: string;
     imageAlt: string;
+    imageRoundedOverride?: "inherit" | "on" | "off";
+    imageShadowOverride?: "inherit" | "on" | "off";
     specs: SensorSpec[];
     primaryCta: CtaButton;
     secondaryCta: CtaButton;
@@ -61,6 +65,8 @@ export type DevicesPageData = {
       badgeColor: string;
       image: string;
       imageAlt: string;
+      imageRoundedOverride?: "inherit" | "on" | "off";
+      imageShadowOverride?: "inherit" | "on" | "off";
       highlights: string[];
     }[];
   };

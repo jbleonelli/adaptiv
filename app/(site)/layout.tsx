@@ -10,6 +10,7 @@ import {
   siteSettingsDefaults,
   type SiteSettingsData,
 } from "@/lib/content/siteSettings";
+import { imageDefaultsToCssVars } from "@/lib/image-style";
 
 const siteSettingsQuery = groq`*[_type == "siteSettings"][0]`;
 
@@ -33,8 +34,9 @@ export default async function SiteLayout({
   const isDraft = draft.isEnabled;
   const sideLogo = settings.sideLogo;
   const showSideLogo = sideLogo?.enabled !== false;
+  const imageVars = imageDefaultsToCssVars(settings.imageDefaults);
   return (
-    <>
+    <div style={imageVars}>
       {showSideLogo && (
         <SideLogo
           brandName={settings.brandName}
@@ -71,6 +73,6 @@ export default async function SiteLayout({
           <DisableDraftModeBanner />
         </>
       )}
-    </>
+    </div>
   );
 }

@@ -8,6 +8,7 @@ import { sanityFetch } from "@/sanity/client";
 import { groq } from "next-sanity";
 import { devicesDefaults, type DevicesPageData } from "@/lib/content/devices";
 import { imageSrc, imageAlt, imageObjectPosition } from "@/sanity/imageSrc";
+import { imageOverrideStyleFromStrings } from "@/lib/image-style";
 
 const devicesPageQuery = groq`*[_type == "devicesPage"][0]`;
 
@@ -446,6 +447,10 @@ export default async function DevicesPage() {
             {(() => {
               const fit = hero.imageObjectFit ?? "cover";
               const objectPosition = imageObjectPosition(hero.image);
+              const overrideStyle = imageOverrideStyleFromStrings(
+                hero.imageRoundedOverride,
+                hero.imageShadowOverride
+              );
               if (hero.imageSize === "matchTextHeight") {
                 return (
                   <div className="self-stretch relative w-full">
@@ -453,8 +458,8 @@ export default async function DevicesPage() {
                     <img
                       src={imageSrc(hero.image)}
                       alt={imageAlt(hero.image, hero.imageAlt)}
-                      className="absolute inset-0 w-full h-full rounded-2xl"
-                      style={{ objectFit: fit, objectPosition }}
+                      className="cms-image absolute inset-0 w-full h-full"
+                      style={{ objectFit: fit, objectPosition, ...overrideStyle }}
                     />
                   </div>
                 );
@@ -465,7 +470,7 @@ export default async function DevicesPage() {
                   <img
                     src={imageSrc(hero.image)}
                     alt={imageAlt(hero.image, hero.imageAlt)}
-                    className="w-full rounded-2xl"
+                    className="cms-image w-full"
                     style={{
                       objectFit: fit,
                       objectPosition,
@@ -473,6 +478,7 @@ export default async function DevicesPage() {
                       maxHeight: hero.imageMaxHeightPx
                         ? `${hero.imageMaxHeightPx}px`
                         : undefined,
+                      ...overrideStyle,
                     }}
                   />
                 </div>
@@ -575,7 +581,13 @@ export default async function DevicesPage() {
           <div className="grid lg:grid-cols-2 gap-20 items-start">
             <Reveal direction="left">
               <div className="sticky top-28">
-                <div className="relative rounded-2xl overflow-hidden">
+                <div
+                  className="cms-image relative overflow-hidden"
+                  style={imageOverrideStyleFromStrings(
+                    specsSection.imageRoundedOverride,
+                    specsSection.imageShadowOverride
+                  )}
+                >
                   <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-2/3 h-2/3 opacity-15 blur-3xl pointer-events-none"
                     style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 70%)" }} aria-hidden="true" />
                   <Image

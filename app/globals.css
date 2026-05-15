@@ -136,6 +136,34 @@ body {
   display: none;
 }
 
+/* ─── CMS image styling ──────────────────────────────────────────────────── */
+/* All CMS-uploaded images carry .cms-image. The CSS variables below are     */
+/* set on a layout wrapper from siteSettings.imageDefaults; per-image        */
+/* overrides are applied as inline styles by the renderer.                   */
+:root {
+  --cms-image-radius: 16px;
+  --cms-image-shadow: none;
+  --cms-image-max-width: 720px;
+}
+.cms-image {
+  border-radius: var(--cms-image-radius);
+  box-shadow: var(--cms-image-shadow);
+  max-width: 100%;
+  height: auto;
+}
+/* When .cms-image is the only child of its container, also cap its width   */
+/* so editors get a sensible default size out of the box.                    */
+.cms-image-constrained {
+  max-width: var(--cms-image-max-width);
+  width: 100%;
+}
+/* Wrapper that center-constrains a CMS image within its column.            */
+.cms-image-wrap {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
 /* ─── Noise texture overlay ─────────────────────────────────────────────── */
 .noise-overlay::after {
   content: '';

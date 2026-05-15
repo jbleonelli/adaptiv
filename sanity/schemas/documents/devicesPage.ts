@@ -1,5 +1,6 @@
 import { defineType, defineField } from "sanity";
 import { COLOR_PRESETS } from "../objects/trait";
+import { imageStyleFields } from "../fields/imageStyleFields";
 
 export const devicesPage = defineType({
   name: "devicesPage",
@@ -85,6 +86,7 @@ export const devicesPage = defineType({
           hidden: ({ parent }) =>
             parent?.imageSize && parent.imageSize !== "custom",
         },
+        ...imageStyleFields(),
       ],
     }),
 
@@ -139,6 +141,7 @@ export const devicesPage = defineType({
           options: { hotspot: true },
           fields: [{ name: "alt", title: "Alt text", type: "string" }],
         },
+        ...imageStyleFields(),
         {
           name: "specs",
           title: "Specs",
@@ -222,6 +225,7 @@ export const devicesPage = defineType({
                   options: { hotspot: true },
                   fields: [{ name: "alt", title: "Alt text", type: "string" }],
                 },
+                ...imageStyleFields(),
                 {
                   name: "highlights",
                   title: "Highlights",

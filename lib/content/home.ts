@@ -45,6 +45,8 @@ export type HomePageData = {
     heroComposite?: string;
     heroCompositeAlt?: string;
     heroCompositeMaxWidthPx?: number;
+    heroCompositeRoundedOverride?: "inherit" | "on" | "off";
+    heroCompositeShadowOverride?: "inherit" | "on" | "off";
   };
   physicalAI: {
     sectionNumber: string;
@@ -60,6 +62,8 @@ export type HomePageData = {
     body: string;
     image: string;
     imageAlt: string;
+    imageRoundedOverride?: "inherit" | "on" | "off";
+    imageShadowOverride?: "inherit" | "on" | "off";
     sensorStrip: SensorSpec[];
   };
   merlinIntro: {
