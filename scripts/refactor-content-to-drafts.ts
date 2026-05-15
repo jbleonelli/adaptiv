@@ -12,10 +12,9 @@
  * /public.
  *
  * Run:
- *   npm run refactor:drafts
- *
- * To roll back a single draft (re-syncs it back to the current published doc):
- *   npm run refactor:drafts -- --discard
+ *   npm run refactor:drafts              # write drafts (production untouched)
+ *   npm run refactor:drafts -- --publish # promote drafts to production
+ *   npm run refactor:drafts -- --discard # delete drafts (production untouched)
  */
 
 import { createClient, type SanityDocument } from "@sanity/client";
@@ -54,6 +53,7 @@ const client = createClient({
 });
 
 const wantDiscard = process.argv.includes("--discard");
+const wantPublish = process.argv.includes("--publish");
 
 // ── Image upload helpers (mirrored from seed-sanity.ts) ────────────────────
 const __filename = fileURLToPath(import.meta.url);
@@ -222,7 +222,60 @@ async function publishDrafts() {
   console.log(`To roll back drafts: npm run refactor:drafts -- --discard\n`);
 }
 
-(wantDiscard ? discardDrafts() : publishDrafts()).catch((err) => {
+async function publishToProduction() {
+  console.log(
+    `\n[refactor-drafts] PUBLISHING drafts to production in project=${projectId} dataset=${dataset}\n`
+  );
+
+  const tx = client.transaction();
+  let queued = 0;
+
+  for (const doc of documents) {
+    const draftId = `drafts.${doc.id}`;
+    const draft = await client.getDocument<SanityDocument>(draftId);
+    if (!draft) {
+      console.log(`  · no draft for ${doc.id}, skipping`);
+      continue;
+    }
+
+    // Strip Sanity-managed system fields so we can re-stamp them on the
+    // published document. We keep _type so createOrReplace knows the schema.
+    const { _id, _rev, _createdAt, _updatedAt, ...rest } = draft as Record<
+      string,
+      unknown
+    > & { _id: string; _rev?: string; _createdAt?: string; _updatedAt?: string };
+    void _id;
+    void _rev;
+    void _createdAt;
+    void _updatedAt;
+
+    tx.createOrReplace({
+      _id: doc.id,
+      ...(rest as Record<string, unknown>),
+    });
+    tx.delete(draftId);
+    queued++;
+    console.log(`  ✓ queued publish: drafts.${doc.id} → ${doc.id}`);
+  }
+
+  if (queued === 0) {
+    console.log("\n[refactor-drafts] nothing to publish.\n");
+    return;
+  }
+
+  await tx.commit();
+  console.log(`\n[refactor-drafts] published ${queued} document(s) to production.`);
+  console.log(`Production site: https://adaptiv1.vercel.app\n`);
+  console.log(`Note: a CDN revalidation may take up to ~60 seconds to surface.\n`);
+}
+
+const action = wantPublish
+  ? publishToProduction()
+  : wantDiscard
+    ? discardDrafts()
+    : publishDrafts();
+
+action.catch((err) => {
   console.error("\n[refactor-drafts] failed:", err);
   process.exit(1);
 });
