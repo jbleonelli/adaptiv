@@ -41,43 +41,39 @@ export type SiteSettingsData = {
 };
 
 export const siteSettingsDefaults: SiteSettingsData = {
-  brandName: "Adaptiv AI Technologies",
+  brandName: "Adaptiv Systems",
   tagline:
-    "The AI That Shows Up. Physical AI for buildings and industrial operations — powered by Merlin.",
+    "Physical AI for the buildings of the world. A fleet of specialized agents reasoning continuously over the real-world signals from your buildings.",
   navItems: [
     { label: "Merlin", href: "/merlin" },
     { label: "Devices", href: "/devices" },
     { label: "Platform", href: "/platform" },
     { label: "Solutions", href: "/solutions" },
-    { label: "ROI", href: "/roi" },
     { label: "Company", href: "/company" },
-    { label: "Blog", href: "/blog" },
   ],
-  ctaButton: { label: "Login", href: "/login" },
+  ctaButton: { label: "Talk to us", href: "/contact" },
   footerColumns: [
     {
       title: "Product",
       links: [
         { label: "Merlin", href: "/merlin" },
-        { label: "Devices", href: "/devices" },
+        { label: "Smart Display & Sensor Library", href: "/devices" },
         { label: "Platform", href: "/platform" },
       ],
     },
     {
-      title: "Solutions",
+      title: "Where it goes",
       links: [
-        { label: "Building Intelligence", href: "/solutions#building" },
-        { label: "Manufacturing", href: "/solutions#manufacturing" },
-        { label: "Energy & Utilities", href: "/solutions#energy" },
-        { label: "Logistics", href: "/solutions#logistics" },
+        { label: "Cold-chain logistics", href: "/solutions#cold-chain" },
+        { label: "Industrial & manufacturing", href: "/solutions#industrial" },
+        { label: "Data centers & critical infrastructure", href: "/solutions#data-centers" },
+        { label: "Hospitality & care", href: "/solutions#hospitality-care" },
       ],
     },
     {
       title: "Company",
       links: [
-        { label: "About", href: "/company" },
-        { label: "ROI", href: "/roi" },
-        { label: "Blog", href: "/blog" },
+        { label: "About Adaptiv Systems", href: "/company" },
         { label: "Contact", href: "/contact" },
       ],
     },
@@ -87,7 +83,7 @@ export const siteSettingsDefaults: SiteSettingsData = {
   ],
   contactEmail: "contact@adaptiv.company",
   footerTagline:
-    "The AI That Shows Up. Physical AI for buildings and industrial operations — powered by Merlin.",
-  footerLocations: "United States (HQ) · Europe",
-  footerSlogan: "The AI That Shows Up",
+    "Physical AI for the buildings of the world. The hardware came first. The data came from the hardware. The AI is built on the data.",
+  footerLocations: "United States · Europe",
+  footerSlogan: "Physical AI for the buildings of the world.",
 };

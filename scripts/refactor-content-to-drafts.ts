@@ -26,6 +26,10 @@ import { fileURLToPath } from "node:url";
 import { homeDefaults } from "../lib/content/home";
 import { companyDefaults } from "../lib/content/company";
 import { solutionsDefaults } from "../lib/content/solutions";
+import { merlinDefaults } from "../lib/content/merlin";
+import { devicesDefaults } from "../lib/content/devices";
+import { platformDefaults } from "../lib/content/platform";
+import { siteSettingsDefaults } from "../lib/content/siteSettings";
 
 loadEnv({ path: ".env.local" });
 loadEnv();
@@ -169,9 +173,13 @@ function withKeysAndIds<T>(value: T): T {
 type DraftDoc = { id: string; type: string; data: Record<string, unknown> };
 
 const documents: DraftDoc[] = [
+  { id: "siteSettings", type: "siteSettings", data: siteSettingsDefaults as unknown as Record<string, unknown> },
   { id: "homePage", type: "homePage", data: homeDefaults as unknown as Record<string, unknown> },
-  { id: "companyPage", type: "companyPage", data: companyDefaults as unknown as Record<string, unknown> },
+  { id: "merlinPage", type: "merlinPage", data: merlinDefaults as unknown as Record<string, unknown> },
+  { id: "devicesPage", type: "devicesPage", data: devicesDefaults as unknown as Record<string, unknown> },
+  { id: "platformPage", type: "platformPage", data: platformDefaults as unknown as Record<string, unknown> },
   { id: "solutionsPage", type: "solutionsPage", data: solutionsDefaults as unknown as Record<string, unknown> },
+  { id: "companyPage", type: "companyPage", data: companyDefaults as unknown as Record<string, unknown> },
 ];
 
 async function discardDrafts() {
