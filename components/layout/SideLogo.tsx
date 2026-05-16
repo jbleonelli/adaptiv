@@ -67,7 +67,7 @@ export function SideLogo({
   insetBottomPx = 80,
   mobileHeightPx = 22,
   gradientStart = "#FF00B2",
-  gradientEnd = "#A6228A",
+  gradientEnd = "#2C3680",
   wordmarkImage,
   wordmarkAspect,
 }: Props) {
