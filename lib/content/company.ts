@@ -141,6 +141,7 @@ export const companyDefaults: CompanyPageData = {
         color: "#14b8a6",
         isPrincipal: true,
       },
+      { name: "Jason Loup", role: "COO, North America", bio: "", initials: "JL", color: "#94a3b8" },
       { name: "Jean-Baptiste Lucas", role: "Business Development & Communications", bio: "", initials: "JBL", color: "#a855f7" },
     ],
   },
