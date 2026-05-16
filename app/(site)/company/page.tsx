@@ -132,7 +132,7 @@ const VALUE_ICONS: Record<string, (color: string) => ReactElement> = {
 
 export default async function CompanyPage() {
   const data = await getData();
-  const { hero, storySection, founderSection, teamSection, investorsSection } = data;
+  const { hero, storySection, teamSection, investorsSection } = data;
 
   return (
     <div>
@@ -182,63 +182,6 @@ export default async function CompanyPage() {
               </div>
             </Reveal>
           </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
-      {/* FOUNDER */}
-      <section className="py-24 bg-white">
-        <div className="container-site">
-          <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
-              <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">{founderSection.sectionLabel}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{founderSection.eyebrow}</p>
-              </div>
-              <div>
-                <h2 className="text-h2 text-[#111827]">
-                  {founderSection.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < founderSection.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="grid lg:grid-cols-3 gap-8 items-start mb-16">
-              <div className="lg:col-span-1">
-                <div className="relative">
-                  <div className="w-24 h-24 rounded-2xl flex items-center justify-center text-2xl font-bold text-white mb-6"
-                    style={{ background: "linear-gradient(135deg, #FF00B2 0%, #cc0090 100%)" }}>
-                    {founderSection.initials}
-                  </div>
-                  <h3 className="text-h3 text-[#111827] mb-1">{founderSection.name}</h3>
-                  <p className="text-sm font-semibold text-[#FF00B2] mb-4">{founderSection.role}</p>
-                  <div className="flex flex-col gap-2">
-                    {founderSection.chips.map((chip) => (
-                      <span key={chip} className="inline-flex items-center gap-2 text-xs text-[#64748b]">
-                        <span className="w-1 h-1 rounded-full bg-[#FF00B2] opacity-60" />
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-2 flex flex-col gap-5">
-                <p className="text-body-lg text-[#4b5563] leading-relaxed">{founderSection.intro}</p>
-                <p className="text-body text-[#64748b] leading-relaxed">{founderSection.body}</p>
-                <blockquote className="border-l-2 border-[#FF00B2] pl-5 py-1">
-                  <p className="text-body font-medium text-[#4b5563] italic leading-relaxed">
-                    &ldquo;{founderSection.quote}&rdquo;
-                  </p>
-                  <footer className="mt-2 text-sm text-[#64748b]">{founderSection.quoteAuthor}</footer>
-                </blockquote>
-              </div>
-            </div>
-          </Reveal>
         </div>
       </section>
 

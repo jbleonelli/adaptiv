@@ -38,7 +38,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function HomePage() {
   const data = await getData();
-  const { hero, physicalAI, merlinIntro, useCasesIntro, useCases, finalCta } = data;
+  const { hero, physicalAI, merlinIntro, finalCta } = data;
 
   return (
     <div>
@@ -202,52 +202,6 @@ export default async function HomePage() {
               </div>
             </div>
           </Reveal>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
-
-      {/* ── USE CASES ────────────────────────────────────────────────────── */}
-      <section className="py-32 bg-white">
-        <div className="container-site">
-          <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
-              <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">{useCasesIntro.sectionNumber}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{useCasesIntro.eyebrow}</p>
-              </div>
-              <div>
-                <h2 className="text-h1 text-[#111827]">
-                  {useCasesIntro.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < useCasesIntro.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-              </div>
-            </div>
-          </Reveal>
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {useCases.map((uc, i) => (
-              <Reveal key={uc.title} delay={i * 0.05}>
-                <div className="p-7 rounded-2xl border border-[rgba(0,0,0,0.06)] bg-[#f8f9fb] hover:border-[rgba(0,0,0,0.08)] transition-all h-full flex flex-col gap-4">
-                  <div className="flex items-center gap-3">
-                    <span className="w-2 h-2 rounded-full flex-shrink-0" style={{ background: uc.color }} />
-                    <span className="section-number">{uc.num}</span>
-                  </div>
-                  <h3 className="text-h4 text-[#111827]">{uc.title}</h3>
-                  <p className="text-sm text-[#64748b] leading-relaxed flex-1">{uc.body}</p>
-                  <ul className="flex flex-col gap-1.5 pt-3 border-t border-[rgba(0,0,0,0.05)]">
-                    {uc.points.map((p) => (
-                      <li key={p} className="flex items-start gap-2 text-xs text-[#64748b]">
-                        <span className="w-1 h-1 rounded-full flex-shrink-0 mt-1.5" style={{ background: uc.color }} />
-                        {p}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 

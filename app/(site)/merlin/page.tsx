@@ -3,7 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Button } from "@/components/ui/Button";
-import { Card } from "@/components/ui/Card";
 import { Reveal } from "@/components/ui/Reveal";
 import { TraitIcon } from "@/components/icons/TraitIcon";
 import { sanityFetch } from "@/sanity/client";
@@ -29,7 +28,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function MerlinPage() {
   const data = await getData();
-  const { hero, coWorker, fiveTraitsHeading, traits, differentTraitsHeading, differentTraits, deploymentHeading, deployments, impactSection, finalCta } = data;
+  const { hero, fiveTraitsHeading, traits, impactSection, finalCta } = data;
 
   return (
     <div>
@@ -163,51 +162,6 @@ export default async function MerlinPage() {
         </div>
       </section>
 
-      {/* 2.2 Co-Worker Framing */}
-      <section className="py-24 bg-white">
-        <div className="container-site">
-          <Reveal>
-            <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">{coWorker.eyebrow}</p>
-            <h2 className="text-h1 text-[#111827] mb-8 max-w-2xl">
-              {coWorker.titleLines.map((line, i) => (
-                <span key={i}>{line}{i < coWorker.titleLines.length - 1 && <br />}</span>
-              ))}
-            </h2>
-          </Reveal>
-
-          <div className="grid lg:grid-cols-2 gap-16 items-start">
-            <Reveal>
-              <div className="flex flex-col gap-5">
-                {coWorker.paragraphs.map((p, i) => (
-                  <p key={i} className={i === 0 ? "text-body-lg text-[#4b5563] leading-relaxed" : "text-body text-[#4b5563] leading-relaxed"}>
-                    {p}
-                  </p>
-                ))}
-                <p className="text-body font-semibold text-[#111827] mt-2">
-                  {coWorker.closingLine}
-                </p>
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div className="flex flex-col gap-4">
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-widest mb-2">{coWorker.comparisonHeading}</p>
-                {coWorker.comparison.map((row) => (
-                  <div key={row.old} className="grid grid-cols-2 gap-3">
-                    <div className="p-3 rounded-xl bg-[rgba(0,0,0,0.02)] border border-[rgba(0,0,0,0.05)]">
-                      <span className="text-xs text-[#64748b] line-through">{row.old}</span>
-                    </div>
-                    <div className="p-3 rounded-xl bg-[rgba(255,0,178,0.05)] border border-[rgba(255,0,178,0.15)]">
-                      <span className="text-xs text-[#FF00B2]/80 font-medium">{row.merlin}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
       {/* 2.3 Five Traits */}
       <section className="py-24 md:py-32 bg-[#f8f9fb]">
         <div className="container-site">
@@ -237,51 +191,6 @@ export default async function MerlinPage() {
         </div>
       </section>
 
-
-      {/* 2.3c Different Traits */}
-      <section className="py-24 bg-[#f8f9fb]">
-        <div className="container-site">
-          <Reveal>
-            <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-4">{differentTraitsHeading.eyebrow}</p>
-            <h2 className="text-h1 text-[#111827] mb-14">{differentTraitsHeading.title}</h2>
-          </Reveal>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {differentTraits.map((trait, i) => (
-              <Reveal key={trait.title} delay={i * 0.06}>
-                <Card className="p-6 h-full flex flex-col gap-4">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center p-2 flex-shrink-0" style={{ background: `${trait.color}10`, border: `1px solid ${trait.color}28` }}>
-                    <TraitIcon name={trait.icon} color={trait.color} />
-                  </div>
-                  <h3 className="text-h4 text-[#111827]">{trait.title}</h3>
-                  <p className="text-sm text-[#4b5563] leading-relaxed">{trait.body}</p>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-
-
-      {/* 2.6 Deployment */}
-      <section className="py-20 bg-white">
-        <div className="container-site">
-          <Reveal>
-            <h2 className="text-h2 text-[#111827] text-center mb-10">{deploymentHeading}</h2>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5 max-w-4xl mx-auto">
-            {deployments.map((d, i) => (
-              <Reveal key={d.type} delay={i * 0.07}>
-                <div className="p-5 rounded-2xl bg-[#f8f9fb] border border-[rgba(0,0,0,0.07)] flex flex-col gap-3 h-full">
-                  <h3 className="text-sm font-bold text-[#111827]">{d.type}</h3>
-                  <p className="text-xs text-[#4b5563] leading-relaxed">{d.desc}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 2.7 Impact */}
       <section className="py-24 bg-[#f8f9fb]">
