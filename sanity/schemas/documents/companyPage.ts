@@ -84,6 +84,19 @@ export const companyPage = defineType({
         { name: "eyebrow", title: "Eyebrow", type: "string" },
         { name: "titleLines", title: "Title lines", type: "array", of: [{ type: "string" }] },
         {
+          name: "principalsIntro",
+          title: "Principals intro paragraph",
+          description: "Narrative above the principal-architect cards.",
+          type: "text",
+          rows: 4,
+        },
+        {
+          name: "operatingTeamHeading",
+          title: "Operating team heading",
+          description: "Heading shown above the compact list of non-principal team members.",
+          type: "string",
+        },
+        {
           name: "members",
           title: "Members",
           type: "array",
@@ -93,7 +106,13 @@ export const companyPage = defineType({
               fields: [
                 { name: "name", title: "Name", type: "string" },
                 { name: "role", title: "Role", type: "string" },
-                { name: "bio", title: "Bio", type: "text", rows: 4 },
+                {
+                  name: "credential",
+                  title: "Standout credential",
+                  description: "One-line headline above the bio. Used for principals.",
+                  type: "string",
+                },
+                { name: "bio", title: "Bio", type: "text", rows: 6 },
                 { name: "initials", title: "Initials", type: "string" },
                 {
                   name: "color",
@@ -102,6 +121,12 @@ export const companyPage = defineType({
                   options: { list: COLOR_PRESETS },
                 },
                 { name: "isFounder", title: "Mark as founder", type: "boolean" },
+                {
+                  name: "isPrincipal",
+                  title: "Mark as principal architect",
+                  description: "Shows this member in the 3-up principal grid with credential + full bio.",
+                  type: "boolean",
+                },
               ],
               preview: { select: { title: "name", subtitle: "role" } },
             },
