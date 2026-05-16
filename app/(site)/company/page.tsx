@@ -132,7 +132,7 @@ const VALUE_ICONS: Record<string, (color: string) => ReactElement> = {
 
 export default async function CompanyPage() {
   const data = await getData();
-  const { hero, storySection, founderSection, teamSection, investorsSection } = data;
+  const { hero, storySection, teamSection, investorsSection } = data;
 
   return (
     <div>
@@ -187,106 +187,97 @@ export default async function CompanyPage() {
 
       <div className="section-divider" />
 
-      {/* FOUNDER */}
-      <section className="py-24 bg-white">
-        <div className="container-site">
-          <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
-              <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">{founderSection.sectionLabel}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{founderSection.eyebrow}</p>
-              </div>
-              <div>
-                <h2 className="text-h2 text-[#111827]">
-                  {founderSection.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < founderSection.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-              </div>
-            </div>
-          </Reveal>
-
-          <Reveal delay={0.08}>
-            <div className="grid lg:grid-cols-3 gap-8 items-start mb-16">
-              <div className="lg:col-span-1">
-                <div className="relative">
-                  <div className="w-24 h-24 rounded-2xl flex items-center justify-center text-2xl font-bold text-white mb-6"
-                    style={{ background: "linear-gradient(135deg, #FF00B2 0%, #cc0090 100%)" }}>
-                    {founderSection.initials}
-                  </div>
-                  <h3 className="text-h3 text-[#111827] mb-1">{founderSection.name}</h3>
-                  <p className="text-sm font-semibold text-[#FF00B2] mb-4">{founderSection.role}</p>
-                  <div className="flex flex-col gap-2">
-                    {founderSection.chips.map((chip) => (
-                      <span key={chip} className="inline-flex items-center gap-2 text-xs text-[#64748b]">
-                        <span className="w-1 h-1 rounded-full bg-[#FF00B2] opacity-60" />
-                        {chip}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              <div className="lg:col-span-2 flex flex-col gap-5">
-                <p className="text-body-lg text-[#4b5563] leading-relaxed">{founderSection.intro}</p>
-                <p className="text-body text-[#64748b] leading-relaxed">{founderSection.body}</p>
-                <blockquote className="border-l-2 border-[#FF00B2] pl-5 py-1">
-                  <p className="text-body font-medium text-[#4b5563] italic leading-relaxed">
-                    &ldquo;{founderSection.quote}&rdquo;
-                  </p>
-                  <footer className="mt-2 text-sm text-[#64748b]">{founderSection.quoteAuthor}</footer>
-                </blockquote>
-              </div>
-            </div>
-          </Reveal>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
       {/* TEAM */}
       <section className="py-24 bg-[#f8f9fb]">
         <div className="container-site">
           <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
+            <div className="flex items-start gap-16 flex-col lg:flex-row mb-12">
               <div className="lg:w-1/3 flex-shrink-0">
                 <span className="section-number block mb-4">{teamSection.sectionLabel}</span>
                 <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{teamSection.eyebrow}</p>
               </div>
               <div>
-                <h2 className="text-h2 text-[#111827]">
+                <h2 className="text-h2 text-[#111827] mb-6">
                   {teamSection.titleLines.map((line, i) => (
                     <span key={i}>{line}{i < teamSection.titleLines.length - 1 && <br />}</span>
                   ))}
                 </h2>
+                {teamSection.principalsIntro && (
+                  <p className="text-body-lg text-[#4b5563] leading-relaxed max-w-2xl">
+                    {teamSection.principalsIntro}
+                  </p>
+                )}
               </div>
             </div>
           </Reveal>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {teamSection.members.map((member, i) => (
-              <Reveal key={member.name} delay={i * 0.06}>
-                <div className={`p-6 flex flex-col gap-4 h-full rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-0.5 ${member.isFounder ? "border-[rgba(255,0,178,0.2)] shadow-[0_4px_24px_rgba(255,0,178,0.12)]" : "border-[rgba(0,0,0,0.07)] hover:border-[rgba(0,0,0,0.12)]"}`}>
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
-                      style={{ background: `linear-gradient(135deg, ${member.color} 0%, ${member.color}cc 100%)` }}>
-                      {member.initials}
-                    </div>
-                    {member.isFounder && (
-                      <span className="text-[10px] font-semibold text-[#FF00B2] uppercase tracking-wider border border-[rgba(255,0,178,0.25)] bg-[rgba(255,0,178,0.08)] px-2 py-0.5 rounded-full">
-                        Founder
-                      </span>
-                    )}
-                  </div>
-                  <div>
-                    <h3 className="text-h4 text-[#111827] leading-tight">{member.name}</h3>
-                    <p className="text-sm font-medium mt-0.5" style={{ color: member.color }}>{member.role}</p>
-                  </div>
-                  <p className="text-sm text-[#64748b] leading-relaxed flex-1">{member.bio}</p>
+          {/* Principal architects — 3-up rich cards */}
+          {(() => {
+            const principals = teamSection.members.filter((m) => m.isPrincipal);
+            const others = teamSection.members.filter((m) => !m.isPrincipal);
+            return (
+              <>
+                <div className="grid md:grid-cols-3 gap-5 mb-20">
+                  {principals.map((member, i) => (
+                    <Reveal key={member.name} delay={i * 0.08}>
+                      <div className={`p-7 flex flex-col gap-5 h-full rounded-2xl border bg-white transition-all duration-300 hover:-translate-y-0.5 ${member.isFounder ? "border-[rgba(255,0,178,0.2)] shadow-[0_4px_24px_rgba(255,0,178,0.12)]" : "border-[rgba(0,0,0,0.07)] hover:border-[rgba(0,0,0,0.12)]"}`}>
+                        <div className="flex items-start justify-between gap-3">
+                          <div className="w-14 h-14 rounded-xl flex items-center justify-center text-base font-bold text-white flex-shrink-0"
+                            style={{ background: `linear-gradient(135deg, ${member.color} 0%, ${member.color}cc 100%)` }}>
+                            {member.initials}
+                          </div>
+                          {member.isFounder && (
+                            <span className="text-[10px] font-semibold text-[#FF00B2] uppercase tracking-wider border border-[rgba(255,0,178,0.25)] bg-[rgba(255,0,178,0.08)] px-2 py-0.5 rounded-full">
+                              Founder
+                            </span>
+                          )}
+                        </div>
+                        <div>
+                          <h3 className="text-h4 text-[#111827] leading-tight">{member.name}</h3>
+                          <p className="text-sm font-medium mt-0.5" style={{ color: member.color }}>{member.role}</p>
+                        </div>
+                        {member.credential && (
+                          <p className="text-sm font-semibold text-[#111827] leading-snug border-l-2 pl-3 -ml-3" style={{ borderColor: member.color }}>
+                            {member.credential}
+                          </p>
+                        )}
+                        <p className="text-sm text-[#64748b] leading-relaxed flex-1">{member.bio}</p>
+                      </div>
+                    </Reveal>
+                  ))}
                 </div>
-              </Reveal>
-            ))}
-          </div>
+
+                {/* Operating team — compact */}
+                {others.length > 0 && (
+                  <Reveal>
+                    <div className="pt-12 border-t border-[rgba(0,0,0,0.08)]">
+                      {teamSection.operatingTeamHeading && (
+                        <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-8">
+                          {teamSection.operatingTeamHeading}
+                        </p>
+                      )}
+                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                        {others.map((member, i) => (
+                          <Reveal key={member.name} delay={i * 0.04}>
+                            <div className="flex items-center gap-3 p-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white hover:border-[rgba(0,0,0,0.12)] transition-colors">
+                              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
+                                style={{ background: `linear-gradient(135deg, ${member.color} 0%, ${member.color}cc 100%)` }}>
+                                {member.initials}
+                              </div>
+                              <div className="min-w-0">
+                                <p className="text-sm font-semibold text-[#111827] leading-tight truncate">{member.name}</p>
+                                <p className="text-xs text-[#64748b] leading-snug truncate">{member.role}</p>
+                              </div>
+                            </div>
+                          </Reveal>
+                        ))}
+                      </div>
+                    </div>
+                  </Reveal>
+                )}
+              </>
+            );
+          })()}
         </div>
       </section>
 

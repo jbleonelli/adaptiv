@@ -32,6 +32,8 @@ export type CompanyPageData = {
     sectionLabel: string;
     eyebrow: string;
     titleLines: string[];
+    principalsIntro?: string;
+    operatingTeamHeading?: string;
     members: {
       name: string;
       role: string;
@@ -39,6 +41,8 @@ export type CompanyPageData = {
       initials: string;
       color: string;
       isFounder?: boolean;
+      isPrincipal?: boolean;
+      credential?: string;
     }[];
   };
   studioSection: {
@@ -103,18 +107,47 @@ export const companyDefaults: CompanyPageData = {
   },
   teamSection: {
     sectionLabel: "// Leadership",
-    eyebrow: "EXPERIENCED LEADERSHIP",
-    titleLines: ["Builders of devices,", "operators of buildings,", "engineers of agents."],
+    eyebrow: "THE PRINCIPAL ARCHITECTS",
+    titleLines: ["Three disciplines that rarely", "coexist in a single company."],
+    principalsIntro:
+      "Hardware invention and manufacturing. Enterprise software and AI architecture. Physical operations at global scale. Adaptiv's three principal architects of the platform have each spent a career mastering one of these domains — and each is a named inventor on the company's patent portfolio. A signal that the platform was built with the leadership team's own hands, not delegated.",
+    operatingTeamHeading: "And the operating team behind them",
     members: [
-      { name: "Jean-Baptiste Leonelli", role: "Founder & CEO", bio: "Jean-Baptiste founded Adaptiv Systems on the conviction that the operating layer for the physical world had to be built end-to-end. A renowned disruptor in IoT, he also co-founded Temboo, Inc. in New York in 2002, and is an investor and board member of several technology companies.", initials: "JBL", color: "#FF00B2", isFounder: true },
-      { name: "Harold Stowe", role: "Chairman", bio: "Harold serves as Chairman of Adaptiv Systems, bringing decades of strategic and operational leadership to guide the company's growth as a full physical-AI platform.", initials: "HS", color: "#a0b0d0" },
-      { name: "Jason Loup", role: "COO", bio: "Jason oversees Adaptiv's day-to-day operations from New York, leading the growth of Adaptiv Systems Inc. across North America through new client acquisitions and strategic partnerships.", initials: "JL", color: "#94a3b8" },
-      { name: "Nick Tau", role: "EVP Software", bio: "Nick leads the software engineering organisation — from the Merlin platform and the agent fleet to the developer APIs. He joins Adaptiv from Meta (formerly Amazon, Atlassian) and previously led engineering with Adaptiv founder Jean-Baptiste Leonelli at Temboo.", initials: "NT", color: "#14b8a6" },
-      { name: "Arnaud Sené", role: "Operations", bio: "Arnaud leads operational excellence across deployments and supply chain — making sure every device that ships is on time, on spec, and ready to deploy.", initials: "AS", color: "#3b82f6" },
-      { name: "Jean-Baptiste Lucas", role: "Business Development & Communications", bio: "Jean-Baptiste Lucas leads Adaptiv's go-to-market strategy, business development, and external communications — opening the conversation with operators, partners, and the curious.", initials: "JBL", color: "#a855f7" },
-      { name: "Laurent Maleysson", role: "Manufacturing", bio: "Laurent runs manufacturing — building tailor-made products through exclusive techniques that guarantee quality, affordability, and limited environmental impact.", initials: "LM", color: "#f59e0b" },
-      { name: "Luc Quéau", role: "Smart Building", bio: "Luc leads Adaptiv's smart-building practice — translating the realities of how buildings actually run into the sensors, agents, and workflows that make them intelligent.", initials: "LQ", color: "#22c55e" },
-      { name: "Frédéric Kerroux", role: "Industrial Design", bio: "Frédéric leads industrial design across the Adaptiv device portfolio — turning hardware engineering into objects that people are happy to live and work with every day.", initials: "FK", color: "#6366f1" },
+      {
+        name: "Jean-Baptiste Leonelli",
+        role: "Founder & CEO",
+        credential: "Patents granted in 6 jurisdictions",
+        bio: "Serial entrepreneur and inventor with granted patents across the US, Europe, Canada, Japan, China, and Hong Kong. In 2002, he co-founded Temboo in New York — a pioneer in connected technology adopted in university curricula and by thousands of developers. He founded Adaptiv in 2019 on the thesis that buildings are the largest Physical AI opportunity venture capital has systematically ignored. Five years later, Adaptiv's devices run in more than 6,000 buildings worldwide. The twelve-patent portfolio filed with the USPTO in April 2026 wasn't drafted to defend what's been built — it was drafted to define the territory every serious competitor will have to enter.",
+        initials: "JBL",
+        color: "#FF00B2",
+        isFounder: true,
+        isPrincipal: true,
+      },
+      {
+        name: "Philippe Garnier",
+        role: "EVP Operations",
+        credential: "Apple-grade hardware operations",
+        bio: "Philippe leads field operations, hardware deployment, and manufacturing — the functions that translate Adaptiv's technology into the physical world at scale. His formative years were spent at Apple, where hardware operations are widely regarded as the most disciplined in consumer electronics. That philosophy is visible in every Adaptiv device: manufacturing consistency across thousands of units, field-replaceability, battery management, enclosure quality. In a company whose moat rests on owning its full hardware stack, having an operations leader with Apple-grade experience is not a biographical footnote — it's a structural advantage. Named inventor on the Adaptiv patent portfolio.",
+        initials: "PG",
+        color: "#3b82f6",
+        isPrincipal: true,
+      },
+      {
+        name: "Nick Tau",
+        role: "EVP Software",
+        credential: "Architect of Alexa's signal pipeline",
+        bio: "Nick leads all software engineering — the Merlin AI engine, the cloud IIoT platform, device firmware, and the data pipeline connecting sensors across 6,000+ buildings to the intelligence layer that acts on them. He was Engineering Lead at Temboo alongside Jean-Baptiste during its critical hardware-partnerships phase (Arduino, Samsung, Texas Instruments). He then built his leadership credentials at Atlassian, Amazon, and Meta. At Amazon, he led the Alexa signal processing team — the inference pipeline behind hundreds of millions of deployed Alexa devices, one of the largest real-time IoT systems ever built. Named inventor on the Adaptiv patent portfolio.",
+        initials: "NT",
+        color: "#14b8a6",
+        isPrincipal: true,
+      },
+      { name: "Harold Stowe", role: "Chairman", bio: "", initials: "HS", color: "#a0b0d0" },
+      { name: "Jason Loup", role: "COO, North America", bio: "", initials: "JL", color: "#94a3b8" },
+      { name: "Arnaud Sené", role: "Operations", bio: "", initials: "AS", color: "#3b82f6" },
+      { name: "Jean-Baptiste Lucas", role: "Business Development & Communications", bio: "", initials: "JBL", color: "#a855f7" },
+      { name: "Laurent Maleysson", role: "Manufacturing", bio: "", initials: "LM", color: "#f59e0b" },
+      { name: "Luc Quéau", role: "Smart Building", bio: "", initials: "LQ", color: "#22c55e" },
+      { name: "Frédéric Kerroux", role: "Industrial Design", bio: "", initials: "FK", color: "#6366f1" },
     ],
   },
   studioSection: {
