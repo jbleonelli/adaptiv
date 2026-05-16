@@ -9,27 +9,25 @@ copy-paste it into any React project.
 
 ## What you get
 
-- **Two files (the menu + the brand icon):**
-  - `FloatingMenu.tsx` (~370 lines, fully typed)
-  - `AdaptivAIcon.tsx` (~60 lines, inline SVG — gradient + "A" path)
+- **One file:** `FloatingMenu.tsx` (~450 lines, fully typed). Exports
+  both `FloatingMenu` and `AdaptivAIcon` from the same module.
 - **Zero CSS:** no Tailwind, no styled-components, no CSS file. All
   styling is inline + one tiny scoped `<style>` block for `:hover` states.
 - **Zero router lock-in:** ships with a plain `<a>` renderer; plug in
   `next/link`, `react-router`, etc. via the `renderLink` prop.
-- **Zero assets:** the Adaptiv "A" ships inlined; if you want a
-  different mark, the `icon` prop accepts any URL string or React node.
+- **Zero assets:** the Adaptiv "A" ships inlined as an SVG export; if
+  you want a different mark, the `icon` prop accepts any URL string or
+  React node.
 
 ## Install
 
-1. Copy `FloatingMenu.tsx` (always) and `AdaptivAIcon.tsx` (if you want
-   the Adaptiv brand mark) into your project — e.g. `src/components/`.
+1. Copy `FloatingMenu.tsx` into your project — e.g. `src/components/`.
 2. That's it. The only peer dependency is **React 18+** (for `useId`).
 
 ## Basic usage — with the Adaptiv "A"
 
 ```tsx
-import { FloatingMenu } from "./FloatingMenu";
-import { AdaptivAIcon } from "./AdaptivAIcon";
+import { FloatingMenu, AdaptivAIcon } from "./FloatingMenu";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
@@ -53,6 +51,8 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 ## Basic usage — with your own icon (URL)
 
 ```tsx
+import { FloatingMenu } from "./FloatingMenu";
+
 <FloatingMenu
   icon="/brand/my-icon.png"
   iconAlt=""
@@ -189,14 +189,14 @@ chevron stroke on the active item, the CTA dot, and the CTA hover state.
   `filter`, or `opacity < 1` on an ancestor), wrap in `createPortal` to
   document.body yourself.
 
-## The Adaptiv "A" icon — `AdaptivAIcon.tsx`
+## The Adaptiv "A" icon — `AdaptivAIcon`
 
-A second, optional file that inlines the Adaptiv brand mark as a single
-square SVG: the deep-indigo → magenta gradient (`#000064 → #ff00b2`,
-diagonal) with the white "A" path on top.
+A named export from the same `FloatingMenu.tsx` file. Inlines the
+Adaptiv brand mark as a single square SVG: the deep-indigo → magenta
+gradient (`#000064 → #ff00b2`, diagonal) with the white "A" path on top.
 
 ```tsx
-import { AdaptivAIcon } from "./AdaptivAIcon";
+import { AdaptivAIcon } from "./FloatingMenu";
 
 <AdaptivAIcon />                                        // default 128×128
 <AdaptivAIcon size={64} />                              // any size
@@ -212,7 +212,7 @@ circular clipPath hides the square corners and shows just the gradient
 circle with the "A" inside — visually identical to the Adaptiv.systems
 production nav.
 
-## Files
+## File
 
-- [`FloatingMenu.tsx`](./FloatingMenu.tsx) — the floating button + popup
-- [`AdaptivAIcon.tsx`](./AdaptivAIcon.tsx) — the Adaptiv "A" inline SVG (optional)
+Just one: [`FloatingMenu.tsx`](./FloatingMenu.tsx) — exports
+`FloatingMenu`, `AdaptivAIcon`, and all their types.
