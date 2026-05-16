@@ -141,13 +141,7 @@ export const companyDefaults: CompanyPageData = {
         color: "#14b8a6",
         isPrincipal: true,
       },
-      { name: "Harold Stowe", role: "Chairman", bio: "", initials: "HS", color: "#a0b0d0" },
-      { name: "Jason Loup", role: "COO, North America", bio: "", initials: "JL", color: "#94a3b8" },
-      { name: "Arnaud Sené", role: "Operations", bio: "", initials: "AS", color: "#3b82f6" },
       { name: "Jean-Baptiste Lucas", role: "Business Development & Communications", bio: "", initials: "JBL", color: "#a855f7" },
-      { name: "Laurent Maleysson", role: "Manufacturing", bio: "", initials: "LM", color: "#f59e0b" },
-      { name: "Luc Quéau", role: "Smart Building", bio: "", initials: "LQ", color: "#22c55e" },
-      { name: "Frédéric Kerroux", role: "Industrial Design", bio: "", initials: "FK", color: "#6366f1" },
     ],
   },
   studioSection: {
