@@ -398,11 +398,8 @@ export default async function DevicesPage() {
   const {
     hero,
     advantagesSection,
-    manufacturingSection,
     specsSection,
-    useCasesBySpaceSection,
     deviceRangeSection,
-    ultraSection,
     sensorEcosystemSection,
     finalCta,
   } = data;
@@ -526,54 +523,6 @@ export default async function DevicesPage() {
 
       <div className="section-divider" />
 
-      {/* ── MANUFACTURING VIDEO ─────────────────────────────────────────── */}
-      <section className="py-32 bg-white overflow-hidden">
-        <div className="container-site">
-          <div className="grid lg:grid-cols-2 gap-20 items-center">
-            <Reveal direction="left">
-              <div>
-                <span className="section-number block mb-4">{manufacturingSection.sectionNumber}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em] mb-6">{manufacturingSection.eyebrow}</p>
-                <h2 className="text-h2 text-[#111827] mb-6">
-                  {manufacturingSection.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < manufacturingSection.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-                <p className="text-body text-[#64748b] leading-relaxed mb-6">{manufacturingSection.body}</p>
-                <p className="text-sm text-[#64748b] leading-relaxed mb-10">{manufacturingSection.subBody}</p>
-                <div className="flex flex-wrap gap-4">
-                  <Link href={manufacturingSection.ctaHref} className="px-6 py-3 rounded-full border border-[rgba(0,0,0,0.12)] text-[#4b5563] text-sm font-medium hover:text-[#111827] hover:border-[rgba(0,0,0,0.25)] transition-all">
-                    {manufacturingSection.ctaLabel}
-                  </Link>
-                </div>
-              </div>
-            </Reveal>
-
-            <Reveal direction="right" delay={0.1}>
-              <div className="relative rounded-2xl overflow-hidden"
-                style={{ boxShadow: "0 0 80px rgba(255,0,178,0.08), 0 2px 40px rgba(0,0,0,0.08)" }}>
-                <div className="absolute -top-16 -right-16 w-72 h-72 opacity-10 blur-3xl pointer-events-none"
-                  style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 70%)" }} aria-hidden="true" />
-                <video
-                  src={manufacturingSection.videoUrl}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  preload="auto"
-                  className="w-full h-auto block relative z-10"
-                  style={{ aspectRatio: "16/9", objectFit: "cover" }}
-                />
-                <div className="absolute inset-x-0 bottom-0 h-16 pointer-events-none z-20"
-                  style={{ background: "linear-gradient(to top, rgba(255,255,255,0.75), transparent)" }}
-                  aria-hidden="true" />
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
 
       {/* ── SPECS ────────────────────────────────────────────────────────── */}
       <section id="specs" className="py-32 bg-white">
@@ -637,51 +586,6 @@ export default async function DevicesPage() {
 
       <div className="section-divider" />
 
-      {/* ── USE CASES BY SPACE ──────────────────────────────────────────── */}
-      <section className="py-32 bg-white">
-        <div className="container-site">
-          <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
-              <div className="lg:w-1/3">
-                <span className="section-number block mb-4">{useCasesBySpaceSection.sectionNumber}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{useCasesBySpaceSection.eyebrow}</p>
-              </div>
-              <div>
-                <h2 className="text-h2 text-[#111827]">
-                  {useCasesBySpaceSection.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < useCasesBySpaceSection.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 gap-px bg-[rgba(0,0,0,0.08)]">
-            {useCasesBySpaceSection.spaces.map((uc, i) => (
-              <Reveal key={uc.space} delay={i * 0.07}>
-                <div className="bg-white p-8 hover:bg-[#f8f9fb] transition-colors">
-                  <div className="flex items-center gap-3 mb-6">
-                    <span className="w-3 h-3 rounded-full flex-shrink-0" style={{ backgroundColor: uc.color }} />
-                    <h3 className="text-h4 text-[#111827]">{uc.space}</h3>
-                  </div>
-                  <ul className="flex flex-col gap-2.5">
-                    {uc.cases.map((c) => (
-                      <li key={c} className="flex items-start gap-2.5 text-sm text-[#64748b]">
-                        <svg className="w-3.5 h-3.5 mt-0.5 flex-shrink-0 opacity-40" viewBox="0 0 16 16" fill="none">
-                          <path d="M3 8l4 4 6-6" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                        {c}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
 
       {/* ── 3-DEVICE GALLERY ─────────────────────────────────────────────── */}
       <section className="py-32 bg-white">
@@ -753,92 +657,6 @@ export default async function DevicesPage() {
 
       <div className="section-divider" />
 
-      {/* ── SMART DISPLAY 26 ULTRA ───────────────────────────────────────── */}
-      <section className="py-32 bg-[#f8f9fb] relative overflow-hidden">
-        <div className="absolute top-0 right-0 w-[600px] h-[500px] pointer-events-none opacity-[0.07]"
-          style={{ background: "radial-gradient(ellipse, #a855f7, transparent 65%)" }}
-          aria-hidden="true" />
-        <div className="container-site relative z-10">
-          <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-16">
-              <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">{ultraSection.sectionNumber}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{ultraSection.eyebrow}</p>
-              </div>
-              <div>
-                <span className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider border border-[rgba(168,85,247,0.3)] bg-[rgba(168,85,247,0.08)] text-[#a855f7] mb-5">
-                  {ultraSection.subEyebrow}
-                </span>
-                <h2 className="text-h2 text-[#111827]">
-                  {ultraSection.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < ultraSection.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-                <p className="text-body text-[#64748b] mt-5 max-w-xl leading-relaxed">{ultraSection.body}</p>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="grid lg:grid-cols-2 gap-12 items-start">
-            <Reveal>
-              <p className="text-xs font-semibold text-[#a855f7] uppercase tracking-widest mb-6">{ultraSection.sensorsHeading}</p>
-              <div className="grid grid-cols-2 gap-4">
-                {ultraSection.sensors.map((s) => (
-                  <div key={s.label} className="p-5 rounded-2xl border border-[rgba(168,85,247,0.15)] bg-[rgba(168,85,247,0.04)] flex flex-col gap-3">
-                    <div className="flex items-center gap-3">
-                      <div className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                        style={{ background: "rgba(168,85,247,0.1)", border: "1px solid rgba(168,85,247,0.2)" }}>
-                        {ULTRA_ICONS[s.label] ?? ULTRA_ICONS.Gateway}
-                      </div>
-                      <span className="text-sm font-semibold text-[#111827]">{s.label}</span>
-                    </div>
-                    <p className="text-xs text-[#64748b] font-mono leading-relaxed">{s.detail}</p>
-                  </div>
-                ))}
-              </div>
-            </Reveal>
-
-            <Reveal delay={0.1}>
-              <div className="flex flex-col gap-8">
-                <div>
-                  <p className="text-xs font-semibold text-[#64748b] uppercase tracking-widest mb-5">{ultraSection.compareHeading}</p>
-                  <div className="border-t border-[rgba(0,0,0,0.07)]">
-                    {ultraSection.compareRows.map((row) => (
-                      <div key={row.feature} className="grid grid-cols-4 gap-2 py-3 border-b border-[rgba(0,0,0,0.05)] items-center">
-                        <span className="text-xs text-[#64748b] col-span-1">{row.feature}</span>
-                        {[
-                          { val: row.classic, label: "Classic", color: "#FF00B2" },
-                          { val: row.sd26, label: "26", color: "#14b8a6" },
-                          { val: row.ultra, label: "Ultra", color: "#a855f7" },
-                        ].map((col) => (
-                          <div key={col.label} className="flex flex-col items-center gap-0.5">
-                            <span className="text-[10px] font-bold uppercase tracking-wider" style={{ color: `${col.color}80` }}>{col.label}</span>
-                            <span className="text-sm font-semibold" style={{ color: col.val === "✓" ? col.color : "rgba(0,0,0,0.15)" }}>{col.val}</span>
-                          </div>
-                        ))}
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                <div className="p-6 rounded-2xl border border-[rgba(168,85,247,0.2)] bg-[rgba(168,85,247,0.05)]">
-                  <p className="text-xs font-semibold text-[#a855f7] uppercase tracking-widest mb-4">{ultraSection.bestForHeading}</p>
-                  <ul className="flex flex-col gap-2.5">
-                    {ultraSection.bestFor.map((item) => (
-                      <li key={item} className="flex items-start gap-2.5 text-sm text-[#4b5563] leading-relaxed">
-                        <span className="w-1.5 h-1.5 rounded-full bg-[#a855f7] flex-shrink-0 mt-1.5" />
-                        {item}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
 
       {/* ── SENSOR ECOSYSTEM ─────────────────────────────────────────────── */}
       <section className="py-32 bg-[#f8f9fb] relative overflow-hidden">

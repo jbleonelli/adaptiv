@@ -47,7 +47,6 @@ export const siteSettingsDefaults: SiteSettingsData = {
   navItems: [
     { label: "Merlin", href: "/merlin" },
     { label: "Devices", href: "/devices" },
-    { label: "Platform", href: "/platform" },
     { label: "Solutions", href: "/solutions" },
     { label: "Company", href: "/company" },
   ],
@@ -58,7 +57,6 @@ export const siteSettingsDefaults: SiteSettingsData = {
       links: [
         { label: "Merlin", href: "/merlin" },
         { label: "Smart Display & Sensor Library", href: "/devices" },
-        { label: "Platform", href: "/platform" },
       ],
     },
     {

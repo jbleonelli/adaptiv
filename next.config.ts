@@ -12,6 +12,14 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      // Platform page was folded into Merlin (May 2026 trim). Keep deep
+      // links working by sending /platform → /merlin (loop is the closest
+      // section to the old Platform "what is physical AI" content).
+      { source: "/platform", destination: "/merlin", permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

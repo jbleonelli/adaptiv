@@ -29,7 +29,7 @@ export async function generateMetadata(): Promise<Metadata> {
 
 export default async function MerlinPage() {
   const data = await getData();
-  const { hero, coWorker, fiveTraitsHeading, traits, dayWithMerlin, differentTraitsHeading, differentTraits, howItWorksHeading, howItWorksSteps, capabilitiesHeading, capabilities, deploymentHeading, deployments, impactSection, finalCta } = data;
+  const { hero, coWorker, fiveTraitsHeading, traits, differentTraitsHeading, differentTraits, deploymentHeading, deployments, impactSection, finalCta } = data;
 
   return (
     <div>
@@ -237,48 +237,6 @@ export default async function MerlinPage() {
         </div>
       </section>
 
-      {/* 2.3b A Day With Merlin */}
-      <section className="py-24 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 pointer-events-none" style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "32px 32px" }} aria-hidden="true" />
-        <div className="container-site relative z-10">
-          <Reveal>
-            <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-4">{dayWithMerlin.eyebrow}</p>
-            <h2 className="text-h1 text-[#111827] mb-5">{dayWithMerlin.title}</h2>
-            <p className="text-body text-[#64748b] mb-14 max-w-xl">{dayWithMerlin.body}</p>
-          </Reveal>
-
-          <div className="relative max-w-3xl mx-auto">
-            <div className="absolute left-6 top-0 bottom-0 w-px bg-gradient-to-b from-[#FF00B2]/40 via-[#FF00B2]/15 to-transparent" aria-hidden="true" />
-
-            {dayWithMerlin.events.map((event, i) => (
-              <Reveal key={event.time} delay={i * 0.06}>
-                <div className="flex gap-6 mb-8">
-                  <div className="flex flex-col items-center flex-shrink-0">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center text-xs font-bold text-white z-10"
-                      style={{ background: `linear-gradient(135deg, ${event.color}cc, ${event.color}66)` }}>
-                      {event.time}
-                    </div>
-                  </div>
-                  <div className="flex-1 pb-2">
-                    <span className="text-xs font-semibold uppercase tracking-widest mb-1 block" style={{ color: event.color }}>{event.label}</span>
-                    <p className="text-sm text-[#4b5563] leading-relaxed">{event.body}</p>
-                  </div>
-                </div>
-              </Reveal>
-            ))}
-
-            <Reveal>
-              <div className="flex gap-6 items-center">
-                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 z-10"
-                  style={{ background: "linear-gradient(135deg, #FF00B2, #6D28D9)" }}>
-                  <span className="text-xs font-bold text-white">∞</span>
-                </div>
-                <p className="text-sm font-semibold text-[#374151]">{dayWithMerlin.footerLine}</p>
-              </div>
-            </Reveal>
-          </div>
-        </div>
-      </section>
 
       {/* 2.3c Different Traits */}
       <section className="py-24 bg-[#f8f9fb]">
@@ -304,52 +262,7 @@ export default async function MerlinPage() {
         </div>
       </section>
 
-      {/* 2.4 How Merlin Works */}
-      <section className="py-20 bg-white relative overflow-hidden">
-        <div className="absolute inset-0 grid-pattern opacity-10" aria-hidden="true" />
-        <div className="container-site relative z-10">
-          <Reveal>
-            <h2 className="text-h1 text-[#111827] text-center mb-14">{howItWorksHeading}</h2>
-          </Reveal>
-          <div className="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
-            {howItWorksSteps.map((s) => (
-              <Reveal key={s.step}>
-                <div className="flex flex-col gap-4 p-6 rounded-2xl border border-[rgba(0,0,0,0.08)] bg-[rgba(0,0,0,0.03)]">
-                  <div className="flex items-center gap-3">
-                    <span className="text-3xl font-bold text-[#FF00B2] opacity-40">{s.step}</span>
-                    <span className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest">{s.label}</span>
-                  </div>
-                  <h3 className="text-h4 text-[#111827]">{s.title}</h3>
-                  <p className="text-sm text-[#4b5563] leading-relaxed">{s.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      {/* 2.5 Capabilities */}
-      <section id="capabilities" className="py-24 md:py-32 bg-[#f8f9fb]">
-        <div className="container-site">
-          <Reveal>
-            <h2 className="text-h1 text-[#111827] text-center mb-14">{capabilitiesHeading}</h2>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {capabilities.map((c, i) => (
-              <Reveal key={c.title} delay={i * 0.06}>
-                <Card className="p-6 h-full flex flex-col gap-4">
-                  <div className="w-11 h-11 rounded-xl flex items-center justify-center p-2 flex-shrink-0"
-                    style={{ background: `${c.color}10`, border: `1px solid ${c.color}28` }}>
-                    <TraitIcon name={c.icon} color={c.color} />
-                  </div>
-                  <h3 className="text-h4 text-[#111827]">{c.title}</h3>
-                  <p className="text-sm text-[#4b5563] leading-relaxed">{c.body}</p>
-                </Card>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* 2.6 Deployment */}
       <section className="py-20 bg-white">

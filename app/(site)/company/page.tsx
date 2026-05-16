@@ -132,7 +132,7 @@ const VALUE_ICONS: Record<string, (color: string) => ReactElement> = {
 
 export default async function CompanyPage() {
   const data = await getData();
-  const { hero, storySection, founderSection, teamSection, studioSection, valuesSection, investorsSection } = data;
+  const { hero, storySection, founderSection, teamSection, investorsSection } = data;
 
   return (
     <div>
@@ -292,69 +292,7 @@ export default async function CompanyPage() {
 
       <div className="section-divider" />
 
-      {/* DESIGN STUDIO */}
-      <section className="py-24 bg-white overflow-hidden relative">
-        <div className="absolute inset-0 pointer-events-none opacity-15"
-          style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "40px 40px" }}
-          aria-hidden="true" />
-        <div className="container-site relative z-10">
-          <Reveal>
-            <div className="text-center mb-14">
-              <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-4">{studioSection.eyebrow}</p>
-              <h2 className="text-h1 text-[#111827] mb-5">
-                {studioSection.titleLines.map((line, i) => (
-                  <span key={i}>{line}{i < studioSection.titleLines.length - 1 && <br />}</span>
-                ))}
-              </h2>
-              <p className="text-body-lg text-[#4b5563] max-w-2xl mx-auto leading-relaxed">{studioSection.body}</p>
-            </div>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {studioSection.strengths.map((s, i) => (
-              <Reveal key={s.title} delay={i * 0.07}>
-                <div className="p-6 flex flex-col gap-4 h-full rounded-2xl border border-[rgba(0,0,0,0.07)] bg-[#f8f9fb] hover:border-[rgba(255,0,178,0.18)] transition-all duration-300">
-                  <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: "rgba(255,0,178,0.08)", border: "1px solid rgba(255,0,178,0.18)" }}>
-                    {STUDIO_ICONS[s.iconKey] ?? STUDIO_ICONS.environment}
-                  </div>
-                  <h3 className="text-h4 text-[#111827]">{s.title}</h3>
-                  <p className="text-sm text-[#64748b] leading-relaxed">{s.body}</p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-        </div>
-      </section>
 
-      <div className="section-divider" />
-
-      {/* VALUES */}
-      <section className="py-24 bg-[#f8f9fb]">
-        <div className="container-site">
-          <Reveal>
-            <h2 className="text-h1 text-[#111827] text-center mb-14">{valuesSection.title}</h2>
-          </Reveal>
-          <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {valuesSection.values.map((v, i) => {
-              const renderIcon = VALUE_ICONS[v.iconKey] ?? VALUE_ICONS.physical;
-              return (
-                <Reveal key={v.title} delay={i * 0.06}>
-                  <div className="p-6 h-full flex flex-col gap-4 rounded-2xl border border-[rgba(0,0,0,0.07)] bg-white hover:border-[rgba(0,0,0,0.12)] transition-all duration-300">
-                    <div className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: `${v.color}12`, border: `1px solid ${v.color}28` }}>
-                      {renderIcon(v.color)}
-                    </div>
-                    <h3 className="text-h4 text-[#111827]">{v.title}</h3>
-                    <p className="text-sm text-[#64748b] leading-relaxed">{v.body}</p>
-                  </div>
-                </Reveal>
-              );
-            })}
-          </div>
-        </div>
-      </section>
-
-      <div className="section-divider" />
 
       {/* INVESTORS */}
       <section className="py-24 bg-white">

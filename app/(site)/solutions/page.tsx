@@ -167,7 +167,7 @@ const SOLUTION_ICONS: Record<string, ReactElement> = {
 
 export default async function SolutionsPage() {
   const data = await getData();
-  const { hero, personasSection, solutions, finalCta } = data;
+  const { hero, solutions, finalCta } = data;
 
   return (
     <div>
@@ -183,54 +183,6 @@ export default async function SolutionsPage() {
             ))}
           </h1>
           <p className="text-body-lg text-[#4b5563]">{hero.body}</p>
-        </div>
-      </section>
-
-      {/* WHO MERLIN WORKS FOR */}
-      <section className="py-24 bg-[#f8f9fb]">
-        <div className="container-site">
-          <Reveal>
-            <div className="text-center mb-14">
-              <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-4">{personasSection.eyebrow}</p>
-              <h2 className="text-h1 text-[#111827] mb-5">{personasSection.title}</h2>
-              <p className="text-body-lg text-[#64748b] max-w-2xl mx-auto">{personasSection.body}</p>
-            </div>
-          </Reveal>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {personasSection.personas.map((p, i) => (
-              <Reveal key={p.role} delay={i * 0.06}>
-                <div className="group flex flex-col gap-5 p-6 rounded-2xl border border-[rgba(0,0,0,0.07)] bg-white hover:border-[rgba(0,0,0,0.13)] transition-all duration-300 h-full">
-                  <div className="flex items-center gap-4">
-                    <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                      style={{ background: `${p.color}12`, border: `1px solid ${p.color}25` }}>
-                      {PERSONA_ICONS[p.iconKey] ?? PERSONA_ICONS.owner}
-                    </div>
-                    <h3 className="text-h4 text-[#111827]">{p.role}</h3>
-                  </div>
-
-                  <div>
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] text-[#64748b] mb-2">The challenge</p>
-                    <p className="text-sm text-[#64748b] leading-relaxed">{p.pain}</p>
-                  </div>
-
-                  <div className="flex-1">
-                    <p className="text-[10px] font-semibold uppercase tracking-[0.15em] mb-2" style={{ color: p.color }}>How Merlin helps</p>
-                    <p className="text-sm text-[#4b5563] leading-relaxed">{p.value}</p>
-                  </div>
-
-                  <ul className="flex flex-col gap-1.5 pt-3 border-t border-[rgba(0,0,0,0.06)]">
-                    {p.benefits.map((b) => (
-                      <li key={b} className="flex items-center gap-2 text-xs font-medium text-[#4b5563]">
-                        <span className="w-1.5 h-1.5 rounded-full flex-shrink-0" style={{ background: p.color }} />
-                        {b}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </Reveal>
-            ))}
-          </div>
         </div>
       </section>
 
