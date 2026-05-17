@@ -46,6 +46,7 @@ export const siteSettingsDefaults: SiteSettingsData = {
     "Physical AI for the buildings of the world. A fleet of specialized agents reasoning continuously over the real-world signals from your buildings.",
   navItems: [
     { label: "Merlin", href: "/merlin" },
+    { label: "Agents", href: "/agents" },
     { label: "Devices", href: "/devices" },
     { label: "Solutions", href: "/solutions" },
     { label: "Company", href: "/company" },
