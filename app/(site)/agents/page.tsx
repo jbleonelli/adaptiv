@@ -24,7 +24,6 @@ export default async function AgentsPage() {
     howAgentsTalk,
     catalog,
     byVertical,
-    growsWithDevices,
     whatItIsNot,
     inOneLine,
     finalCta,
@@ -397,55 +396,7 @@ export default async function AgentsPage() {
 
       <div className="section-divider" />
 
-      {/* ── 06 · GROWS WITH DEVICE LIBRARY ───────────────────────────────── */}
-      <section className="py-24 lg:py-32 bg-[#f8f9fb]">
-        <div className="container-site">
-          <Reveal>
-            <div className="flex items-start gap-16 flex-col lg:flex-row mb-12">
-              <div className="lg:w-1/3 flex-shrink-0">
-                <span className="section-number block mb-4">{growsWithDevices.sectionNumber}</span>
-                <p className="text-xs font-semibold text-[#64748b] uppercase tracking-[0.2em]">{growsWithDevices.eyebrow}</p>
-              </div>
-              <div>
-                <h2 className="text-h2 text-[#111827] mb-5 leading-tight">
-                  {growsWithDevices.titleLines.map((line, i) => (
-                    <span key={i}>{line}{i < growsWithDevices.titleLines.length - 1 && <br />}</span>
-                  ))}
-                </h2>
-                <p className="text-body-lg text-[#4b5563] leading-relaxed max-w-2xl">{growsWithDevices.body}</p>
-              </div>
-            </div>
-          </Reveal>
-
-          <div className="flex flex-col">
-            {growsWithDevices.pairings.map((pair, i) => (
-              <Reveal key={pair.device} delay={i * 0.04}>
-                <div className="grid sm:grid-cols-12 gap-3 sm:gap-6 py-4 border-b border-[rgba(0,0,0,0.06)]">
-                  <p className="sm:col-span-5 text-sm font-semibold text-[#111827] leading-snug">
-                    {pair.device}
-                  </p>
-                  <div className="sm:col-span-1 hidden sm:flex items-center text-[#FF00B2] text-lg">
-                    →
-                  </div>
-                  <p className="sm:col-span-6 text-sm text-[#4b5563] leading-relaxed">
-                    brought {pair.brought}
-                  </p>
-                </div>
-              </Reveal>
-            ))}
-          </div>
-
-          <Reveal delay={0.1}>
-            <p className="text-body text-[#4b5563] leading-relaxed mt-10 max-w-3xl italic">
-              {growsWithDevices.closingLine}
-            </p>
-          </Reveal>
-        </div>
-      </section>
-
-      <div className="section-divider" />
-
-      {/* ── 07 · WHAT IT IS NOT ──────────────────────────────────────────── */}
+      {/* ── 06 · WHAT IT IS NOT ──────────────────────────────────────────── */}
       <section className="py-24 lg:py-32 bg-white">
         <div className="container-site">
           <Reveal>

@@ -25,11 +25,6 @@ export type WhatItIsNotItem = {
   body: string;
 };
 
-export type DeviceAgentPairing = {
-  device: string;
-  brought: string;
-};
-
 export type VerticalAgentMap = {
   vertical: string;
   agents: string[];
@@ -81,14 +76,6 @@ export type AgentsPageData = {
     titleLines: string[];
     rows: VerticalAgentMap[];
     closingNote: string;
-  };
-  growsWithDevices: {
-    sectionNumber: string;
-    eyebrow: string;
-    titleLines: string[];
-    body: string;
-    pairings: DeviceAgentPairing[];
-    closingLine: string;
   };
   whatItIsNot: {
     sectionNumber: string;
@@ -372,33 +359,8 @@ export const agentsDefaults: AgentsPageData = {
     closingNote:
       "Every workspace gets every agent — that's not the question. The question is which ones do meaningful work for your operation. Agents that don't have signal stay quiet at zero cost. Agents that do start producing decisions on day one.",
   },
-  growsWithDevices: {
-    sectionNumber: "// 06",
-    eyebrow: "THE LIBRARY GROWS WITH THE DEVICE LIBRARY",
-    titleLines: ["Every new device", "extends the library."],
-    body: "Every new device class Adaptiv brings to market is paired with the agent that knows what to do with its signal.",
-    pairings: [
-      { device: "The Smart Display", brought: "the cleaning, compliance, and space agents" },
-      {
-        device: "The People Counter",
-        brought: "the occupancy half of cleaning, HVAC, and space",
-      },
-      {
-        device: "The Smart Logger",
-        brought: "the NFC-trail half of cleaning and the security crew-loop",
-      },
-      { device: "The cold-storage Smart Logger", brought: "the cold-chain agent" },
-      { device: "The Smart Asset Tracker", brought: "the asset-tracking agent" },
-      {
-        device: "The parking-spot sensor + EV charger pair",
-        brought: "the parking agent (coming online)",
-      },
-    ],
-    closingLine:
-      "The hardware is the foundation. The data is the substrate. The agents are how the data becomes action. Every new device extends the library; every new agent extends what the building can do without anyone having to think about it.",
-  },
   whatItIsNot: {
-    sectionNumber: "// 07",
+    sectionNumber: "// 06",
     eyebrow: "WHAT THE AGENT LIBRARY IS NOT",
     titleLines: ["Worth saying out loud."],
     body: "A few things to clear up, so there's no ambiguity.",
