@@ -114,8 +114,8 @@ export const homeDefaults: HomePageData = {
     chips: [
       { label: "6,000+ buildings", dotColor: "#FF00B2" },
       { label: "5+ years of telemetry", dotColor: "#14b8a6" },
+      { label: "12-patent portfolio · USPTO", dotColor: "#a855f7" },
       { label: "Global coverage", dotColor: "#3b82f6" },
-      { label: "Full stack ownership", dotColor: "#a855f7" },
     ],
     heroImagePrimary: "/merlin-dashboard-hero.png",
     heroImagePrimaryAlt:

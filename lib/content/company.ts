@@ -84,8 +84,8 @@ export const companyDefaults: CompanyPageData = {
     stats: [
       { value: "6,000+", label: "Buildings deployed" },
       { value: "5+", label: "Years of telemetry" },
+      { value: "12", label: "Patent portfolio, USPTO" },
       { value: "Global", label: "Coverage" },
-      { value: "End-to-end", label: "Stack ownership" },
     ],
   },
   founderSection: {
