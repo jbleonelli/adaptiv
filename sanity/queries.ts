@@ -92,3 +92,109 @@ export const homePageQuery = groq`
     }
   }
 `;
+
+export const agentsPageQuery = groq`
+  *[_type == "agentsPage"][0]{
+    metaTitle,
+    metaDescription,
+    hero{
+      eyebrow,
+      titleLines,
+      body,
+      subBody,
+      primaryCta{ label, href },
+      secondaryCta{ label, href }
+    },
+    whyFleet{
+      sectionNumber,
+      eyebrow,
+      titleLines,
+      body,
+      contrasts[]{ title, body },
+      closingLine
+    },
+    shape{
+      sectionNumber,
+      eyebrow,
+      titleLines,
+      body,
+      attributes[]{ name, body },
+      closingLine
+    },
+    howAgentsTalk{
+      sectionNumber,
+      eyebrow,
+      titleLines,
+      paragraphs
+    },
+    catalog{
+      sectionNumber,
+      eyebrow,
+      titleLines,
+      body,
+      agents[]{
+        num,
+        name,
+        status,
+        scope,
+        body,
+        reads,
+        livesIn,
+        color
+      }
+    },
+    byVertical{
+      sectionNumber,
+      eyebrow,
+      titleLines,
+      rows[]{ vertical, agents },
+      closingNote
+    },
+    whatItIsNot{
+      sectionNumber,
+      eyebrow,
+      titleLines,
+      body,
+      items[]{ title, body }
+    },
+    inOneLine{
+      eyebrow,
+      body,
+      closingNote
+    },
+    finalCta{
+      titleLines,
+      body,
+      primaryCta{ label, href },
+      secondaryCta{ label, href }
+    }
+  }
+`;
+
+export const statusPageQuery = groq`
+  *[_type == "statusPage"][0]{
+    metaTitle,
+    metaDescription,
+    hero{
+      eyebrow,
+      statusLabel,
+      statusTone,
+      title,
+      body
+    },
+    componentSection{
+      heading,
+      components[]{ name, note, status }
+    },
+    pastIncidentsSection{
+      heading,
+      note
+    },
+    reportCta{
+      body,
+      label,
+      href
+    }
+  }
+`;
+

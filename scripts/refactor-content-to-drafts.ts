@@ -31,6 +31,8 @@ import { devicesDefaults } from "../lib/content/devices";
 import { platformDefaults } from "../lib/content/platform";
 import { siteSettingsDefaults } from "../lib/content/siteSettings";
 import { contactDefaults } from "../lib/content/contact";
+import { agentsDefaults } from "../lib/content/agents";
+import { statusDefaults } from "../lib/content/status";
 
 loadEnv({ path: ".env.local" });
 loadEnv();
@@ -182,6 +184,8 @@ const documents: DraftDoc[] = [
   { id: "solutionsPage", type: "solutionsPage", data: solutionsDefaults as unknown as Record<string, unknown> },
   { id: "companyPage", type: "companyPage", data: companyDefaults as unknown as Record<string, unknown> },
   { id: "contactPage", type: "contactPage", data: contactDefaults as unknown as Record<string, unknown> },
+  { id: "agentsPage", type: "agentsPage", data: agentsDefaults as unknown as Record<string, unknown> },
+  { id: "statusPage", type: "statusPage", data: statusDefaults as unknown as Record<string, unknown> },
 ];
 
 async function discardDrafts() {

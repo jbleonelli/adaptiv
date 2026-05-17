@@ -2,12 +2,16 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Badge } from "@/components/ui/Badge";
 import { Reveal } from "@/components/ui/Reveal";
+import { sanityFetch } from "@/sanity/client";
+import { agentsPageQuery } from "@/sanity/queries";
 import { agentsDefaults, type AgentsPageData } from "@/lib/content/agents";
 
-// Code-only for v1 — no Sanity schema yet. Add later if non-engineers need
-// to edit the catalog from Studio.
 async function getData(): Promise<AgentsPageData> {
-  return agentsDefaults;
+  const remote = await sanityFetch<AgentsPageData>({
+    query: agentsPageQuery,
+    tags: ["agentsPage"],
+  });
+  return remote ?? agentsDefaults;
 }
 
 export async function generateMetadata(): Promise<Metadata> {

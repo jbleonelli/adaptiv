@@ -82,6 +82,16 @@ export default defineConfig({
               .child(
                 S.document().schemaType("contactPage").documentId("contactPage")
               ),
+            S.listItem()
+              .title("Agents")
+              .child(
+                S.document().schemaType("agentsPage").documentId("agentsPage")
+              ),
+            S.listItem()
+              .title("Status")
+              .child(
+                S.document().schemaType("statusPage").documentId("statusPage")
+              ),
           ]),
     }),
     visionTool({ defaultApiVersion: apiVersion }),

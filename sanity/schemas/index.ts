@@ -9,6 +9,8 @@ import { solutionsPage } from "./documents/solutionsPage";
 import { roiPage } from "./documents/roiPage";
 import { companyPage } from "./documents/companyPage";
 import { contactPage } from "./documents/contactPage";
+import { agentsPage } from "./documents/agentsPage";
+import { statusPage } from "./documents/statusPage";
 
 import { ctaButton } from "./objects/ctaButton";
 import { navLink } from "./objects/navLink";
@@ -30,6 +32,8 @@ export const schemaTypes: SchemaTypeDefinition[] = [
   roiPage,
   companyPage,
   contactPage,
+  agentsPage,
+  statusPage,
   ctaButton,
   navLink,
   trait,

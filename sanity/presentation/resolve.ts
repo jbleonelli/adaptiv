@@ -18,6 +18,8 @@ const documentTypeToPath: Record<string, { title: string; href: string }> = {
   roiPage: { title: "ROI", href: "/roi" },
   companyPage: { title: "Company", href: "/company" },
   contactPage: { title: "Contact", href: "/contact" },
+  agentsPage: { title: "Agents", href: "/agents" },
+  statusPage: { title: "Status", href: "/status" },
   siteSettings: { title: "Site (header & footer)", href: "/" },
 };
 
@@ -30,6 +32,8 @@ const pathToDocument: Array<{ route: string; type: string; id: string }> = [
   { route: "/roi", type: "roiPage", id: "roiPage" },
   { route: "/company", type: "companyPage", id: "companyPage" },
   { route: "/contact", type: "contactPage", id: "contactPage" },
+  { route: "/agents", type: "agentsPage", id: "agentsPage" },
+  { route: "/status", type: "statusPage", id: "statusPage" },
 ];
 
 export const resolve: PresentationPluginOptions["resolve"] = {
