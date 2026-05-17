@@ -192,6 +192,43 @@ export default async function MerlinPage() {
       </section>
 
 
+      {/* Bridge → the agent library */}
+      <section className="py-20 bg-white relative overflow-hidden">
+        <div className="absolute inset-0 pointer-events-none">
+          <div
+            className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[640px] h-[320px] opacity-15"
+            style={{ background: "radial-gradient(ellipse, #FF00B2, transparent 70%)" }}
+          />
+        </div>
+        <div className="container-site relative z-10">
+          <Reveal>
+            <div className="max-w-3xl mx-auto text-center">
+              <p className="text-xs font-semibold text-[#FF00B2] uppercase tracking-widest mb-5">
+                // THE ENGINE
+              </p>
+              <h2 className="text-h2 text-[#111827] mb-5 leading-tight">
+                Merlin doesn&rsquo;t run on one giant model.
+                <br />
+                It runs on a fleet of specialists.
+              </h2>
+              <p className="text-body-lg text-[#4b5563] leading-relaxed mb-8 max-w-2xl mx-auto">
+                Eleven specialized agents &mdash; one for cleaning, one for HVAC, one for
+                cold-chain, one for asset tracking, and so on &mdash; each reasoning
+                continuously over its own slice of real-world signal, each accountable for
+                its own outcomes.
+              </p>
+              <Link
+                href="/agents"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-full border border-[rgba(0,0,0,0.12)] text-[#111827] font-medium hover:bg-[rgba(255,0,178,0.05)] hover:border-[rgba(255,0,178,0.3)] transition-all"
+              >
+                Explore the agent library
+                <span aria-hidden>&rarr;</span>
+              </Link>
+            </div>
+          </Reveal>
+        </div>
+      </section>
+
       {/* 2.7 Impact */}
       <section className="py-24 bg-[#f8f9fb]">
         <div className="container-site">
