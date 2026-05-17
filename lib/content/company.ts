@@ -117,7 +117,7 @@ export const companyDefaults: CompanyPageData = {
         name: "Jean-Baptiste Leonelli",
         role: "Founder & CEO",
         credential: "Patents granted in 6 jurisdictions",
-        bio: "Serial entrepreneur and inventor with granted patents across the US, Europe, Canada, Japan, China, and Hong Kong. In 2002, he co-founded Temboo in New York — a pioneer in connected technology adopted in university curricula and by thousands of developers. He founded Adaptiv in 2019 on the thesis that buildings are the largest Physical AI opportunity venture capital has systematically ignored. Five years later, Adaptiv's devices run in more than 6,000 buildings worldwide. The twelve-patent portfolio filed with the USPTO in April 2026 wasn't drafted to defend what's been built — it was drafted to define the territory every serious competitor will have to enter.",
+        bio: "Serial entrepreneur and inventor with granted patents across the US, Europe, Canada, Japan, China, and Hong Kong. In 2002, he co-founded Temboo in New York — a pioneer in connected technology adopted in university curricula and by thousands of developers. He founded Adaptiv in 2019 on the thesis that buildings are the largest Physical AI opportunity venture capital has systematically ignored. Five years later, Adaptiv's devices run in more than 6,000 buildings worldwide. The twelve-patent portfolio filed with the USPTO wasn't drafted to defend what's been built — it was drafted to define the territory every serious competitor will have to enter.",
         initials: "JBL",
         color: "#FF00B2",
         isFounder: true,
