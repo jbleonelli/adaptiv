@@ -141,8 +141,20 @@ export const companyDefaults: CompanyPageData = {
         color: "#14b8a6",
         isPrincipal: true,
       },
-      { name: "Jason Loup", role: "COO, North America", bio: "", initials: "JL", color: "#94a3b8" },
-      { name: "Jean-Baptiste Lucas", role: "Business Development & Communications", bio: "", initials: "JBL", color: "#a855f7" },
+      {
+        name: "Jason Loup",
+        role: "COO, North America",
+        bio: "Jason runs Adaptiv's North American operations — the deployment pipeline, the partner channels, and the customer relationships that turn a device order into thousands of sensors actually installed and running across the continent. The COO function in a hardware-first company is where commercial momentum meets manufacturing reality, and Jason owns both sides of that interface for the region: forecasting demand against production capacity, sequencing rollouts across customer sites, and managing the field teams that handle installations. The result is the operating cadence that keeps Adaptiv shipping at scale.",
+        initials: "JL",
+        color: "#0ea5e9",
+      },
+      {
+        name: "Jean-Baptiste Lucas",
+        role: "Business Development & Communications",
+        bio: "Jean-Baptiste leads Adaptiv's go-to-market function and the external voice of the company — opening conversations with enterprise and institutional customers, building the partner network, and shaping how the platform is positioned in a market that's still catching up to what Physical AI means. Business development at Adaptiv is a technical sale: customers want to understand the agent fleet, the device library, and the operating loop before they sign. Jean-Baptiste is the person who translates the depth of the platform into the language each buyer needs to hear, and then carries the relationship through to deployment.",
+        initials: "JBL",
+        color: "#a855f7",
+      },
     ],
   },
   studioSection: {

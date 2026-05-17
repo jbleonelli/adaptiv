@@ -256,18 +256,27 @@ export default async function CompanyPage() {
                           {teamSection.operatingTeamHeading}
                         </p>
                       )}
-                      <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+                      <div className="grid md:grid-cols-2 gap-5">
                         {others.map((member, i) => (
-                          <Reveal key={member.name} delay={i * 0.04}>
-                            <div className="flex items-center gap-3 p-4 rounded-xl border border-[rgba(0,0,0,0.06)] bg-white hover:border-[rgba(0,0,0,0.12)] transition-colors">
-                              <div className="w-10 h-10 rounded-lg flex items-center justify-center text-xs font-bold text-white flex-shrink-0"
-                                style={{ background: `linear-gradient(135deg, ${member.color} 0%, ${member.color}cc 100%)` }}>
-                                {member.initials}
+                          <Reveal key={member.name} delay={i * 0.05}>
+                            <div className="p-6 rounded-2xl border border-[rgba(0,0,0,0.07)] bg-white hover:border-[rgba(0,0,0,0.14)] hover:shadow-[0_4px_24px_rgba(15,32,68,0.06)] transition-all h-full flex flex-col gap-4">
+                              <div className="flex items-center gap-4">
+                                <div
+                                  className="w-12 h-12 rounded-xl flex items-center justify-center text-sm font-bold text-white flex-shrink-0"
+                                  style={{
+                                    background: `linear-gradient(135deg, ${member.color} 0%, ${member.color}cc 100%)`,
+                                  }}
+                                >
+                                  {member.initials}
+                                </div>
+                                <div className="min-w-0">
+                                  <p className="text-base font-semibold text-[#111827] leading-tight">{member.name}</p>
+                                  <p className="text-xs text-[#FF00B2] font-medium leading-snug">{member.role}</p>
+                                </div>
                               </div>
-                              <div className="min-w-0">
-                                <p className="text-sm font-semibold text-[#111827] leading-tight truncate">{member.name}</p>
-                                <p className="text-xs text-[#64748b] leading-snug truncate">{member.role}</p>
-                              </div>
+                              {member.bio && (
+                                <p className="text-sm text-[#4b5563] leading-relaxed">{member.bio}</p>
+                              )}
                             </div>
                           </Reveal>
                         ))}
