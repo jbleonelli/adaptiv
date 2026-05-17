@@ -43,7 +43,6 @@ export default async function ContactPage() {
             <div className="grid md:grid-cols-3 gap-5">
               {conversationPaths.map((p) => (
                 <Card key={p.title} className="p-6 flex flex-col gap-4">
-                  <span className="text-3xl">{p.icon}</span>
                   <h3 className="text-h4 text-[#111827]">{p.title}</h3>
                   <p className="text-sm text-[#4b5563] leading-relaxed flex-1">{p.desc}</p>
                 </Card>
