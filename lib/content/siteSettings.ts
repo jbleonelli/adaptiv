@@ -88,7 +88,7 @@ export const siteSettingsDefaults: SiteSettingsData = {
   socialLinks: [
     { label: "LinkedIn", href: "https://linkedin.com/company/adaptiv-systems" },
   ],
-  contactEmail: "contact@adaptiv.company",
+  contactEmail: "contact@adaptiv.systems",
   footerTagline:
     "Physical AI for the buildings of the world. The hardware came first. The data came from the hardware. The AI is built on the data.",
   footerLocations: "United States · Europe",

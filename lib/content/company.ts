@@ -188,6 +188,6 @@ export const companyDefaults: CompanyPageData = {
       "The same architecture — sensors generate telemetry, specialized agents reason over it, agents act in coordination with humans and contractors, every action is measured — generalizes to any physical-world operation. So does the hardware. The Smart Display that lives in a corridor or restroom belongs equally on a refinery floor, beside a cold-storage door, at a hospital nurse station, in a data center aisle, or in a metro station concourse.",
     ],
     closingLine: "Operators, contractors, technology and hardware partners, investors and the curious — the conversation is open.",
-    cta: { label: "contact@adaptiv.company →", href: "mailto:contact@adaptiv.company" },
+    cta: { label: "contact@adaptiv.systems →", href: "mailto:contact@adaptiv.systems" },
   },
 };
