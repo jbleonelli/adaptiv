@@ -30,6 +30,7 @@ import { merlinDefaults } from "../lib/content/merlin";
 import { devicesDefaults } from "../lib/content/devices";
 import { platformDefaults } from "../lib/content/platform";
 import { siteSettingsDefaults } from "../lib/content/siteSettings";
+import { contactDefaults } from "../lib/content/contact";
 
 loadEnv({ path: ".env.local" });
 loadEnv();
@@ -180,6 +181,7 @@ const documents: DraftDoc[] = [
   { id: "platformPage", type: "platformPage", data: platformDefaults as unknown as Record<string, unknown> },
   { id: "solutionsPage", type: "solutionsPage", data: solutionsDefaults as unknown as Record<string, unknown> },
   { id: "companyPage", type: "companyPage", data: companyDefaults as unknown as Record<string, unknown> },
+  { id: "contactPage", type: "contactPage", data: contactDefaults as unknown as Record<string, unknown> },
 ];
 
 async function discardDrafts() {

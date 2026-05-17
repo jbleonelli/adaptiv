@@ -210,6 +210,13 @@ export const siteSettings = defineType({
       ],
     }),
     defineField({
+      name: "legalLinks",
+      title: "Footer legal links",
+      description: "Small links rendered next to the copyright (Privacy, Terms, Status, etc.).",
+      type: "array",
+      of: [{ type: "navLink" }],
+    }),
+    defineField({
       name: "socialLinks",
       title: "Social links",
       type: "array",

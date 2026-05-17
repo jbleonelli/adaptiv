@@ -66,6 +66,7 @@ export default async function SiteLayout({
         contactEmail={settings.contactEmail}
         socialLinks={settings.socialLinks}
         footerColumns={settings.footerColumns}
+        legalLinks={settings.legalLinks}
       />
       {isDraft && (
         <>

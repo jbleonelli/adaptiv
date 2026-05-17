@@ -33,6 +33,8 @@ export type SiteSettingsData = {
   navItems: NavLink[];
   ctaButton: NavLink;
   footerColumns: FooterColumn[];
+  /** Small links rendered next to the copyright (Privacy, Terms, Status…). */
+  legalLinks?: NavLink[];
   socialLinks: NavLink[];
   contactEmail: string;
   footerTagline: string;
@@ -77,6 +79,11 @@ export const siteSettingsDefaults: SiteSettingsData = {
         { label: "Contact", href: "/contact" },
       ],
     },
+  ],
+  legalLinks: [
+    { label: "Privacy", href: "/privacy" },
+    { label: "Terms of Service", href: "/terms" },
+    { label: "System Status", href: "/status" },
   ],
   socialLinks: [
     { label: "LinkedIn", href: "https://linkedin.com/company/adaptiv-systems" },

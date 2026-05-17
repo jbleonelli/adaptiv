@@ -1,3 +1,11 @@
+export type Office = {
+  city: string;
+  country: string;
+  addressLines: string[];
+  /** Optional: mark one office as HQ. */
+  isHq?: boolean;
+};
+
 export type ContactPageData = {
   metaTitle: string;
   metaDescription: string;
@@ -20,6 +28,10 @@ export type ContactPageData = {
     backLabel: string;
     backHref: string;
   };
+  /** Office addresses, rendered as a 3-up grid above the link strip. */
+  offices?: Office[];
+  /** Primary inbound email rendered alongside the offices. */
+  primaryEmail?: string;
   contactDetails: { label: string; href?: string }[];
 };
 
@@ -59,10 +71,28 @@ export const contactDefaults: ContactPageData = {
     backLabel: "Back to home",
     backHref: "/",
   },
+  offices: [
+    {
+      city: "New York",
+      country: "United States",
+      addressLines: ["85 Broad Street, 17th Floor", "New York, NY 10004"],
+      isHq: true,
+    },
+    {
+      city: "Paris",
+      country: "France",
+      addressLines: ["41 Avenue Georges Pompidou", "92300 Levallois-Perret"],
+    },
+    {
+      city: "Amsterdam",
+      country: "Netherlands",
+      addressLines: ["Strawinskylaan 411", "1077XX Amsterdam"],
+    },
+  ],
+  primaryEmail: "contact@adaptiv.systems",
   contactDetails: [
-    { label: "contact@adaptiv.company", href: "mailto:contact@adaptiv.company" },
+    { label: "contact@adaptiv.systems", href: "mailto:contact@adaptiv.systems" },
     { label: "LinkedIn", href: "https://linkedin.com/company/adaptiv-systems" },
     { label: "www.adaptiv.company", href: "https://adaptiv.company" },
-    { label: "United States (HQ) · Europe" },
   ],
 };

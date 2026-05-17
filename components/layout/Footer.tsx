@@ -9,6 +9,7 @@ type Props = {
   contactEmail: string;
   socialLinks: NavLink[];
   footerColumns: FooterColumn[];
+  legalLinks?: NavLink[];
 };
 
 export function Footer({
@@ -19,6 +20,7 @@ export function Footer({
   contactEmail,
   socialLinks,
   footerColumns,
+  legalLinks,
 }: Props) {
   return (
     <footer className="border-t border-[rgba(0,0,0,0.07)] bg-[#f8f9fb]">
@@ -62,16 +64,31 @@ export function Footer({
           ))}
         </div>
 
-        <div className="mt-16 pt-8 border-t border-[rgba(0,0,0,0.07)] flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-xs text-[#64748b]">
-            © {new Date().getFullYear()} {brandName}. All rights reserved.
-          </p>
-          <div className="flex items-center gap-8 text-xs text-[#64748b]">
-            <a href={`mailto:${contactEmail}`} className="hover:text-[#4b5563] transition-colors">
-              {contactEmail}
-            </a>
-            <span className="gradient-text-pink font-semibold">{footerSlogan}</span>
+        <div className="mt-16 pt-8 border-t border-[rgba(0,0,0,0.07)] flex flex-col gap-5">
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+            <p className="text-xs text-[#64748b]">
+              © {new Date().getFullYear()} {brandName}. All rights reserved.
+            </p>
+            <div className="flex items-center gap-8 text-xs text-[#64748b]">
+              <a href={`mailto:${contactEmail}`} className="hover:text-[#4b5563] transition-colors">
+                {contactEmail}
+              </a>
+              <span className="gradient-text-pink font-semibold">{footerSlogan}</span>
+            </div>
           </div>
+          {legalLinks && legalLinks.length > 0 && (
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs text-[#64748b]">
+              {legalLinks.map((link) => (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="hover:text-[#111827] transition-colors"
+                >
+                  {link.label}
+                </Link>
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </footer>

@@ -65,6 +65,45 @@ export const contactPage = defineType({
         { name: "locations", title: "Locations text", type: "string" },
       ],
     }),
+
+    defineField({
+      name: "primaryEmail",
+      title: "Primary inbound email",
+      description: "Rendered alongside the offices block (e.g. contact@adaptiv.systems).",
+      type: "string",
+    }),
+
+    defineField({
+      name: "offices",
+      title: "Section: Offices",
+      description: "Physical office addresses rendered as a card grid below the form.",
+      type: "array",
+      of: [
+        {
+          type: "object",
+          fields: [
+            { name: "city", title: "City", type: "string" },
+            { name: "country", title: "Country", type: "string" },
+            {
+              name: "addressLines",
+              title: "Address lines",
+              type: "array",
+              of: [{ type: "string" }],
+              description: "One street/postcode line per entry. Renders stacked.",
+            },
+            {
+              name: "isHq",
+              title: "Mark as HQ",
+              type: "boolean",
+              description: "Adds an 'HQ' badge to the office card.",
+            },
+          ],
+          preview: {
+            select: { title: "city", subtitle: "country" },
+          },
+        },
+      ],
+    }),
   ],
   preview: { prepare: () => ({ title: "Contact page" }) },
 });
