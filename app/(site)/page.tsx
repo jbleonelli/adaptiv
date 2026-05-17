@@ -152,7 +152,7 @@ export default async function HomePage() {
       <div className="section-divider" />
 
       {/* ── PHYSICAL AI ──────────────────────────────────────────────────── */}
-      <section className="py-32 bg-white">
+      <section className="py-32 bg-[#f8f9fb]">
         <div className="container-site">
           <Reveal>
             <div className="max-w-2xl">
@@ -209,7 +209,7 @@ export default async function HomePage() {
 
 
       {/* ── CTA ──────────────────────────────────────────────────────────── */}
-      <section className="py-40 bg-white relative overflow-hidden">
+      <section className="py-40 bg-[#f8f9fb] relative overflow-hidden">
         <div className="absolute inset-0 pointer-events-none"
           style={{ backgroundImage: "radial-gradient(circle, rgba(0,0,0,0.03) 1px, transparent 1px)", backgroundSize: "24px 24px" }}
           aria-hidden="true" />
